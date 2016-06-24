@@ -17,7 +17,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/prismjs": "^1.4.11-alpha",
     "prismjs": "^1.5.1",
     "showdown": "^1.4.2"
   },
