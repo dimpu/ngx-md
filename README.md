@@ -21,11 +21,13 @@ if you are using sytemjs configure.
 import {Component} from '@angular/core';
 import {Markdown} from '../src/markdown';
 
+
 @Component({
     moduleId: module.id,
     selector: 'my-app',
     templateUrl: 'app.component.html',
     directives: [Markdown]
+
 
 })
 export class AppComponent {
@@ -38,4 +40,6 @@ app.component.html
  <markdown>
     ### your markdown code
  </markdown>
+
 ```
+

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Markdown} from './markdown';
+import {Markdown} from '../src/markdown';
 
 @Component({
     moduleId: module.id,
@@ -8,4 +8,9 @@ import {Markdown} from './markdown';
     directives: [Markdown]
 
 })
-export class AppComponent { }
+export class AppComponent {
+    html = `<h2>Heasding</h2>
+            ###Headings....
+            
+  `;
+ }

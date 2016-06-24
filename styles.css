@@ -140,3 +140,16 @@ nav a.router-link-active {
 * { 
   font-family: Arial, Helvetica, sans-serif; 
 }
+
+
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+       border-color: #ddd;
+       padding: 30px;
+}
