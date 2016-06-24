@@ -43,3 +43,9 @@ app.component.html
 
 ```
 
+## exmaple
+
+You can found the working example inside the app directory.
+
+
+
