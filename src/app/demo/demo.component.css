@@ -1,0 +1,8 @@
+.row {
+    width: 100%;
+    overflow: hidden;
+}
+.col {
+    width: 50%;
+    float: left;
+}

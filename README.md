@@ -26,9 +26,6 @@ import {Markdown} from '../src/markdown';
     moduleId: module.id,
     selector: 'my-app',
     templateUrl: 'app.component.html',
-    directives: [Markdown]
-
-
 })
 export class AppComponent {
     
@@ -37,15 +34,15 @@ export class AppComponent {
 ```
 app.component.html
 ```html
- <markdown>
+ <div Markdown>
     ### your markdown code
- </markdown>
+ </div>
 
 ```
 
 ## exmaple
 
-You can found the working example inside the app directory.
+You can found the working example inside the src/app/demo directory.
 
 
 
