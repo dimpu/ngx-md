@@ -1,8 +1,0 @@
-{
-  "globalDependencies": {
-    "core-js": "registry:dt/core-js#0.0.0+20160602141332",
-    "node": "registry:dt/node#6.0.0+20160621231320",
-    "prism": "registry:dt/prism#1.4.4+20160321233308",
-    "showdown": "registry:dt/showdown#1.4.1+20160608102004"
-  }
-}
