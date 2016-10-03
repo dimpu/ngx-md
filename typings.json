@@ -1,6 +1,0 @@
-{
-  "globalDependencies": {
-    "prism": "registry:dt/prism#1.4.4+20160321233308",
-    "showdown": "registry:dt/showdown#1.4.1+20160608102004"
-  }
-}

@@ -1,5 +1,6 @@
 import { Directive, OnInit, ElementRef } from '@angular/core';
 import * as Showdown from 'Showdown';
+import * as Prism from 'PrismJS';
 
 
 @Directive({
@@ -20,7 +21,6 @@ export class MarkdownDirective implements OnInit {
     fromRAW() {
       let raw = this.ele.innerHTML;
       let html = this.process(this.prepare(raw));
-      console.log(html);
       this.ele.innerHTML = html;
       this.highlight(html);
     }
@@ -35,7 +35,7 @@ export class MarkdownDirective implements OnInit {
     }
 
     highlight(html: string) {
-      // Prism.highlightAll(false);
+      Prism.highlightAll(false);
     }
 }
 
