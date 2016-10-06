@@ -5,7 +5,7 @@ Source @ [https://github.com/dimpu/angular2-markdown]()
 ##setup
 
 ```bash
-    npm i  angular2-markdown    --save
+npm i angular2-markdown   --save
 ```
 
 ##How to use it
@@ -22,7 +22,7 @@ import {AppComponent} from '../src/app.component';
     BrowserModule,
     MarkdownModule,
   ],
-  declarations: [DemoCoAppAppComponentComponentmponent],
+  declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
 
