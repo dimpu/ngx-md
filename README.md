@@ -1,37 +1,33 @@
 # Angular 2 Markdown
+Source @ [https://github.com/dimpu/angular2-markdown]()
+
 
 ##setup
 
 ```bash
-    npm i angular2-markdown    
-```
-
-if you are using sytemjs configure.
-
-```javascript
-     System.config({
-         map: {
-            'markdown': 'node_modules/angular2-markdown/src/markdown.js' 
-        }
-     });
+    npm i  angular2-markdown    --save
 ```
 
 ##How to use it
+### app.module.js
 ```typescript
-import {Component} from '@angular/core';
-import {Markdown} from '../src/markdown';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
+import {MarkdownModule} from 'angular2-markdown';
+import {AppComponent} from '../src/app.component';
 
-@Component({
-    moduleId: module.id,
-    selector: 'my-app',
-    templateUrl: 'app.component.html',
+@NgModule({
+  imports: [
+    BrowserModule,
+    MarkdownModule,
+  ],
+  declarations: [DemoCoAppAppComponentComponentmponent],
+  bootstrap: [AppComponent]
 })
-export class AppComponent {
-    
- }
 
 ```
+
 app.component.html
 ```html
  <div Markdown>
@@ -44,5 +40,13 @@ app.component.html
 
 You can found the working example inside the src/app/demo directory.
 
+```
+git clone https://github.com/dimpu/angular2-markdown.git
+
+npm i
+
+ng serve
+```
+now you should see working example at [http://localhost:4200]()
 
 
