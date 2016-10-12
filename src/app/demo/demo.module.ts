@@ -3,15 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { DemoComponent } from './demo.component';
 import { MarkdownModule } from '../markdown/markdown.module';
-
+import { TestComponent } from './test.component';
 
 @NgModule({
-  exports: [DemoComponent],
+  exports: [
+    DemoComponent,
+    TestComponent
+  ],
   imports: [
     BrowserModule,
-    MarkdownModule,
+    MarkdownModule
   ],
-  declarations: [DemoComponent],
+  declarations: [
+    TestComponent,
+    DemoComponent
+  ],
   bootstrap: [DemoComponent]
 
 })

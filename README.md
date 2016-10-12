@@ -34,6 +34,11 @@ app.component.html
     ### your markdown code
  </div>
 
+// to load from remote url
+
+ <div Markdown path="/path/to/readme.md"> </div>
+
+
 ```
 
 ## exmaple
