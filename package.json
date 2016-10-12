@@ -1,6 +1,6 @@
 {
   "name": "angular2-markdown",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -20,13 +20,14 @@
     "@angular/platform-browser": "2.0.0",
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "3.0.0",
-    "core-js": "^2.4.1",
-    "ng2-bootstrap": "^1.1.13",
-    "rxjs": "5.0.0-beta.12",
-    "ts-helpers": "^1.1.1",
-    "zone.js": "^0.6.23",
     "@types/prismjs": "^1.4.18",
-    "@types/showdown": "^1.4.31"
+    "@types/showdown": "^1.4.31",
+    "core-js": "^2.4.1",
+    "prismjs": "^1.5.1",
+    "rxjs": "5.0.0-beta.12",
+    "showdown": "^1.4.3",
+    "ts-helpers": "^1.1.1",
+    "zone.js": "^0.6.23"
   },
   "devDependencies": {
     "@types/jasmine": "^2.2.30",

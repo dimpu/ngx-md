@@ -18,7 +18,6 @@ export class MarkdownDirective implements OnInit {
     constructor(private elRef: ElementRef, public http: Http) {
       // reference to the DOM element
       this.ele = this.elRef.nativeElement;
-      console.log(this.ele);
     }
 
     /**
