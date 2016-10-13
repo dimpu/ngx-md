@@ -44,18 +44,21 @@ export class MarkdownDirective implements OnInit {
      * fromHttpHtml
      */
     fromHttpHtml(html) {
+        var h = '';
         if (this.path.lastIndexOf('.md') < 0) {
           let ext: any = this.path.split('.');
           ext = ext[ext.length - 1];
-          html = `
+          var h: string = `
                     \`\`\`${ext}  
-                    ${html._body} 
+                    ${html.text()} 
                     \`\`\`
             `;
+        } else {
+          h = html.text();
         }
-        html  = this.process(this.prepare(html));
-        this.ele.innerHTML = html;
-        this.highlight(html);
+        h  = this.process(this.prepare(h));
+        this.ele.innerHTML = h;
+        this.highlight(h);
     }
 
     /**
@@ -71,8 +74,9 @@ export class MarkdownDirective implements OnInit {
     /**
      * prepare
      */
-    prepare(raw: string) {
-      return raw.split('\n').map((line) => line.trim()).join('\n');
+    prepare(raw: string) { 
+      if(raw)
+        return raw.split('\n').map((line) => line.trim()).join('\n');
     }
 
     /**
