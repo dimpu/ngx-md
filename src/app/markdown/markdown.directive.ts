@@ -1,9 +1,8 @@
 import { Directive, OnInit, ElementRef , Input, Component} from '@angular/core';
 import {Http} from '@angular/http';
 import * as Showdown from 'Showdown';
-import * as Prism from 'PrismJS';
 
-const DYNAMIC_COMPONENTS = [];
+import * as Prism from 'PrismJS';
 
 @Directive({
   selector: '[Markdown]'
@@ -74,8 +73,16 @@ export class MarkdownDirective implements OnInit {
     /**
      * prepare
      */
-    prepare(raw: string) { 
-      if(raw)
+    prepare(raw: any) {
+      if (raw && this.path) {
+        raw = raw.split('\n');
+        raw[0] = raw[0].trim();
+        raw[1] = raw[1].trim();
+        raw[2] = raw[2].trim();
+        raw[raw.length - 2 ] = raw[raw.length - 2].trim();
+        raw[raw.length - 1] = raw[raw.length - 1].trim();
+        return raw.join('\n')
+      }
         return raw.split('\n').map((line) => line.trim()).join('\n');
     }
 

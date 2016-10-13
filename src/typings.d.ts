@@ -4,5 +4,5 @@
 
 declare var System: any;
 
-declare module 'PrismJS';
 
+declare module 'PrismJS';
