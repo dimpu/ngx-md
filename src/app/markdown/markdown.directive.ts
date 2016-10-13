@@ -44,7 +44,16 @@ export class MarkdownDirective implements OnInit {
      * fromHttpHtml
      */
     fromHttpHtml(html) {
-        html  = this.process(this.prepare(html._body));
+        if (this.path.lastIndexOf('.md') < 0) {
+          let ext: any = this.path.split('.');
+          ext = ext[ext.length - 1];
+          html = `
+                    \`\`\`${ext}  
+                    ${html._body} 
+                    \`\`\`
+            `;
+        }
+        html  = this.process(this.prepare(html));
         this.ele.innerHTML = html;
         this.highlight(html);
     }
