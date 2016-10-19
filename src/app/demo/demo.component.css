@@ -1,8 +1,1 @@
-.row {
-    width: 100%;
-    overflow: hidden;
-}
-.col {
-    width: 50%;
-    float: left;
-}
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);

@@ -34,14 +34,28 @@ app.component.html
     ### your markdown code
  </div>
 
+or use angular component
+
+<markdown>
+    ### your markdown code
+</markdown>
+
 // to load from remote url
 
  <div Markdown path="/path/to/readme.md"> </div>
 
+// load remote source code with auto syantax helight.
+
+
+<markdown path="/path/to/code.cpp"></markdown>
+
+
+<markdown path="/path/to/code.java"></markdown>
+
 
 ```
 
-## exmaple
+## example
 
 You can found the working example inside the src/app/demo directory.
 
