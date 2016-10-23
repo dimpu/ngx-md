@@ -58,9 +58,7 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
 
         this.mdService.getContent(this.path)
         .then(resp => {
-            if (this.ext !== 'md') {
-                this.md = '```' + this.ext + '\n' + resp.text() + '\n```';
-            }
+            this.md = this.ext !== 'md' ?  '```' + this.ext + '\n' + resp.text() + '\n```' : resp.text();
             this.el.nativeElement.innerHTML = marked(this.prepare(this.md));
              Prism.highlightAll(false);
         })
