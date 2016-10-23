@@ -16,7 +16,12 @@ import 'prismjs/components/prism-scss';
 
 @Component({
     selector: 'markdown,[Markdown]',
-    template: '<ng-content></ng-content>'
+    template: '<ng-content></ng-content>',
+    styles: [`
+        .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{
+            background: none;
+        }
+    `]
 })
 export class MarkdownComponent implements OnInit, AfterViewInit {
     @Input() path: string;
