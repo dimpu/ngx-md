@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{
+    background: none;
+}
