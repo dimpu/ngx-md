@@ -17,17 +17,18 @@ import 'prismjs/components/prism-scss';
 @Component({
     selector: 'markdown,[Markdown]',
     template: '<ng-content></ng-content>',
-    styles: [`
-        .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{
+    styles: [
+        `.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
             background: none;
-        }
-    `]
+        }`
+    ]
 })
 export class MarkdownComponent implements OnInit, AfterViewInit {
     @Input() path: string;
     private md: any;
     private ext: string;
     ngOnInit() {
+        console.log(this.path);
         console.log('The component is initialized');
     }
 
@@ -37,10 +38,16 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
         private http: Http
     ) { }
     /**
+     * on path input change
+     */
+    ngOnChanges() {
+        this.getContent();
+    }
+    /**
      * 
      */
     ngAfterViewInit() {
-         if (!this.path) {
+        if (!this.path) {
              this.md = this.prepare(this.el.nativeElement.innerHTML);
              this.el.nativeElement.innerHTML = marked(this.md);
              Prism.highlightAll(false);
@@ -48,6 +55,7 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
              this.getContent();
          }
     }
+    
     /**
      * get remote conent;
      */
