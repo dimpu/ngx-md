@@ -44,7 +44,7 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
         this.getContent();
     }
     /**
-     * 
+     *
      */
     ngAfterViewInit() {
         if (!this.path) {
@@ -55,7 +55,7 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
              this.getContent();
          }
     }
-    
+
     /**
      * get remote conent;
      */
@@ -87,7 +87,7 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
             return '';
         }
         if (this.ext === 'md' || !this.path) {
-            return raw.split('\n').map((line) => line.trim()).join('\n');
+            return raw.split('\n').map((line: string) => line.trim()).join('\n');
         }
         return raw;
     }
