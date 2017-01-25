@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, AfterViewInit, Input } from '@angular/core';
-import {Http} from '@angular/http';
-import * as  marked  from 'marked';
-import {MarkdownService} from './markdown.service';
+import { Http } from '@angular/http';
+import * as  marked from 'marked';
+import { MarkdownService } from './markdown.service';
 
 import 'prismjs/prism';
 import 'prismjs/components/prism-c';
@@ -11,8 +11,6 @@ import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-perl';
 import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-scss';
-
-
 
 @Component({
     selector: 'markdown,[Markdown]',
@@ -25,35 +23,39 @@ import 'prismjs/components/prism-scss';
 })
 export class MarkdownComponent implements OnInit, AfterViewInit {
     @Input() path: string;
+
     private md: any;
     private ext: string;
-    ngOnInit() {
-        console.log(this.path);
-        console.log('The component is initialized');
-    }
 
     constructor(
         private mdService: MarkdownService,
         private el: ElementRef,
         private http: Http
     ) { }
+
+    ngOnInit() {
+        console.log(this.path);
+        console.log('The component is initialized');
+    }
+
     /**
      * on path input change
      */
     ngOnChanges() {
         this.getContent();
     }
+
     /**
      *
      */
     ngAfterViewInit() {
         if (!this.path) {
-             this.md = this.prepare(this.el.nativeElement.innerHTML);
-             this.el.nativeElement.innerHTML = marked(this.md);
-             Prism.highlightAll(false);
-         } else {
-             this.getContent();
-         }
+            this.md = this.prepare(this.el.nativeElement.innerHTML);
+            this.el.nativeElement.innerHTML = marked(this.md);
+            Prism.highlightAll(false);
+        } else {
+            this.getContent();
+        }
     }
 
     /**
@@ -65,20 +67,22 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
         }
 
         this.mdService.getContent(this.path)
-        .then(resp => {
-            this.md = this.ext !== 'md' ?  '```' + this.ext + '\n' + resp.text() + '\n```' : resp.text();
-            this.el.nativeElement.innerHTML = marked(this.prepare(this.md));
-             Prism.highlightAll(false);
-        })
-        .catch(this.handleError);
+            .then(resp => {
+                this.md = this.ext !== 'md' ? '```' + this.ext + '\n' + resp.text() + '\n```' : resp.text();
+                this.el.nativeElement.innerHTML = marked(this.prepare(this.md));
+                Prism.highlightAll(false);
+            })
+            .catch(this.handleError);
     }
+
     /**
      * catch http error
      */
     private handleError(error: any): Promise<any> {
-          console.error('An error occurred', error); // for demo purposes only
-          return Promise.reject(error.message || error);
+        console.error('An error occurred', error); // for demo purposes only
+        return Promise.reject(error.message || error);
     }
+
     /**
      * Prepare string
      */
@@ -87,10 +91,21 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
             return '';
         }
         if (this.ext === 'md' || !this.path) {
-            return raw.split('\n').map((line: string) => line.trim()).join('\n');
+            let isCodeBlock = false;
+            return raw.split('\n').map((line: string) => {
+                if (this.trimLeft(line).substring(0, 3) === "```") {
+                    isCodeBlock = !isCodeBlock;
+                }
+                return isCodeBlock ? line : line.trim();
+            }).join('\n');
         }
         return raw;
     }
 
+    /**
+     * Trim left whitespace
+     */
+    trimLeft(line: string) {
+        return line.replace(/^\s+|\s+$/g, '');
+    }
 }
-
