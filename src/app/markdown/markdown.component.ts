@@ -11,8 +11,7 @@ import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-perl';
 import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-scss';
-
-
+import 'prismjs/components/prism-diff';
 
 @Component({
     selector: 'markdown,[Markdown]',
