@@ -2,33 +2,32 @@
 Source @ [https://github.com/dimpu/angular2-markdown]()
 
 
-##setup
-
+## Setup
 ```bash
-npm i angular2-markdown   --save
+npm i angular2-markdown --save
 ```
 
-##How to use it
+## How to use it
 ### app.module.js
 ```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {MarkdownModule} from 'angular2-markdown';
-import {AppComponent} from '../src/app.component';
+import { MarkdownModule } from 'angular2-markdown';
+import { AppComponent } from '../src/app.component';
 
 @NgModule({
   imports: [
     BrowserModule,
-    MarkdownModule,
+    MarkdownModule.forRoot(),
   ],
   declarations: [AppComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 
 ```
 
-app.component.html
+### app.component.html
 ```html
  <div Markdown>
     ### your markdown code
@@ -42,22 +41,18 @@ or use angular component
 
 // to load from remote url
 
- <div Markdown path="/path/to/readme.md"> </div>
+<div Markdown path="/path/to/readme.md"></div>
 
 // load remote source code with auto syantax helight.
 
-
 <markdown path="/path/to/code.cpp"></markdown>
 
-
 <markdown path="/path/to/code.java"></markdown>
-
-
 ```
 
-## example
+## Example
 
-You can found the working example inside the src/app/demo directory.
+You can found the working example inside the `src/app/demo directory`.
 
 ```
 git clone https://github.com/dimpu/angular2-markdown.git
@@ -67,5 +62,3 @@ npm i
 ng serve
 ```
 now you should see working example at [http://localhost:4200]()
-
-

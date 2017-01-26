@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { MarkdownComponent } from './markdown.component';
 import { MarkdownService } from './markdown.service';
@@ -9,4 +9,10 @@ import { MarkdownService } from './markdown.service';
   declarations: [MarkdownComponent],
   providers: [MarkdownService],
 })
-export class MarkdownModule { }
+export class MarkdownModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: MarkdownModule,
+    };
+  }
+}
