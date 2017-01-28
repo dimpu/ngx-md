@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-let fileContent = require('raw!./demo.cpp');
+const fileContent = require('raw-loader!./demo.cpp');
 
 @Component({
   selector: 'app-demo',
