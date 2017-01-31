@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnChanges, SimpleChanges } from '@angular/core';
 import * as marked from 'marked';
 import { MarkdownService } from './markdown.service';
 
@@ -37,8 +37,11 @@ export class MarkdownComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  ngOnChanges() {
-    this.setRemoteContent();
+  // SimpleChanges parameter is required for AoT compilation (do not remove)
+  ngOnChanges(changes: SimpleChanges) {
+    if ('path' in changes) {
+      this.setRemoteContent();
+    }
   }
 
   setRemoteContent() {
@@ -48,11 +51,11 @@ export class MarkdownComponent implements AfterViewInit, OnChanges {
       extension = this.path.split('.').splice(-1).join();
     }
 
-    this.mdService.getContent(this.path)
-      .then(resp => {
+    return this.mdService.getContent(this.path)
+      .then(response => {
         const raw = extension !== 'md'
-          ? '```' + extension + '\n' + resp.text() + '\n```'
-          : resp.text();
+          ? '```' + extension + '\n' + response.text() + '\n```'
+          : response.text();
         this.setInnerHTML(raw);
       })
       .catch(this.handleError);
@@ -65,7 +68,7 @@ export class MarkdownComponent implements AfterViewInit, OnChanges {
   }
 
   handleError(error: Error): Promise<never> {
-    console.error('An error occurred', error); // for demo purposes only
+    console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
 
@@ -85,9 +88,5 @@ export class MarkdownComponent implements AfterViewInit, OnChanges {
         ? line.substring(indentStart)
         : line;
     }).join('\n');
-  }
-
-  trimLeft(line: string) {
-    return line.replace(/^\s+|\s+$/g, '');
   }
 }

@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 export class MarkdownService {
 
   constructor(private http: Http) { }
+
   getContent(path: string) {
     return this.http.get(path).toPromise();
   }
