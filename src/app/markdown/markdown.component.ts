@@ -35,10 +35,7 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
         private http: Http
     ) { }
 
-    ngOnInit() {
-        console.log(this.path);
-        console.log('The component is initialized');
-    }
+    ngOnInit() {}
 
     /**
      * on path input change
