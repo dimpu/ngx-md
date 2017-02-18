@@ -1,7 +1,7 @@
-class LinkedList 
+class LinkedList
 {
     public static void main(string[] args)
     {
-        System.out.println("Hellow world");
+        System.out.println("Hello world");
     }
 }

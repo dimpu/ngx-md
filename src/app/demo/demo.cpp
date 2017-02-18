@@ -1,5 +1,4 @@
-
-int main() 
+int main()
 {
-    cout << "Hellow world"<<endl;
+    cout << "Hello world!" << endl;
 }
