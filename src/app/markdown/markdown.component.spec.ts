@@ -1,89 +1,258 @@
-import { TestBed, async } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement,  Component, OnInit, ElementRef } from '@angular/core';
-import * as  marked  from 'marked';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
+import * as marked from 'marked';
 import { MarkdownComponent } from './markdown.component';
 import { MarkdownService } from './markdown.service';
-import { HttpModule} from '@angular/http';
 
-let fixture, comp, el, de, mdService;
+class MockMarkdownService extends MarkdownService {
 
-describe('1st tests', () => {
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            declarations: [TestComponent, MarkdownComponent],
-            providers: [MarkdownService]
-        });
+  getContent(path: string) {
+    return Promise.resolve(<any>{});
+  }
+}
 
-        fixture = TestBed.createComponent(TestComponent);
-        comp = fixture.componentInstance;
+describe('MarkdownComponent', () => {
+  let fixture: ComponentFixture<MarkdownComponent>;
+  let component: MarkdownComponent;
+  let nativeElement: any;
+  let mdService: MarkdownService;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpModule],
+      declarations: [MarkdownComponent],
+      providers: [
+        { provide: MarkdownService, useClass: MockMarkdownService },
+      ],
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    mdService = TestBed.get(MarkdownService);
+    fixture = TestBed.createComponent(MarkdownComponent);
+    component = fixture.componentInstance;
+    nativeElement = fixture.nativeElement;
+    fixture.detectChanges();
+  });
+
+  describe('ngAfterViewInit', () => {
+
+    it('should call setRemoteContent method when path is provided', () => {
+
+      spyOn(component, 'setRemoteContent');
+
+      component.path = './path-example/file.md';
+      component.ngAfterViewInit();
+
+      expect(component.setRemoteContent).toHaveBeenCalled();
     });
 
-    it('get ng-content', () => {
-        fixture.detectChanges();
-        de = fixture.debugElement.query(By.css('.simple-p'));
-        expect(de.nativeElement.innerHTML).toContain(marked('I am using __markdown__.'));
+    it('should set innerHTML on element when path is not provided', () => {
+
+      spyOn(component, 'setInnerHTML');
+
+      const mockElement = { nativeElement: { innerHTML: 'inner-html' } };
+
+      component.element = mockElement;
+      component.path = undefined;
+      component.ngAfterViewInit();
+
+      expect(component.setInnerHTML).toHaveBeenCalledWith(mockElement.nativeElement.innerHTML);
+    });
+  });
+
+  describe('ngOnChanges', () => {
+
+    it('should call setRemoteContent method when path is changed', () => {
+
+      spyOn(component, 'setRemoteContent');
+
+      const mockSimpleChanges = { path: null };
+
+      component.ngOnChanges(mockSimpleChanges);
+
+      expect(component.setRemoteContent).toHaveBeenCalled();
     });
 
-});
+    it('should not call setRemoteContent method when path is unchanged', () => {
 
-describe('testing $http', () => {
-    let spy,testHtml;
-      beforeEach(() => {
-        TestBed.configureTestingModule({
-              imports: [HttpModule],
-            declarations: [TestComponent, MarkdownComponent],
-            providers: [MarkdownService]
-        });
-        fixture = TestBed.createComponent(TestComponent);
+      spyOn(component, 'setRemoteContent');
 
-        mdService = fixture.debugElement.injector.get(MarkdownService);
-        // Setup spy on the `get` method
-        spy = spyOn(mdService, 'getContent')
-          .and.returnValue(Promise.resolve(testHtml));
+      const mockSimpleChanges = {};
 
-        fixture = TestBed.createComponent(TestComponent);
-        comp = fixture.componentInstance;
-        de = fixture.debugElement.query(By.css('.using-http-md'));
-        el = de.nativeElement;
+      component.ngOnChanges(mockSimpleChanges);
+
+      expect(component.setRemoteContent).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('setRemoteContent', () => {
+
+    it('should get content from MarkdownService', () => {
+
+      const mockThen = { catch: () => null };
+      const mockGetContent = { then: () => mockThen };
+
+      spyOn(mdService, 'getContent').and.returnValue(mockGetContent);
+
+      const mockPath = './path-example/file.md';
+
+      component.path = mockPath;
+      component.setRemoteContent();
+
+      expect(mdService.getContent).toHaveBeenCalledWith(mockPath);
     });
 
-    it('get http content', async(() => {
-        fixture.detectChanges();
+    it('should call setInnerHTML according to file extension when not .md', async(() => {
 
-        fixture.whenStable().then(() => { // wait for async getQuote
-            fixture.detectChanges();        // update view with quote
-            console.log(testHtml);
-        });
+      const mockRaw =  'raw-text';
+
+      spyOn(mdService, 'getContent').and.callFake(() => {
+        return Promise.resolve({ text: () => mockRaw });
+      });
+
+      spyOn(component, 'setInnerHTML');
+
+      component.path = './path-example/file.cpp';
+      const promise = component.setRemoteContent();
+
+      promise.then(() => expect(component.setInnerHTML).toHaveBeenCalledWith('```cpp\n' + mockRaw + '\n```'));
+    }));
+
+    it('should call setInnerHTML without file extension when .md', async(() => {
+
+      const mockRaw =  'raw-text';
+
+      spyOn(mdService, 'getContent').and.callFake(() => {
+        return Promise.resolve({ text: () => mockRaw });
+      });
+
+      spyOn(component, 'setInnerHTML');
+
+      component.path = './path-example/file.md';
+      const promise = component.setRemoteContent();
+
+      promise.then(() => expect(component.setInnerHTML).toHaveBeenCalledWith(mockRaw));
 
     }));
 
-    //  it('should show quote after getQuote promise (async)', async(() => {
-    //     fixture.detectChanges();
-    //     fixture.whenStable().subscribe(() => { // wait for async getQuote
-    //         fixture.detectChanges();        // update view with quote
-    //         // expect(el.textContent).toBe(testQuote);
-    //     });
-    // }));
+    it('should call handleError when an error occurs', async(() => {
+
+      const mockError = { message: 'error-message' };
+
+      spyOn(mdService, 'getContent').and.callFake(() => {
+        return Promise.reject(mockError);
+      });
+
+      spyOn(component, 'handleError');
+
+      component.path = './path-example/file.md';
+      const promise = component.setRemoteContent();
+
+      promise.then(() => expect(component.handleError).toHaveBeenCalledWith(mockError));
+    }));
+  });
+
+  describe('setInnerHTML', () => {
+
+    it('should set innerHTML with compiled markdown', () => {
+
+      const raw = '### Raw';
+      const markdown = '### Markdown';
+
+      spyOn(component, 'prepare').and.returnValue(markdown);
+
+      component.setInnerHTML(raw);
+
+      expect(component.prepare).toHaveBeenCalledWith(raw);
+      expect(component.element.nativeElement.innerHTML).toBe(marked(markdown));
+    });
+
+    it('should apply Prism highlight', () => {
+
+      spyOn(Prism, 'highlightAll');
+
+      component.setInnerHTML('### Raw');
+
+      expect(Prism.highlightAll).toHaveBeenCalledWith(false);
+    });
+  });
+
+  describe('handleError', () => {
+
+    it('should log console error', () => {
+
+      spyOn(console, 'error');
+
+      const error = new Error('error-message');
+
+      component.handleError(error);
+
+      expect(console.error).toHaveBeenCalledWith('An error occurred', error);
+    });
+
+    it('should return rejected promise', async(() => {
+
+      spyOn(console, 'error');
+
+      const errorMessage = new Error('error-message');
+
+      component.handleError(errorMessage).catch((reason: any) => {
+        expect(reason).toBe(errorMessage.message);
+      });
+
+      const error = new Error();
+
+      component.handleError(error).catch((reason: any) => {
+        expect(reason).toBe(error);
+      });
+    }));
+  });
+
+  describe('prepare', () => {
+
+    it('should return empty string when raw is null/undefined/empty', () => {
+
+      expect(component.prepare(null)).toBe('');
+      expect(component.prepare(undefined)).toBe('');
+      expect(component.prepare('')).toBe('');
+    });
+
+    it('should remove leading whitespaces offset while keeping indent', () => {
+
+      const mockRaw =  [
+        '',               // wait for line with non-whitespaces
+        '  * list',       // find first line with non-whitespaces to set offset
+        '    * sub-list', // keep indent while removing from previous row offset
+      ];
+
+      const expected = [
+        '',
+        '* list',
+        '  * sub-list',
+      ];
+
+      expect(component.prepare(mockRaw.join('\n'))).toBe(expected.join('\n'));
+    });
+
+    it('should return line with indent correctly', () => {
+
+      const mockRaw =  [
+        '* list',       // find first line with non-whitespaces to set offset
+        '  * sub-list', // keep indent while removing from previous row offset
+        '',             // keep blank line
+        'Lorem Ipsum',  // keep everthing else
+      ];
+
+      const expected = [
+        '* list',
+        '  * sub-list',
+        '',
+        'Lorem Ipsum',
+      ];
+
+      expect(component.prepare(mockRaw.join('\n'))).toBe(expected.join('\n'));
+    });
+  });
 });
-
-
-
-@Component({
-    selector: 'app-test-comp',
-    template: `
-    <div class="my"> 
-        <markdown class="simple-p">
-            I am using __markdown__.
-        </markdown>
-        <markdown class="using-http-md" path="./demo.md"></markdown>
-    </div>`
-})
-export class TestComponent implements OnInit {
-    constructor() { }
-
-    ngOnInit() { }
-}
-
-
 

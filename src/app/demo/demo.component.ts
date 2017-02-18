@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-let fileContent = require('raw!./demo.cpp');
+const fileContent = require('raw-loader!./demo.py');
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.css']
+  styleUrls: ['./demo.component.css'],
 })
 export class DemoComponent {
   public fileContent = fileContent;

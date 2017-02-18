@@ -1,6 +1,5 @@
-import { Component, ElementRef, OnInit, AfterViewInit, Input } from '@angular/core';
-import { Http } from '@angular/http';
-import * as  marked from 'marked';
+import { AfterViewInit, Component, ElementRef, Input, OnChanges, SimpleChanges } from '@angular/core';
+import * as marked from 'marked';
 import { MarkdownService } from './markdown.service';
 
 import 'prismjs/prism';
@@ -13,101 +12,81 @@ import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-scss';
 import 'prismjs/components/prism-diff';
 
-
 @Component({
-    selector: 'markdown,[Markdown]',
-    template: '<ng-content></ng-content>',
-    styles: [
-        `.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
-            background: none;
-        }`
-    ]
+  selector: 'markdown, [Markdown]', // tslint:disable-line:component-selector
+  template: '<ng-content></ng-content>',
+  styles: [
+    `.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
+       background: none;
+     }`
+  ],
 })
-export class MarkdownComponent implements OnInit, AfterViewInit {
-    @Input() path: string;
+export class MarkdownComponent implements AfterViewInit, OnChanges {
+  @Input() path: string;
 
-    private md: any;
-    private ext: string;
+  constructor(
+    public mdService: MarkdownService,
+    public element: ElementRef,
+  ) { }
 
-    constructor(
-        private mdService: MarkdownService,
-        private el: ElementRef,
-        private http: Http
-    ) { }
+  ngAfterViewInit() {
+    if (this.path) {
+      this.setRemoteContent();
+    } else {
+      this.setInnerHTML(this.element.nativeElement.innerHTML);
+    }
+  }
 
-    ngOnInit() {
-        console.log(this.path);
-        console.log('The component is initialized');
+  // SimpleChanges parameter is required for AoT compilation (do not remove)
+  ngOnChanges(changes: SimpleChanges) {
+    if ('path' in changes) {
+      this.setRemoteContent();
+    }
+  }
+
+  setRemoteContent() {
+    let extension: string;
+
+    if (this.path) {
+      extension = this.path.split('.').splice(-1).join();
     }
 
-    /**
-     * on path input change
-     */
-    ngOnChanges() {
-        this.getContent();
-    }
+    return this.mdService.getContent(this.path)
+      .then(response => {
+        const raw = extension !== 'md'
+          ? '```' + extension + '\n' + response.text() + '\n```'
+          : response.text();
+        this.setInnerHTML(raw);
+      })
+      .catch(this.handleError);
+  }
 
-    /**
-     *
-     */
-    ngAfterViewInit() {
-        if (!this.path) {
-            this.md = this.prepare(this.el.nativeElement.innerHTML);
-            this.el.nativeElement.innerHTML = marked(this.md);
-            Prism.highlightAll(false);
-        } else {
-            this.getContent();
-        }
-    }
+  setInnerHTML(raw: string) {
+    const markdown = this.prepare(raw);
+    this.element.nativeElement.innerHTML = marked(markdown);
+    Prism.highlightAll(false);
+  }
 
-    /**
-     * get remote conent;
-     */
-    getContent() {
-        if (!!this.path) {
-            this.ext = this.path.split('.').splice(-1).join();
-        }
+  handleError(error: Error): Promise<never> {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
+  }
 
-        this.mdService.getContent(this.path)
-            .then(resp => {
-                this.md = this.ext !== 'md' ? '```' + this.ext + '\n' + resp.text() + '\n```' : resp.text();
-                this.el.nativeElement.innerHTML = marked(this.prepare(this.md));
-                Prism.highlightAll(false);
-            })
-            .catch(this.handleError);
+  prepare(raw: string) {
+    if (!raw) {
+      return '';
     }
-
-    /**
-     * catch http error
-     */
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
-    }
-
-    /**
-     * Prepare string
-     */
-    prepare(raw: any) {
-        if (!raw) {
-            return '';
-        }
-        if (this.ext === 'md' || !this.path) {
-            let isCodeBlock = false;
-            return raw.split('\n').map((line: string) => {
-                if (this.trimLeft(line).substring(0, 3) === "```") {
-                    isCodeBlock = !isCodeBlock;
-                }
-                return isCodeBlock ? line : line.trim();
-            }).join('\n');
-        }
-        return raw;
-    }
-
-    /**
-     * Trim left whitespace
-     */
-    trimLeft(line: string) {
-        return line.replace(/^\s+|\s+$/g, '');
-    }
+    let indentStart: number;
+    return raw.split('\n').map((line: string) => {
+      // find position of 1st non-whitespace character
+      // to determine the markdown indentation start
+      if (line.length > 0 && isNaN(indentStart)) {
+        indentStart = line.search(/\S|$/);
+      }
+      // remove whitespaces before indentation start
+      return indentStart
+        ? line.substring(indentStart)
+        : line;
+    }).join('\n');
+  }
 }
