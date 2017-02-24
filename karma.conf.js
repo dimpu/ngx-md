@@ -33,8 +33,27 @@ module.exports = function (config) {
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'coverage-istanbul']
-              : ['progress', 'kjhtml'],
+     ? ['dots', 'karma-remap-istanbul']
+     : ['dots'],
+     port: 9876,
+     colors: true,
+     logLevel: config.LOG_INFO,
+     autoWatch: true,
+     browsers: ['Chrome'],
+     singleRun: false,
+     customLaunchers: {
+       Chrome_travis_ci: {
+         base: 'Chrome',
+         flags: ['--no-sandbox']
+       }
+     },
+     mime: { 'text/x-typescript': ['ts','tsx'] },
+     client: { captureConsole: true }
+   };
+
+   if (process.env.TRAVIS) {
+     configuration.browsers = ['Chrome_travis_ci'];
+   }
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
