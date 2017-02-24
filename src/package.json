@@ -1,0 +1,14 @@
+{
+  "name": "angular2-markdown",
+  "version": "1.3.17",
+  "dependencies": {
+    "marked": "^0.3.6",
+    "prismjs": "^1.6.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "*",
+    "@angular/compiler": "*",
+    "@angular/core": "*",
+    "@angular/http": "*"
+  }
+}

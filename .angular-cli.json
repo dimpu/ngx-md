@@ -4,10 +4,17 @@
     "version": "1.0.0-beta.32.3",
     "name": "angular2-markdown"
   },
+  "module":[{
+     "name": "angular2-markdown",
+     "root": "src",
+     "outDir": "dist",
+     "main":"index.ts",
+     "tsconfig": "tsconfig.json"
+   }],
   "apps": [
     {
-      "root": "src",
-      "outDir": "dist",
+      "root": "demo/src",
+      "outDir": "demo/dist",
       "assets": [
         "assets",
         "favicon.ico"
@@ -15,11 +22,11 @@
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
-      "test": "test.ts",
+      "test": "../src/test.ts",
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

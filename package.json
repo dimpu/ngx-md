@@ -1,46 +1,87 @@
 {
   "name": "angular2-markdown",
-  "version": "0.0.0",
+  "version": "1.3.17",
   "license": "MIT",
   "angular-cli": {},
+  "main": "bundles/angular2-markdown.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "keywords": [
+    "ng",
+    "angular",
+    "angular2",
+    "markdown",
+    "prismjs"
+  ],
+  "author": "Dimpu Aravind Buddha <buddhaaravind@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dimpu/angular2-markdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dimpu/angular2-markdown/issues"
+  },
+  "homepage": "https://github.com/dimpu/angular2-markdown#readme",
+  "dependencies": {
+    "marked": "^0.3.6",
+    "prismjs": "^1.6.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint": "exit 0",
+    "e2e": "ng e2e",
+    "build": "ngm build -p src --clean",
+    "build.watch": "ngm build -p src --watch --skip-bundles",
+    "lite-server": "lite-server -c demo/bs-config.json",
+    "demo.serve": "run-s build link demo.build lite-server",
+    "demo.gh-pages": "run-s build demo.build demo.deploy",
+    "demo.build": "ng build -prod --aot",
+    "demo.deploy": "gh-pages -d demo/dist",
+    "demo-beta-deploy": "gh-pages -d demo/dist -r git@github.com:dimpu/angular2-markdown.git -b gh-pages",
+    "link": "ngm link -p src --here",
+    "disable-lint": "tslint \"**/*.ts\" -c tslint.json --fix --type-check -t prose -e \"node_modules/**\" -e \"dist/**\" -e \"temp/**\" -e \"scripts/docs/**\"",
+    "flow.changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
+    "version": "npm run flow.changelog && git add -A"
   },
   "private": true,
-  "dependencies": {
+  "devDependencies": {
+    "@angular/cli": "1.0.0-beta.32.3",
     "@angular/common": "^2.4.0",
     "@angular/compiler": "^2.4.0",
+    "@angular/compiler-cli": "^2.4.0",
     "@angular/core": "^2.4.0",
     "@angular/forms": "^2.4.0",
     "@angular/http": "^2.4.0",
     "@angular/platform-browser": "^2.4.0",
     "@angular/platform-browser-dynamic": "^2.4.0",
     "@angular/router": "^3.4.0",
-    "core-js": "^2.4.1",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.7.6"
-  },
-  "devDependencies": {
-    "@angular/cli": "1.0.0-beta.32.3",
-    "@angular/compiler-cli": "^2.4.0",
     "@types/jasmine": "2.5.38",
+    "@types/marked": "0.0.28",
     "@types/node": "~6.0.60",
+    "@types/prismjs": "^1.4.18",
     "codelyzer": "~2.0.0-beta.4",
+    "conventional-changelog": "^1.1.0",
+    "conventional-github-releaser": "^1.1.3",
+    "core-js": "^2.4.1",
+    "gh-pages": "^0.12.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
     "karma": "~1.4.1",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
+    "lite-server": "^2.2.2",
+    "ngm-cli": "^0.4.4",
+    "npm-run-all": "^4.0.2",
     "protractor": "~5.1.0",
+    "rxjs": "^5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.4.2",
-    "typescript": "~2.0.0"
+    "typescript": "~2.0.0",
+    "zone.js": "^0.7.6"
   }
 }

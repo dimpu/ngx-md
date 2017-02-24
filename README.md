@@ -1,27 +1,87 @@
-# Angular2Markdown
+# Angular 2 Markdown
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.
+[![Build Status][travis-badge]][travis-badge-url]
+[![npm][circleci-badge-url]][circleci-url]
+[![version][npm-badge-url]][npm-url]
+[![npm][license-badge-url]][license-url]
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+ Source @ [[source-url]]()
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+ Demo @ [[demo-url]]()
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Setup
+```bash
+npm i angular2-markdown --save
+```
 
-## Running unit tests
+## How to use it
+### app.module.js
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+import { MarkdownModule } from 'angular2-markdown';
+import { AppComponent } from '../src/app.component';
 
-## Running end-to-end tests
+@NgModule({
+  imports: [
+    BrowserModule,
+    MarkdownModule.forRoot(),
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+})
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+```
 
-## Further help
+### app.component.html
+```html
+ <div Markdown>
+    ### your markdown code
+ </div>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+or use angular component
+
+<markdown>
+    ### your markdown code
+</markdown>
+
+// to load from remote url
+
+<div Markdown path="/path/to/readme.md"></div>
+
+// load remote source code with auto syantax helight.
+
+<markdown path="/path/to/code.cpp"></markdown>
+
+<markdown path="/path/to/code.java"></markdown>
+```
+
+## Example
+
+You can found the working example inside the `src/app/demo directory`.
+
+```
+git clone https://github.com/dimpu/angular2-markdown.git
+
+npm i
+
+ng serve
+```
+now you should see working example at [http://localhost:4200]()
+
+
+
+
+[travis-badge]: https://travis-ci.org/dimpu/angular2-markdown.svg?branch=master
+[travis-badge-url]: https://travis-ci.org/dimpu/angular2-markdown
+[license-url]: https://opensource.org/licenses/MIT
+[license-badge-url]: https://img.shields.io/npm/l/angular2-markdown.svg
+[npm-url]: https://www.npmjs.com/package/angular2-markdown
+[npm-badge-url]: https://img.shields.io/npm/v/angular2-markdown.svg?style=flat
+[circleci-url]: https://circleci.com/gh/dimpu/angular2-markdown/master
+[circleci-badge-url]: https://circleci.com/gh/dimpu/angular2-markdown/tree/master.svg?style=shield&
+[demo-url]: https://github.com/dimpu/angular2-markdown
+[source-url]: https://github.com/dimpu/angular2-markdown
