@@ -43,7 +43,7 @@ yarn add  angular2-markdown
  - `angular-seed` please refer to [getting-started-with-angular-seed](https://github.com/dimpu/angular2-markdown/tree/master/docs/getting-started/angular-seed.md)
  - `system.js` (and [angular2 quickstart](https://angular.io/docs/ts/latest/quickstart.html)) please checkout [sample repository](https://github.com/dimpu/angular2-quickstart)
  - `webpack` you can view our demo page [source code](https://github.com/dimpu/angular2-markdown/tree/master/demo)
- - `plnkr` sample available [here](htt://bit.ly/2kT0z20)
+ - `plnkr` sample available [here](http://bit.ly/2kT0z20)
  - `AoT using ngc and rollup` please refer to [angular2-markdown-with-aot](https://github.com/dimpu/angular2-markdown/tree/master/docs/getting-started/aot.md)
 
 
