@@ -16,7 +16,6 @@ script:
   - npm run lint
   - npm run build
   - rm -rf node_modules/angular2-markdown
-  - npm i ./dist
   - npm run test-coverage
   - npm run test
 
