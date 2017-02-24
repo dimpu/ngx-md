@@ -80,6 +80,7 @@
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-remap-istanbul": "^0.6.0",
     "lite-server": "^2.2.2",
     "ngm-cli": "^0.4.4",
     "npm-run-all": "^4.0.2",
