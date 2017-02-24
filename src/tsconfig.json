@@ -15,6 +15,10 @@
     "stripInternal": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
+    "removeComments": true,
+    "declaration": false,
+    "noLib": false,
+    "noImplicitAny": false,
     "lib": ["dom", "es6"],
     "types": [
       "jasmine"
