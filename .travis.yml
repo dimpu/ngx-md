@@ -3,10 +3,6 @@ node_js:
   - "6"
 
 env:
-  global:
-    - SAUCE_USERNAME=dimpu
-    - SAUCE_ACCESS_KEY=f8601ae2-0c30-44c0-bd9c-bacc860ca19d
-
 before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
@@ -22,14 +18,3 @@ script:
 after_success:
   - ./node_modules/.bin/codecov
   - npm run test-cross
-
-addons:
-  # sauce labs tunel connector (read more https://docs.travis-ci.com/user/sauce-connect/ )
-  sauce_connect: true
-  firefox: "latest"
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    # required by node-gyp to build some packages
-    packages:
-    - g++-4.8
