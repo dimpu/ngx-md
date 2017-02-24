@@ -4,6 +4,7 @@
 [![npm][circleci-badge-url]][circleci-url]
 [![version][npm-badge-url]][npm-url]
 [![npm][license-badge-url]][license-url]
+[![npm][dep-badge-url]][dep-url]
 
 
  Source @ [https://github.com/dimpu/angular2-markdown]()
@@ -127,3 +128,5 @@ now you should see working example at [http://localhost:4200]()
 [circleci-url]: https://circleci.com/gh/dimpu/angular2-markdown/master
 [circleci-badge-url]: https://circleci.com/gh/dimpu/angular2-markdown/tree/master.svg?style=shield&
 [demo-url]: https://github.com/dimpu/angular2-markdown
+[dep-url]: https://david-dm.org/dimpu/angular2-markdown
+[dep-badge-url]: https://david-dm.org/dimpu/angular2-markdown/status.svg
