@@ -7,7 +7,7 @@
 [![npm][dep-badge-url]][dep-url]
 
 
- Source @ [https://github.com/dimpu/angular2-markdown]()
+ Source @ [https://github.com/dimpu/angular2-markdown](https://github.com/dimpu/angular2-markdown)
 
 
 
@@ -103,6 +103,24 @@ or use angular component
 <markdown path="/path/to/code.java"></markdown>
 ```
 
+## Variable binding
+
+Now, with >1.4.x you can bind Variable to   `markdown` component. To do so.
+
+```typescript
+@Component({
+    selector: 'markdown,[Markdown]',
+    template: `
+    <textarea [(ngModel)]="textData"></textarea>
+    <markdown [data]="textData"></markdown>
+    `,
+})
+export class MyComp {
+  public textData = `## Markdown content data`;
+}
+
+```
+
 ## Example
 
 You can found the working example inside the `/demo directory`.
@@ -117,6 +135,13 @@ npm run demo.serve
 now you should see working example at [http://localhost:4200]()
 
 
+## Todo
+
+- [x] Variable binding
+- [ ] Code refactor
+- [ ] Write more unit testings
+- [ ] Module configuration for markdown settings
+- [ ] Module configuration for prismjs settings.
 
 
 [travis-badge]: https://travis-ci.org/dimpu/angular2-markdown.svg?branch=master

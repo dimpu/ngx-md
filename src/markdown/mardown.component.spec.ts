@@ -8,7 +8,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/toPromise';
 
 class MockMarkdownService extends MarkdownService {
-  getSource(src: string): Observable<string> {
+  getContent(src: string): Observable<any> {
     return Observable.of('');
   }
 }
@@ -17,7 +17,7 @@ describe('MarkdownComponent', () => {
   let fixture: ComponentFixture<MarkdownComponent>;
   let component: MarkdownComponent;
   let nativeElement: any;
-  let mthService: MarkdownService;
+  let markdownService: MarkdownService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -30,11 +30,11 @@ describe('MarkdownComponent', () => {
   }));
 
   beforeEach(() => {
-    mthService = TestBed.get(MarkdownService);
+    markdownService = TestBed.get(MarkdownService);
     fixture = TestBed.createComponent(MarkdownComponent);
     component = fixture.componentInstance;
     nativeElement = fixture.nativeElement;
     fixture.detectChanges();
   });
-  
+
 });

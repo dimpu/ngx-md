@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, Input, OnChanges, SimpleChange } from '@angular/core';
 import { Http } from '@angular/http';
 import * as  marked from 'marked';
-// import { marked } from 'marked/lib/marked';
 import { MarkdownService } from './markdown.service';
 declare var Prism: any;
 import 'prismjs/prism';
@@ -36,11 +35,12 @@ marked.setOptions({
         }`
     ]
 })
-export class MarkdownComponent implements OnInit, AfterViewInit {
+export class MarkdownComponent implements OnInit, AfterViewInit, OnChanges {
     @Input() path: string;
-
+    @Input() data: any;
     private md: any;
     private ext: string;
+    changeLog: string[] = [];
 
     constructor(
         private mdService: MarkdownService,
@@ -53,10 +53,23 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
     }
 
     /**
-     * on path input change
+     * on path or data input change
      */
-    ngOnChanges() {
-        this.getContent();
+    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+       for (let propName in changes) {
+         let changedProp = changes[propName];
+         if(propName == 'data') {
+            this.onDataChange(changedProp.currentValue);
+         }
+         if(propName == 'path') {
+            this.getContent();
+         }
+       }
+     }
+
+    // on input
+    onDataChange(data:string){
+      this.el.nativeElement.innerHTML = marked(data);
     }
 
     /**
@@ -66,7 +79,7 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
         if (!this.path) {
             this.md = this.prepare(this.el.nativeElement.innerHTML);
             this.el.nativeElement.innerHTML = marked(this.md);
-            // Prism.highlightAll(false);
+            Prism.highlightAll(false);
         } else {
             this.getContent();
         }
@@ -113,7 +126,7 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
                 return isCodeBlock ? line : line.trim();
             }).join('\n');
         }
-        return raw;
+        return raw.replace(/\"/g, '\'');
     }
 
     /**

@@ -12,16 +12,19 @@ export class MarkdownService {
 
   constructor(private http: Http) { }
 
+  //get the content from remote resource
   getContent(path: string):Observable<any> {
     return this.http.get(path)
        .map(this.extractData)
        .catch(this.handleError);
    }
 
+   // handle data
    extractData(res: Response): string {
      return res.text() || '';
    }
-
+   
+   //handle error
    handleError(error: Response | any):any {
      let errMsg: string;
      if (error instanceof Response) {

@@ -28,8 +28,18 @@
   this.addPackagesBundles(additionalPackages);
   ```
 
+### In your index.html
 
-## Verify by adding an alert to the home module and html:
+```html
+<head>
+...
+...
++ <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-okaidia.min.css>
+</head>
+
+```
+
+## Verify by adding an MarkdownModule to the home module and html:
 
 ### In **home.module.ts:**
 

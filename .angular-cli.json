@@ -26,7 +26,7 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-
+        "../../node_modules/prismjs/themes/prism-okaidia.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

@@ -34,9 +34,22 @@ import { MarkdownModule } from 'angular2-markdown';
 })
 ```
 
+- open '.angular-cli.json' and add
+
+```json
+"styles": [
+  "styles.css",
++  "../node_modules/prismjs/themes/prism-okaidia.css"
+],
+```
+you can choose any other theme.
+
+[Themes](https://github.com/PrismJS/prism-themes)
+
+
 - open `src/app/app.component.html` and add
 ```
-<marked >
+<marked>
 ## Markdown h2 content
 </marked>
 ```
