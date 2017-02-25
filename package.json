@@ -38,7 +38,7 @@
     "quick-start-demo": "lite-server demo/quick-start  --entry-file=index.html --port=8080",
     "demo.serve": "run-s build link demo.build lite-server",
     "demo.gh-pages": "run-s build demo.build demo.deploy",
-    "demo.build": "ng build -prod --aot",
+    "demo.build": "ng build -prod --aot -bh '/angular2-markdown/'",
     "demo.deploy": "gh-pages -d demo/dist",
     "demo-beta-deploy": "gh-pages -d demo/dist -r git@github.com:dimpu/angular2-markdown.git -b gh-pages",
     "link": "ngm link -p src --here",
