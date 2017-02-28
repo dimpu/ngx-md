@@ -1,30 +1,7 @@
-import { Component, ElementRef, OnInit, AfterViewInit, Input, OnChanges, SimpleChange } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Http } from '@angular/http';
-import * as  marked from 'marked';
 import { MarkdownService } from './markdown.service';
-declare var Prism: any;
-import 'prismjs/prism';
-import 'prismjs/components/prism-c';
-import 'prismjs/components/prism-java';
-import 'prismjs/components/prism-cpp';
-import 'prismjs/components/prism-python';
-import 'prismjs/components/prism-perl';
-import 'prismjs/components/prism-php';
-import 'prismjs/components/prism-scss';
-import 'prismjs/components/prism-diff';
-
-
-
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false
-});
+import './prism.languages';
 
 @Component({
     selector: 'markdown,[Markdown]',
@@ -35,11 +12,11 @@ marked.setOptions({
         }`
     ]
 })
-export class MarkdownComponent implements OnInit, AfterViewInit, OnChanges {
-    @Input() path: string;
-    @Input() data: any;
-    private md: any;
-    private ext: string;
+export class MarkdownComponent implements OnInit {
+    private _path: string;
+    private _data: string;
+    private _md: any;
+    private _ext: string;
     changeLog: string[] = [];
 
     constructor(
@@ -52,51 +29,46 @@ export class MarkdownComponent implements OnInit, AfterViewInit, OnChanges {
 
     }
 
-    /**
-     * on path or data input change
-     */
-    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-       for (let propName in changes) {
-         let changedProp = changes[propName];
-         if(propName == 'data') {
-            this.onDataChange(changedProp.currentValue);
-         }
-         if(propName == 'path') {
-            this.getContent();
-         }
-       }
-     }
+    @Input()
+    set path(value:string) {
+      this._path = value;
+      this.getContent();
+    }
+
+    @Input()
+    set data(value:string) {
+      this._data = value;
+      this.onDataChange(value);
+    }
+
 
     // on input
     onDataChange(data:string){
-      this.el.nativeElement.innerHTML = marked(data);
+      this.el.nativeElement.innerHTML = this.mdService.compile(data);
     }
 
     /**
-     *
+     *  After view init
      */
     ngAfterViewInit() {
-        if (!this.path) {
-            this.md = this.prepare(this.el.nativeElement.innerHTML);
-            this.el.nativeElement.innerHTML = marked(this.md);
-            Prism.highlightAll(false);
-        } else {
-            this.getContent();
-        }
+      (this._path && this.getContent || this.processRaw)();
+    }
+
+    processRaw() {
+      this._md = this.prepare(this.el.nativeElement.innerHTML);
+      this.el.nativeElement.innerHTML = this.mdService.compile(this._md);
+      Prism.highlightAll(false);
     }
 
     /**
      * get remote conent;
      */
     getContent() {
-        if (!!this.path) {
-            this.ext = this.path.split('.').splice(-1).join();
-        }
-
-        this.mdService.getContent(this.path)
+        this._ext = this._path && this._path.split('.').splice(-1).join();
+        this.mdService.getContent(this._path)
             .subscribe(data => {
-                this.md = this.ext !== 'md' ? '```' + this.ext + '\n' + data + '\n```' : data;
-                this.el.nativeElement.innerHTML = marked(this.prepare(this.md));
+                this._md = this._ext !== 'md' ? '```' + this._ext + '\n' + data + '\n```' : data;
+                this.el.nativeElement.innerHTML = this.mdService.compile(this.prepare(this._md));
                 Prism.highlightAll(false);
             },
             err => this.handleError);
@@ -113,11 +85,11 @@ export class MarkdownComponent implements OnInit, AfterViewInit, OnChanges {
     /**
      * Prepare string
      */
-    prepare(raw: any) {
+    private prepare(raw: any) {
         if (!raw) {
             return '';
         }
-        if (this.ext === 'md' || !this.path) {
+        if (this._ext === 'md' || !this.path) {
             let isCodeBlock = false;
             return raw.split('\n').map((line: string) => {
                 if (this.trimLeft(line).substring(0, 3) === "```") {
@@ -132,7 +104,7 @@ export class MarkdownComponent implements OnInit, AfterViewInit, OnChanges {
     /**
      * Trim left whitespace
      */
-    trimLeft(line: string) {
+    private trimLeft(line: string) {
         return line.replace(/^\s+|\s+$/g, '');
     }
 }

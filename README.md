@@ -87,13 +87,13 @@ import { AppComponent } from '../src/app.component';
 
 <!-- to load from remote URL -->
 
-<div Markdown path="/path/to/readme.md"></div>
+<div Markdown [path]="/path/to/readme.md"></div>
 
 <!-- load remote source code with auto syntax highlighting -->
 
-<markdown path="/path/to/code.cpp"></markdown>
+<markdown [path]="/path/to/code.cpp"></markdown>
 
-<markdown path="/path/to/code.java"></markdown>
+<markdown [path]="/path/to/code.java"></markdown>
 ```
 
 ## Variable binding

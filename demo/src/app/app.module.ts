@@ -27,7 +27,7 @@ import { VariableBindComponent } from './variable-bind/variable-bind.component';
            { path: 'home', component: HomeComponent },
            { path: 'tables', component: TablesComponent },
            { path: 'path', component: PathComponent },
-           { path: 'varibale', component: VariableBindComponent }
+           { path: 'live', component: VariableBindComponent }
 
 
        ])

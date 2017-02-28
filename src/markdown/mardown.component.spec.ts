@@ -2,10 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
 import { MarkdownComponent } from './markdown.component';
 import { MarkdownService } from './markdown.service';
-import * as marked from 'marked';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/toPromise';
+import * as marked from 'marked';
 
 class MockMarkdownService extends MarkdownService {
   getContent(src: string): Observable<any> {

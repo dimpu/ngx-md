@@ -9,6 +9,7 @@ declare const ENV:string;
 declare const PR:any;
 
 declare const global:any;
+declare const Prism:any;
 
 declare module jasmine {
   interface Matchers {

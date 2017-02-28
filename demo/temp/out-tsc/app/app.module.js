@@ -37,7 +37,7 @@ AppModule = __decorate([
                 { path: 'home', component: HomeComponent },
                 { path: 'tables', component: TablesComponent },
                 { path: 'path', component: PathComponent },
-                { path: 'varibale', component: VariableBindComponent }
+                { path: 'live', component: VariableBindComponent }
             ])
         ],
         bootstrap: [AppComponent]
