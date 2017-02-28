@@ -130,7 +130,7 @@ npm run demo.serve
 ## Todo
 
 - [x] Variable binding
-- [ ] Code refactor
+- [x] Code refactor
 - [ ] Write more unit tests
 - [ ] Module configuration for markdown settings
 - [ ] Module configuration for prismjs settings
