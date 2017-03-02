@@ -32,7 +32,7 @@ export class MarkdownComponent implements OnInit {
     @Input()
     set path(value:string) {
       this._path = value;
-      this.getContent();
+      this.onPathChange();
     }
 
     @Input()
@@ -51,7 +51,11 @@ export class MarkdownComponent implements OnInit {
      *  After view init
      */
     ngAfterViewInit() {
-      (this._path && this.getContent || this.processRaw)();
+      if(this._path) {
+        this.onPathChange();
+      } else {
+        this.processRaw();
+      }
     }
 
     processRaw() {
@@ -63,7 +67,7 @@ export class MarkdownComponent implements OnInit {
     /**
      * get remote conent;
      */
-    getContent() {
+    onPathChange() {
         this._ext = this._path && this._path.split('.').splice(-1).join();
         this.mdService.getContent(this._path)
             .subscribe(data => {
@@ -85,7 +89,7 @@ export class MarkdownComponent implements OnInit {
     /**
      * Prepare string
      */
-    private prepare(raw: any) {
+     prepare(raw: string) {
         if (!raw) {
             return '';
         }

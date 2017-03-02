@@ -131,7 +131,7 @@ npm run demo.serve
 
 - [x] Variable binding
 - [x] Code refactor
-- [ ] Write more unit tests
+- [x] Write more unit tests
 - [ ] Module configuration for markdown settings
 - [ ] Module configuration for prismjs settings
 

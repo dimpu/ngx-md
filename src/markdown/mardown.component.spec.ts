@@ -37,4 +37,26 @@ describe('MarkdownComponent', () => {
     fixture.detectChanges();
   });
 
+  describe('ngAfterViewInit', () => {
+    it('should call `onPathChange` when [path] is provieded', ()=>{
+      spyOn(component,'onPathChange');
+      component.path = 'paht/to/file.md';
+      component.ngAfterViewInit();
+      expect(component.onPathChange).toHaveBeenCalled();
+    });
+
+    it('should call handleRaw method when src is not provided', () => {
+      spyOn(component, 'processRaw');
+      const mockElement = { nativeElement: { innerHTML: 'html-inner' } };
+      component.element = mockElement;
+      component.path = undefined;
+      component.ngAfterViewInit();
+
+      expect(component.processRaw).toHaveBeenCalled();
+    });
+  });
+
+
+  
+
 });
