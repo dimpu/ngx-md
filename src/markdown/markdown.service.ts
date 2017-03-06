@@ -10,8 +10,9 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MarkdownService {
-
+  private renderer:any;
   constructor(private http: Http) {
+    this.extendRenderer();
     this.setMarkedOptions();
   }
 
@@ -41,9 +42,24 @@ export class MarkdownService {
      return Observable.throw(errMsg);
    }
 
+   // extend marked render to support todo checkbox
+   extendRenderer() {
+     this.renderer = new marked.Renderer();
+     this.renderer.listitem = function(text:string) {
+      if (/^\s*\[[x ]\]\s*/.test(text)) {
+      text = text
+        .replace(/^\s*\[ \]\s*/, '<input type="checkbox" style=" vertical-align: middle; margin: 0 0.2em 0.25em -1.6em; font-size: 16px; " disabled> ')
+        .replace(/^\s*\[x\]\s*/, '<input type="checkbox" style=" vertical-align: middle; margin: 0 0.2em 0.25em -1.6em; font-size: 16px; " checked disabled> ');
+          return '<li style="list-style: none">' + text + '</li>';
+        } else {
+          return '<li>' + text + '</li>';
+        }
+      };
+   }
+
    setMarkedOptions() {
      marked.setOptions({
-       renderer: new marked.Renderer(),
+       renderer: this.renderer,
        gfm: true,
        tables: true,
        breaks: false,
@@ -52,6 +68,7 @@ export class MarkdownService {
        smartLists: true,
        smartypants: false
      });
+
    }
 
    // comple markdown to html

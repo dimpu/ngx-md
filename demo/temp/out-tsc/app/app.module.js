@@ -14,6 +14,7 @@ import { HomeComponent } from './home';
 import { TablesComponent } from './tables/tables.component';
 import { PathComponent } from './path/path.component';
 import { VariableBindComponent } from './variable-bind/variable-bind.component';
+import { TodoComponent } from './todo/todo.component';
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,7 +27,8 @@ AppModule = __decorate([
             HomeComponent,
             TablesComponent,
             PathComponent,
-            VariableBindComponent
+            VariableBindComponent,
+            TodoComponent
         ],
         imports: [
             BrowserModule,
@@ -37,7 +39,8 @@ AppModule = __decorate([
                 { path: 'home', component: HomeComponent },
                 { path: 'tables', component: TablesComponent },
                 { path: 'path', component: PathComponent },
-                { path: 'live', component: VariableBindComponent }
+                { path: 'live', component: VariableBindComponent },
+                { path: 'todo', component: TodoComponent }
             ])
         ],
         bootstrap: [AppComponent]
