@@ -57,7 +57,7 @@
 ### In **home.component.html:**
 
   ```
-  <marked>
+  <markdown>
   ## Markdown h2 content
-  </marked>
+  </markdown>
   ```
