@@ -72,6 +72,31 @@ import { AppComponent } from '../src/app.component';
 })
 ```
 
+### index.html
+If you want syntax highlighting you need to import the prism css file.
+
+Alternative 1: Import from cdn
+```html
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" rel="stylesheet" />
+  </head>
+```
+
+Alternative 2: Download the css file (or copy it from `node_modules/prismjs/themes/`, place it somewhere in your src folder and import
+```html
+<link href="/css/prism.min.css" rel="stylesheet" />
+```
+
+Alternative 3: Include the prism css file in your sass style file
+```css
+@import 'prismjs/themes/prism.css';
+```
+
 ### app.component.html
 
 ```html
