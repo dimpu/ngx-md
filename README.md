@@ -112,13 +112,18 @@ Alternative 3: Include the prism css file in your sass style file
 
 <!-- to load from remote URL -->
 
-<div Markdown [path]="/path/to/readme.md"></div>
+<div Markdown path="/path/to/readme.md"></div>
 
 <!-- load remote source code with auto syntax highlighting -->
 
-<markdown [path]="/path/to/code.cpp"></markdown>
+<markdown path="/path/to/code.cpp"></markdown>
 
-<markdown [path]="/path/to/code.java"></markdown>
+<markdown path="/path/to/code.java"></markdown>
+
+<!-- load remote source code from url stored in variable
+(see additional details about variable binding in the next section) -->
+
+<markdown [path]="urlVariable"></markdown>
 ```
 
 ## Variable binding
