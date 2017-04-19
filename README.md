@@ -165,6 +165,23 @@ npm run demo.serve
 - [ ] Module configuration for markdown settings
 - [ ] Module configuration for prismjs settings
 
+<h2 id="contributors">Contributors</h2>
+
+The following is a list of all the people that have helped build Groceries. Thanks for your contributions!
+
+
+[<img alt="glenngr" src="https://avatars2.githubusercontent.com/u/8955488?v=3&s=460" width="117">](https://github.com/glenngr)
+
+
+
+
+
+
+
+
+
+
+
 [travis-badge]: https://travis-ci.org/dimpu/angular2-markdown.svg?branch=master
 [travis-badge-url]: https://travis-ci.org/dimpu/angular2-markdown
 [license-url]: https://opensource.org/licenses/MIT
@@ -176,3 +193,6 @@ npm run demo.serve
 [demo-url]: https://github.com/dimpu/angular2-markdown
 [dep-url]: https://david-dm.org/dimpu/angular2-markdown
 [dep-badge-url]: https://david-dm.org/dimpu/angular2-markdown/status.svg
+
+
+
