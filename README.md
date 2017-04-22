@@ -143,6 +143,34 @@ export class MyComp {
 }
 ```
 
+## Marked customization
+
+Marked can be customized/extended by accessing the renderer from the MarkdownService:
+
+```typescript
+import { MarkdownService } from 'angular2-markdown';
+@Component({
+    selector='my-comp',
+    template: `
+    <markdown>
+     > Block
+     > quote
+     > here
+    </markdown>
+    `,
+})
+export class MyComp {
+  constructor(private _markdown: MarkdownService) {}
+
+  ngOnInit() {
+    this._markdown.renderer.blockquote = (quote: string) => {
+      return `<blockquote class="king-quote">${quote}</blockquote>`;
+    }
+  }
+```
+
+See [marked documentation](https://github.com/chjj/marked) for all renderer extension points.
+
 ## Example
 
 You can find a working example inside the `demo` directory.
