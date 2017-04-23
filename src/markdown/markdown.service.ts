@@ -8,6 +8,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 
+
 @Injectable()
 export class MarkdownService {
   private _renderer:any = new marked.Renderer();
@@ -23,7 +24,7 @@ export class MarkdownService {
        .catch(this.handleError);
    }
 
-   get renderer() {
+   public get renderer() {
      return this._renderer;
    }
 

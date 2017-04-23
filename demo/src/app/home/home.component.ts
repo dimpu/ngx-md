@@ -272,7 +272,9 @@ Markdown | Less | Pretty
   }
 
   ngOnInit() {
-    extras.init()
+    extras.init();
+    this._markdown.setMarkedOptions({});
+    console.log(extras.markedDefaults);
     this._markdown.setMarkedOptions(Object.assign(extras.markedDefaults, {
       gfm: true,
       tables: true,
