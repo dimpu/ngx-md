@@ -167,7 +167,7 @@ npm run demo.serve
 
 <h2 id="contributors">Contributors</h2>
 
-The following is a list of all the people that have helped build Groceries. Thanks for your contributions!
+The following is a list of all the people that have helped build this project. Thanks for your contributions!
 
 
 [<img alt="glenngr" src="https://avatars2.githubusercontent.com/u/8955488?v=3&s=460" width="117">](https://github.com/glenngr)
