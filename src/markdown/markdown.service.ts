@@ -10,10 +10,10 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MarkdownService {
-  private renderer:any;
+  private _renderer:any = new marked.Renderer();
   constructor(private http: Http) {
     this.extendRenderer();
-    this.setMarkedOptions();
+    this.setMarkedOptions({});
   }
 
   //get the content from remote resource
@@ -23,13 +23,37 @@ export class MarkdownService {
        .catch(this.handleError);
    }
 
+   get renderer() {
+     return this._renderer;
+   }
+
    // handle data
-   extractData(res: Response): string {
+   public extractData(res: Response): string {
      return res.text() || '';
    }
 
+
+   public setMarkedOptions(options: any) {
+     options = Object.assign({
+       gfm: true,
+       tables: true,
+       breaks: false,
+       pedantic: false,
+       sanitize: false,
+       smartLists: true,
+       smartypants: false
+     }, options);
+     options.renderer = this._renderer;
+     marked.setOptions(options);
+   }
+
+   // comple markdown to html
+   public compile(data:string) {
+      return marked(data);
+   }
+
    //handle error
-   handleError(error: Response | any):any {
+   private handleError(error: Response | any):any {
      let errMsg: string;
      if (error instanceof Response) {
        const body = error.json() || '';
@@ -43,9 +67,8 @@ export class MarkdownService {
    }
 
    // extend marked render to support todo checkbox
-   extendRenderer() {
-     this.renderer = new marked.Renderer();
-     this.renderer.listitem = function(text:string) {
+   private extendRenderer() {
+     this._renderer.listitem = function(text:string) {
       if (/^\s*\[[x ]\]\s*/.test(text)) {
       text = text
         .replace(/^\s*\[ \]\s*/, '<input type="checkbox" style=" vertical-align: middle; margin: 0 0.2em 0.25em -1.6em; font-size: 16px; " disabled> ')
@@ -56,25 +79,4 @@ export class MarkdownService {
         }
       };
    }
-
-   setMarkedOptions() {
-     marked.setOptions({
-       renderer: this.renderer,
-       gfm: true,
-       tables: true,
-       breaks: false,
-       pedantic: false,
-       sanitize: false,
-       smartLists: true,
-       smartypants: false
-     });
-
-   }
-
-   // comple markdown to html
-   compile(data:string) {
-      return marked(data);
-   }
-
-
 }

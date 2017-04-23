@@ -12,7 +12,7 @@ declare const global:any;
 declare const Prism:any;
 
 declare module jasmine {
-  interface Matchers {
+  interface Matchers<T> {
     toHaveCssClass(expected: any): boolean;
   }
 }
