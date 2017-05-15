@@ -54,7 +54,7 @@ export class MarkdownComponent implements OnInit {
     ngAfterViewInit() {
       if(this._path) {
         this.onPathChange();
-      } else {
+      } else if (!this._data) {
         this.processRaw();
       }
     }
