@@ -44,7 +44,11 @@ export class MarkdownComponent implements OnInit {
 
     // on input
     onDataChange(data:string){
-      this.el.nativeElement.innerHTML = this.mdService.compile(data);
+      if (data) {
+        this.el.nativeElement.innerHTML = this.mdService.compile(data);
+      } else {
+        this.el.nativeElement.innerHTML = '';
+      }
       Prism.highlightAll(false);
     }
 
