@@ -54,6 +54,15 @@ describe('MarkdownComponent', () => {
 
       expect(component.processRaw).toHaveBeenCalled();
     });
+
+    it('should not call handleRaw method when data is provided', () => {
+      spyOn(component, 'processRaw');
+      component.path = undefined;
+      component.data = 'some markdown';
+      component.ngAfterViewInit();
+
+      expect(component.processRaw).toHaveBeenCalledTimes(0);
+    });
   });
 
 
