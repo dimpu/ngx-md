@@ -49,7 +49,7 @@ you can choose any other theme.
 
 - open `src/app/app.component.html` and add
 ```
-<marked>
+<markdown>
 ## Markdown h2 content
-</marked>
+</markdown>
 ```
