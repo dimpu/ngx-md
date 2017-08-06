@@ -31,14 +31,18 @@ export class MarkdownComponent implements OnInit {
 
     @Input()
     set path(value:string) {
-      this._path = value;
-      this.onPathChange();
+      if(value){
+        this._path = value;
+        this.onPathChange();
+      }
     }
 
     @Input()
     set data(value:string) {
-      this._data = value;
-      this.onDataChange(value);
+      if(value){
+        this._data = value;
+        this.onDataChange(value);
+      }
     }
 
 
