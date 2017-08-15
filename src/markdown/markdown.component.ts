@@ -68,7 +68,7 @@ export class MarkdownComponent implements OnInit {
     }
 
     processRaw() {
-      this._md = this.prepare(this.el.nativeElement.innerHTML);
+      this._md = this.prepare(decodeHtml(this.el.nativeElement.innerHTML));
       this.el.nativeElement.innerHTML = this.mdService.compile(this._md);
       Prism.highlightAll(false);
     }
@@ -120,4 +120,10 @@ export class MarkdownComponent implements OnInit {
     private trimLeft(line: string) {
         return line.replace(/^\s+|\s+$/g, '');
     }
+}
+
+function decodeHtml(html:string) { // https://stackoverflow.com/a/7394787/588521
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
 }
