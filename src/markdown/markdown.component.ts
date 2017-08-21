@@ -98,20 +98,8 @@ export class MarkdownComponent implements OnInit {
     /**
      * Prepare string
      */
-     prepare(raw: string) {
-        if (!raw) {
-            return '';
-        }
-        if (this._ext === 'md' || !this.path) {
-            let isCodeBlock = false;
-            return raw.split('\n').map((line: string) => {
-                if (this.trimLeft(line).substring(0, 3) === "```") {
-                    isCodeBlock = !isCodeBlock;
-                }
-                return isCodeBlock ? line : line.trim();
-            }).join('\n');
-        }
-        return raw.replace(/\"/g, '\'');
+    prepare(raw: string) {
+        return raw || '';
     }
 
     /**
