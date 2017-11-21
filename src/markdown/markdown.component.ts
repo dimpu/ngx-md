@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, Input, PLATFORM_ID, Inject } from '@angular/core';
 import { MarkdownService } from './markdown.service';
 import './prism.languages';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'markdown,[Markdown]',
@@ -20,7 +21,8 @@ export class MarkdownComponent implements OnInit {
 
     constructor(
         private mdService: MarkdownService,
-        private el: ElementRef
+        private el: ElementRef,
+        @Inject(PLATFORM_ID) private platformId: string
     ) { }
 
     ngOnInit() {
@@ -51,7 +53,7 @@ export class MarkdownComponent implements OnInit {
       } else {
         this.el.nativeElement.innerHTML = '';
       }
-      Prism.highlightAll(false);
+      this.highlightContent(false);
     }
 
     /**
@@ -68,7 +70,7 @@ export class MarkdownComponent implements OnInit {
     processRaw() {
       this._md = this.prepare(this.el.nativeElement.innerHTML);
       this.el.nativeElement.innerHTML = this.mdService.compile(this._md);
-      Prism.highlightAll(false);
+      this.highlightContent(false);
     }
 
     /**
@@ -78,9 +80,10 @@ export class MarkdownComponent implements OnInit {
         this._ext = this._path && this._path.split('.').splice(-1).join();
         this.mdService.getContent(this._path)
             .subscribe(data => {
+                console.log(data);
                 this._md = this._ext !== 'md' ? '```' + this._ext + '\n' + data + '\n```' : data;
                 this.el.nativeElement.innerHTML = this.mdService.compile(this.prepare(this._md));
-                Prism.highlightAll(false);
+                this.highlightContent(false);
             },
             err => this.handleError);
     }
@@ -117,5 +120,15 @@ export class MarkdownComponent implements OnInit {
      */
     private trimLeft(line: string) {
         return line.replace(/^\s+|\s+$/g, '');
+    }
+
+    /**
+     * Use Prism to highlight code snippets only on the browser
+     * @param {string} async param passed directly to Prism.highlightAll
+     */
+    private highlightContent(async: boolean): void {
+      if (isPlatformBrowser(this.platformId)) {
+        Prism.highlightAll(async);
+      }
     }
 }
