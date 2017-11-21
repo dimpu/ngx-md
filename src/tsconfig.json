@@ -28,6 +28,9 @@
     "./angular2-markdown.ts",
     "./index.ts"
   ],
+  "typeRoots": [
+      "../node_modules/@types/"
+  ],
   "angularCompilerOptions": {
     "genDir": "../temp/factories",
     "strictMetadataEmit": true,

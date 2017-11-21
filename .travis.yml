@@ -13,7 +13,7 @@ script:
   - npm run build
   - npm run link
   - npm run test-coverage
-  - npm run test
+  # - npm run test
 
 after_success:
   - ./node_modules/.bin/codecov
