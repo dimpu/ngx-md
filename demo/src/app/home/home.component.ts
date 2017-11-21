@@ -109,6 +109,19 @@ import * as extras from 'marked-extras';
   `]
 })
 export class HomeComponent implements OnInit {
+  /*
+  ngContent1:string = [
+    "```javascript",
+    "setTimeout(_ => alert('Hello'));",
+    "```",
+   ].join("\n");  
+  ngContent2:string = [
+    "```html",
+    "<div>Hello html</div>",
+    "```",
+   ].join("\n");  
+  */
+  
   public markdownContent: string = `
 # Headers
 
