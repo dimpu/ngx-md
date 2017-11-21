@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, AfterViewInit, Input } from '@angular/core';
-import { Http } from '@angular/http';
 import { MarkdownService } from './markdown.service';
 import './prism.languages';
 
@@ -21,8 +20,7 @@ export class MarkdownComponent implements OnInit {
 
     constructor(
         private mdService: MarkdownService,
-        private el: ElementRef,
-        private http: Http
+        private el: ElementRef
     ) { }
 
     ngOnInit() {

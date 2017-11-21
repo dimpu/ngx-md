@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Http, Response} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import * as  marked from 'marked';
 
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-
+import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/operator/map'
 
 
 @Injectable()
 export class MarkdownService {
   private _renderer:any = new marked.Renderer();
-  constructor(private http: Http) {
+  constructor() {
     this.extendRenderer();
     this.setMarkedOptions({});
   }
 
   //get the content from remote resource
   getContent(path: string):Observable<any> {
-    return this.http.get(path)
+    return Observable.fromPromise(fetch(path))
        .map(this.extractData)
        .catch(this.handleError);
    }
@@ -29,7 +28,7 @@ export class MarkdownService {
    }
 
    // handle data
-   public extractData(res: Response): string {
+   public extractData(res: any): string {
      return res.text() || '';
    }
 
@@ -54,16 +53,15 @@ export class MarkdownService {
    }
 
    //handle error
-   private handleError(error: Response | any):any {
+   private handleError(error: any):any {
      let errMsg: string;
-     if (error instanceof Response) {
+     if (error instanceof fetch) {
        const body = error.json() || '';
        const err = body.error || JSON.stringify(body);
        errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
      } else {
        errMsg = error.message ? error.message : error.toString();
      }
-     console.error(errMsg);
      return Observable.throw(errMsg);
    }
 

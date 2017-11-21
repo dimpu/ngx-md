@@ -6,7 +6,10 @@
 [![npm][license-badge-url]][license-url]
 [![npm][dep-badge-url]][dep-url]
 
+Supports Angular2,4,5
+
 Source @ [https://github.com/dimpu/angular2-markdown](https://github.com/dimpu/angular2-markdown)
+
 
 ## Table of contents
 1. [Getting Started](#getting-started)
@@ -17,7 +20,7 @@ Source @ [https://github.com/dimpu/angular2-markdown](https://github.com/dimpu/a
 
 # Getting Started
 
-angular2-markdown contains MarkdownModule for Angular 2.
+angular2-markdown contains MarkdownModule for Angular.
 
 Additionally we use [marked.js](https://github.com/chjj/marked/) and [prismjs](http://prismjs.com/) for this component.
 
@@ -190,6 +193,7 @@ npm run demo.serve
 - [x] Variable binding
 - [x] Code refactor
 - [x] Write more unit tests
+- [x] Angular 5 support
 - [ ] Module configuration for markdown settings
 - [ ] Module configuration for prismjs settings
 
@@ -197,7 +201,7 @@ npm run demo.serve
 
 The following is a list of all the people that have helped build this project. Thanks for your contributions!
 
-
+[<img alt="glenngr" src="https://avatars3.githubusercontent.com/u/1271995?s=460&v=4" width="117">](https://github.com/dimpu)
 [<img alt="glenngr" src="https://avatars2.githubusercontent.com/u/8955488?v=3&s=460" width="117">](https://github.com/glenngr)
 [<img alt="paullryan" src="https://avatars2.githubusercontent.com/u/3146164?v=3&s=460" width="117">](https://github.com/paullryan)
 

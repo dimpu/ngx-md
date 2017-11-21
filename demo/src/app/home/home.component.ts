@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MarkdownService } from 'angular2-markdown';
 import * as extras from 'marked-extras';
 
+
 @Component({
   selector: 'md-home',
   encapsulation: ViewEncapsulation.None,

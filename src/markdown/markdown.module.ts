@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { MarkdownComponent } from './markdown.component';
 import { MarkdownService } from './markdown.service';
 import { MarkdownConfig } from './markdown.config';
 
 @NgModule({
-  imports: [CommonModule,HttpModule],
+  imports: [CommonModule],
   declarations: [MarkdownComponent],
   providers: [MarkdownService],
   exports: [MarkdownComponent],

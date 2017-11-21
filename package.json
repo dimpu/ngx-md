@@ -1,6 +1,6 @@
 {
   "name": "angular2-markdown",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "license": "MIT",
   "angular-cli": {},
   "main": "bundles/angular2-markdown.umd.js",
@@ -10,6 +10,9 @@
     "ng",
     "angular",
     "angular2",
+    "angular4",
+    "angular5",
+    "ngx",
     "markdown",
     "prismjs"
   ],
@@ -23,8 +26,9 @@
   },
   "homepage": "https://github.com/dimpu/angular2-markdown#readme",
   "dependencies": {
+    "@angular/cli": "^1.5.3",
     "marked": "^0.3.6",
-    "prismjs": "^1.6.0"
+    "prismjs": "^1.8.4"
   },
   "scripts": {
     "ng": "ng",
@@ -56,15 +60,14 @@
   "private": false,
   "devDependencies": {
     "@angular/cli": "^1.0.0",
-    "@angular/common": "^2.4.0 || ^4.0.3",
-    "@angular/compiler": "^2.4.0 || ^4.0.3",
-    "@angular/compiler-cli": "^4.0.3",
-    "@angular/core": "^2.4.0 || ^4.0.3",
-    "@angular/forms": "^2.4.0 || ^4.0.3",
-    "@angular/http": "^2.4.0 || ^4.0.3",
-    "@angular/platform-browser": "^2.4.0 || ^4.0.3",
-    "@angular/platform-browser-dynamic": "^2.4.0 || ^4.0.3",
-    "@angular/router": "^2.4.0 || ^4.0.3",
+    "@angular/common": "^2.4.0 || ^4.0.3 || ^5.0.0",
+    "@angular/compiler": "^2.4.0 || ^4.0.3 || ^5.0.0",
+    "@angular/compiler-cli": "^4.0.3 || ^5.0.0",
+    "@angular/core": "^2.4.0 || ^4.0.3 || ^5.0.0",
+    "@angular/forms": "^2.4.0 || ^4.0.3 || ^5.0.0",
+    "@angular/platform-browser": "^2.4.0 || ^4.0.3 || ^5.0.0",
+    "@angular/platform-browser-dynamic": "^2.4.0 || ^4.0.3 || ^5.0.0",
+    "@angular/router": "^2.4.0 || ^4.0.3 || ^5.0.0",
     "@types/jasmine": "^2.5.47",
     "@types/marked": "0.0.28",
     "@types/node": "^6.0.70",
@@ -87,10 +90,10 @@
     "ngm-cli": "^0.4.4",
     "npm-run-all": "^4.0.2",
     "protractor": "^5.1.1",
+    "rxjs": "^5.5.2",
     "ts-node": "^2.1.2",
     "tslint": "^4.5.1",
-    "typescript": "^2.2.2",
-    "rxjs": "^5.1.0",
+    "typescript": "^2.4.2",
     "zone.js": "^0.7.6 || ^0.8.5"
   }
 }
