@@ -79,8 +79,7 @@ export class MarkdownComponent implements OnInit {
     onPathChange() {
         this._ext = this._path && this._path.split('.').splice(-1).join();
         this.mdService.getContent(this._path)
-            .subscribe(data => {
-                console.log(data);
+            .then(data => {
                 this._md = this._ext !== 'md' ? '```' + this._ext + '\n' + data + '\n```' : data;
                 this.el.nativeElement.innerHTML = this.mdService.compile(this.prepare(this._md));
                 this.highlightContent(false);

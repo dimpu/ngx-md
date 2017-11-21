@@ -17,10 +17,8 @@ export class MarkdownService {
   }
 
   //get the content from remote resource
-  getContent(path: string):Observable<any> {
-    return Observable.fromPromise(fetch(path))
-       .map(this.extractData)
-       .catch(this.handleError);
+  getContent(path: string):Promise<any> {
+       return fetch(path).then(this.extractData).catch(this.handleError);
    }
 
    public get renderer() {
@@ -29,6 +27,7 @@ export class MarkdownService {
 
    // handle data
    public extractData(res: any): string {
+     console.log(res);
      return res.text() || '';
    }
 
