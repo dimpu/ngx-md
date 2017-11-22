@@ -56,7 +56,7 @@ Is very welcome! And remember, contribution is not only PRs and code, but any he
 
 ## Quick Guide
 
-### app.module.js
+### app.module.ts
 
 ```typescript
 import { NgModule } from '@angular/core';
