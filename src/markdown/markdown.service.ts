@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import * as  marked from 'marked';
+import * as  markedNs from 'marked';
 
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/operator/map'
+
+const marked = markedNs;
 
 
 @Injectable()
