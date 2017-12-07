@@ -17,6 +17,10 @@
     "typeRoots": [
       "../../node_modules/@types"
     ]
-  }
+  },
+  "include": [
+    "../../src/test.ts",
+    "../../src/**/*.spec.ts"
+  ]
 }
 

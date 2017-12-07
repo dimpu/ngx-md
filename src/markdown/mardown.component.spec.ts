@@ -11,8 +11,8 @@ import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 class MockMarkdownService extends MarkdownService {
-  getContent(src: string): Observable<any> {
-    return Observable.of('');
+  getContent(src: string): Promise<any> {
+    return Observable.of('').toPromise();
   }
 }
 
@@ -41,8 +41,8 @@ describe('MarkdownComponent', () => {
   });
 
   describe('ngAfterViewInit', () => {
-    it('should call `onPathChange` when [path] is provieded', ()=>{
-      spyOn(component,'onPathChange');
+    it('should call `onPathChange` when [path] is provieded', () => {
+      spyOn(component, 'onPathChange');
       component.path = 'paht/to/file.md';
       component.ngAfterViewInit();
       expect(component.onPathChange).toHaveBeenCalled();
@@ -51,7 +51,7 @@ describe('MarkdownComponent', () => {
     it('should call `processRaw` method when [data] is not provided', () => {
       spyOn(component, 'processRaw');
       const mockElement = { nativeElement: { innerHTML: 'html-inner' } };
-      component.element = mockElement;
+      component['el'] = mockElement;
       component.path = undefined;
       component.ngAfterViewInit();
 
@@ -83,7 +83,7 @@ function createHostComponent(template : string) : ComponentFixture<HostComponent
 
 describe('MarkdownComponent in host', () => {
   let fixture: ComponentFixture<HostComponent>;
-  let component: HostComponent;
+  const component: HostComponent = undefined;
 
   const ngContent1 = 'html-inner';
   const ngContent2 = '```html\n<div>Hi</div>\n```';

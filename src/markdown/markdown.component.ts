@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, AfterViewInit, Input, PLATFORM_ID, Injec
 import { MarkdownService } from './markdown.service';
 import './prism.languages';
 import { isPlatformBrowser } from '@angular/common';
+declare const Prism:any;
 
 @Component({
     selector: 'markdown,[Markdown]',
@@ -105,7 +106,7 @@ export class MarkdownComponent implements OnInit {
         if (this._ext === 'md' || !this.path) {
             let isCodeBlock = false;
             return raw.split('\n').map((line: string) => {
-                if (this.trimLeft(line).substring(0, 3) === "```") {
+                if (this.trimLeft(line).substring(0, 3) === '```') {
                     isCodeBlock = !isCodeBlock;
                 }
                 return isCodeBlock ? line : line.trim();
@@ -132,8 +133,8 @@ export class MarkdownComponent implements OnInit {
     }
 }
 
-function decodeHtml(html:string) { // https://stackoverflow.com/a/7394787/588521
-    var txt = document.createElement("textarea");
+function decodeHtml(html: string) { // https://stackoverflow.com/a/7394787/588521
+    const txt = document.createElement('textarea');
     txt.innerHTML = html;
     return txt.value;
 }

@@ -10,9 +10,7 @@ import { MockBackend } from '@angular/http/testing';
 import { MarkdownService } from './markdown.service';
 import { Observable } from 'rxjs/Observable';
 
-
-
-beforeEach(()=>{
+beforeEach(() => {
   TestBed.configureTestingModule({
     imports: [HttpModule],
     providers: [
@@ -23,11 +21,11 @@ beforeEach(()=>{
   });
 });
 
-describe('Markdown Service',()=>{
+describe('Markdown Service', () => {
   let http: Http;
   let markdownService: MarkdownService;
   let mockBackend: MockBackend;
-  let response: Response;
+  const response: Response = undefined;
 
 
 
@@ -47,28 +45,26 @@ describe('Markdown Service',()=>{
   });
 
 
-  it('should call http service to get [path] content', () => {
+  it('should call http service to get [path] content', async () => {
 
-    spyOn(http, 'get').and.returnValue(Observable.of());
+    spyOn(window, 'fetch').and.callThrough();
 
     const mockSrc = 'src-x';
 
-    markdownService.getContent(mockSrc);
+    await markdownService.getContent(mockSrc);
 
-    expect(http.get).toHaveBeenCalledWith(mockSrc);
+    expect(window.fetch).toHaveBeenCalledWith(mockSrc);
   });
 
 
-  it('should return data', async(()=>{
+  it('should return data', async () => {
 
     spyOn(markdownService, 'extractData');
 
-    const observable = markdownService.getContent('src-x');
+    await markdownService.getContent('src-x');
 
-    observable.subscribe(responseData => {
-      expect(markdownService.extractData).toHaveBeenCalledWith(response, jasmine.any(Number));
-    });
+    expect(markdownService.extractData).toHaveBeenCalledTimes(1);
 
-  }));
+  });
 
 });

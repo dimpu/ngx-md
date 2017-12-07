@@ -1,3 +1,4 @@
+declare const Prism: any;
 
 import 'prismjs/prism';
 import 'prismjs/components/prism-c';

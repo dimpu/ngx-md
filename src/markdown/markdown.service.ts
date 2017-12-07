@@ -18,7 +18,7 @@ export class MarkdownService {
     this.setMarkedOptions({});
   }
 
-  //get the content from remote resource
+  // get the content from remote resource
   getContent(path: string):Promise<any> {
        return fetch(path).then(this.extractData).catch(this.handleError);
    }
@@ -53,8 +53,8 @@ export class MarkdownService {
       return marked(data);
    }
 
-   //handle error
-   private handleError(error: any):any {
+   // handle error
+   private handleError(error: any): any {
      let errMsg: string;
      if (error instanceof fetch) {
        const body = error.json() || '';
@@ -68,7 +68,7 @@ export class MarkdownService {
 
    // extend marked render to support todo checkbox
    private extendRenderer() {
-     this._renderer.listitem = function(text:string) {
+     this._renderer.listitem = function(text: string) {
       if (/^\s*\[[x ]\]\s*/.test(text)) {
       text = text
         .replace(/^\s*\[ \]\s*/, '<input type="checkbox" style=" vertical-align: middle; margin: 0 0.2em 0.25em -1.6em; font-size: 16px; " disabled> ')
