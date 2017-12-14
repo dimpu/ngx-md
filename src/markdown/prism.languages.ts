@@ -1,6 +1,6 @@
 declare const Prism: any;
 
-import 'prismjs/prism';
+// import 'prismjs/prism';
 import 'prismjs/components/prism-c';
 import 'prismjs/components/prism-cpp';
 import 'prismjs/components/prism-csharp';

@@ -10,9 +10,10 @@ import 'rxjs/add/operator/map'
 const marked = markedNs;
 
 
+
 @Injectable()
 export class MarkdownService {
-  private _renderer:any = new marked.Renderer();
+  private _renderer:any = new markedNs.Renderer();
   constructor() {
     this.extendRenderer();
     this.setMarkedOptions({});
@@ -29,7 +30,6 @@ export class MarkdownService {
 
    // handle data
    public extractData(res: any): string {
-     console.log(res);
      return res.text() || '';
    }
 
@@ -45,12 +45,12 @@ export class MarkdownService {
        smartypants: false
      }, options);
      options.renderer = this._renderer;
-     marked.setOptions(options);
+     markedNs.setOptions(options);
    }
 
    // comple markdown to html
    public compile(data:string) {
-      return marked(data);
+      return markedNs(data);
    }
 
    // handle error

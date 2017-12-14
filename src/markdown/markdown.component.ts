@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, AfterViewInit, Input, PLATFORM_ID, Inject } from '@angular/core';
 import { MarkdownService } from './markdown.service';
-import './prism.languages';
+// import './prism.languages';
 import { isPlatformBrowser } from '@angular/common';
-declare const Prism:any;
+import * as Prism from 'prismjs';
 
 @Component({
     selector: 'markdown,[Markdown]',
