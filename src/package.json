@@ -1,6 +1,6 @@
 {
   "name": "angular2-markdown",
-  "version": "2.2.0",
+  "version": "2.2.2",
   "dependencies": {
     "marked": "^0.3.6",
     "prismjs": "^1.6.0"
