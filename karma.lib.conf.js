@@ -4,7 +4,7 @@
 module.exports = function(config) {
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: "./lib",
+    basePath: "./",
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -18,14 +18,28 @@ module.exports = function(config) {
       require("karma-chrome-launcher"),
       require("karma-jasmine-html-reporter"),
       require("karma-coverage-istanbul-reporter"),
-      require("karma-typescript")
-      // require("@angular/cli/plugins/karma")
+      require("karma-typescript"),
+      require("@angular/cli/plugins/karma")
     ],
     // list of files / patterns to load in the browser
-    files: ["test.ts", "test.spec.ts", "**/*.spec.ts"],
+    files: [
+      // zone.js
+      "node_modules/zone.js/dist/zone.js",
+      "node_modules/zone.js/dist/long-stack-trace-zone.js",
+      "node_modules/zone.js/dist/proxy.js",
+      "node_modules/zone.js/dist/sync-test.js",
+      "node_modules/zone.js/dist/jasmine-patch.js",
+      "node_modules/zone.js/dist/async-test.js",
+      "node_modules/zone.js/dist/fake-async-test.js",
+
+      "test.ts",
+
+      // "test.spec.ts",
+      "lib/**/*.spec.ts"
+    ],
 
     karmaTypescriptConfig: {
-      tsconfig: "./lib/tsconfig.json" // this will get rid of all compiler error messages
+      tsconfig: "./tsconfig.json" // this will get rid of all compiler error messages
     },
 
     // list of files to exclude
@@ -34,7 +48,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "**/*.ts": "karma-typescript"
+      "lib/**/*.ts": "karma-typescript"
     },
     coverageIstanbulReporter: {
       reports: ["html", "lcovonly"],

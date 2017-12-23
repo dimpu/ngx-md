@@ -36,6 +36,7 @@ import { TodoComponent } from "./todo/todo.component";
     ])
   ],
   providers: [],
+  exports: [RouterModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

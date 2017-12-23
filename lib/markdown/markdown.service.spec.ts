@@ -1,4 +1,27 @@
-// import { TestBed, async, inject } from "@angular/core/testing";
+import { TestBed, async, inject, getTestBed } from "@angular/core/testing";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from "@angular/common/http/testing";
+import { MarkdownService } from "./markdown.service";
+
+describe("Markdown Service", () => {
+  let injector: TestBed;
+  let markdownService: MarkdownService;
+  let httpMock: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [MarkdownService]
+    });
+    injector = getTestBed();
+    markdownService = injector.get(MarkdownService);
+    httpMock = injector.get(HttpTestingController);
+  });
+});
+
 // import {
 //   HttpModule,
 //   Http,
@@ -12,38 +35,43 @@
 
 // beforeEach(() => {
 //   TestBed.configureTestingModule({
-//     imports: [HttpModule],
+//     imports: [HttpClientTestingModule],
 //     providers: [
-//       MarkdownService,
-//       MockBackend,
-//       { provide: XHRBackend, useClass: MockBackend }
+//       MarkdownService
+// MockBackend,
+// { provide: XHRBackend, useClass: MockBackend }
 //     ]
 //   });
 // });
 
 // describe("Markdown Service", () => {
-//   let http: Http;
+//   let injector: TestBed;
+//   let http: HttpClient;
 //   let markdownService: MarkdownService;
+//   let httpMock: HttpTestingController;
+
 //   let mockBackend: MockBackend;
 //   let response: Response;
 
-//   beforeEach(() => {
-//     http = TestBed.get(Http);
-//     markdownService = TestBed.get(MarkdownService);
-//     mockBackend = TestBed.get(MockBackend);
+// beforeEach(() => {
+//   injector = getTestBed();
 
-//     const mockResponse = `Data`;
+//   http = TestBed.get(HttpClient);
+//   markdownService = TestBed.get(MarkdownService);
+//   httpMock = injector.get(HttpTestingController);
 
-//     mockBackend.connections.subscribe(connection => {
-//       connection.mockRespond(
-//         new Response(
-//           new ResponseOptions({
-//             body: JSON.stringify(mockResponse)
-//           })
-//         )
-//       );
-//     });
-//   });
+//   //     mockBackend = TestBed.get(MockBackend);
+//   //     const mockResponse = `Data`;
+//   //     mockBackend.connections.subscribe(connection => {
+//   //       connection.mockRespond(
+//   //         new Response(
+//   //           new ResponseOptions({
+//   //             body: JSON.stringify(mockResponse)
+//   //           })
+//   //         )
+//   //       );
+//   //     });
+// });
 
 //   it("should call http service to get [path] content", () => {
 //     spyOn(http, "get").and.returnValue(Observable.of());

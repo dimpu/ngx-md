@@ -1,15 +1,16 @@
-import "whatwg-fetch";
-import { CommonModule } from "@angular/common";
 import { NgModule, ModuleWithProviders } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+
 import { MarkdownComponent } from "./markdown.component";
 import { MarkdownService } from "./markdown.service";
 import { MarkdownConfig } from "./markdown.config";
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
   declarations: [MarkdownComponent],
   providers: [MarkdownService],
-  exports: [MarkdownComponent],
+  exports: [CommonModule, MarkdownComponent, HttpClientModule],
   entryComponents: [MarkdownComponent]
 })
 export class MarkdownModule {

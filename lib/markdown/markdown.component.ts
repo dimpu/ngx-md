@@ -90,7 +90,7 @@ export class MarkdownComponent implements OnInit {
         .split(".")
         .splice(-1)
         .join();
-    this.mdService.getContent(this._path).then(data => {
+    this.mdService.getContent(this._path).subscribe(data => {
       this._md =
         this._ext !== "md" ? "```" + this._ext + "\n" + data + "\n```" : data;
       this.el.nativeElement.innerHTML = this.mdService.compile(
