@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="." />
+    <title>Angualr2 Markdown QuickStart</title>
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.16/system-polyfills.js"></script>
+
+    <script src="https://unpkg.com/zone.js/dist/zone.js"></script>
+    <script src="https://unpkg.com/zone.js/dist/long-stack-trace-zone.js"></script>
+    <script src="https://unpkg.com/reflect-metadata@0.1.3/Reflect.js"></script>
+    <script src="https://unpkg.com/systemjs@0.19.31/dist/system.js"></script>
+
+    <!-- loading angualr2-markdown -->
+    <!-- <script src="../../dist/bundles/angular2-markdown.umd.min.js"></script> -->
+
+    <!-- load system.js config -->
+    <script src="config.js"></script>
+    <script>
+        System.import('app')
+            .catch(console.error.bind(console));
+    </script>
+
+
+</head>
+
+<body>
+    <my-app>
+        loading...
+    </my-app>
+</body>
+
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

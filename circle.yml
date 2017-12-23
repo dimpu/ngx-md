@@ -1,0 +1,21 @@
+general:
+  branches:
+    ignore:
+      - gh-pages
+
+machine:
+  node:
+    version: 9.3.0
+
+dependencies:
+  override:
+    - npm install --dev
+  cache_directories:
+    - ~/.npm
+    - ~/.cache/npm
+
+test:
+  override:
+    - npm run lint
+    - npm run test -- --single-run
+     
