@@ -1,0 +1,12 @@
+{
+  "name": "ngx-md",
+  "version": "3.0.0",
+  "dependencies": {
+    "marked": "^0.3.6",
+    "prismjs": "^1.6.0"
+  },
+  "peerDependencies": {
+    "rxjs": "*",
+    "@angular/core": "*"
+  }
+}
