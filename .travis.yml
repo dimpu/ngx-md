@@ -10,11 +10,9 @@ before_install:
 
 script:
   - npm run lint
+  - npm run lib.link
   - npm run build
-  - npm run link
-  - npm run test-coverage
-  # - npm run test
+  - npm run test
 
 after_success:
-  - ./node_modules/.bin/codecov
-  - npm run test-cross
+  - ./node_modules/.bin/codecov -t 52c569c2-f436-4d30-a204-39bc01ca7aea
