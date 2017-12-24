@@ -1,9 +1,24 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
-import * as markedNs from "marked";
+import { HttpClient, HttpResponse } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
+import "rxjs/add/observable/of";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
+
+import * as markedNs from "marked";
+// import { Observable } from "rxjs/Observable";
+
+// @Injectable()
+// export class MarkdownService {
+//   constructor(private _http: HttpClient) {}
+
+//   getContent(path: string): Observable<object> {
+//     return this._http
+//       .get(path)
+//       .pipe(map((res: HttpResponse<Object>) => res.body));
+//     // .pipe(map((res: HttpResponse<Object>) => res.body));
+//   }
+// }
 
 @Injectable()
 export class MarkdownService {
@@ -14,9 +29,9 @@ export class MarkdownService {
   }
 
   //get the content from remote resource
-  getContent(path: string): Observable<any> {
+  getContent(path: string): Observable<Object> {
     return this._http
-      .get(path)
+      .get(path, { responseType: "text" })
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -26,8 +41,8 @@ export class MarkdownService {
   }
 
   // handle data
-  public extractData(res: any): string {
-    return res.text() || "";
+  public extractData(res: string): string {
+    return res || "";
   }
 
   public setMarkedOptions(options: any) {
