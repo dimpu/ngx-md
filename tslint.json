@@ -16,7 +16,7 @@
     "indent": [true, "spaces"],
     "interface-over-type-literal": true,
     "label-position": true,
-    "max-line-length": [true, 140],
+    "max-line-length": [true, 340],
     "member-access": false,
     "member-ordering": [
       true,
@@ -59,7 +59,7 @@
       "check-whitespace"
     ],
     "prefer-const": true,
-    "quotemark": [true, "single"],
+    "quotemark": [true, "double"],
     "radix": true,
     "semicolon": [true, "always"],
     "triple-equals": [true, "allow-null-check"],
@@ -84,8 +84,8 @@
       "check-separator",
       "check-type"
     ],
-    "directive-selector": [true, "attribute", "ngx", "camelCase"],
-    "component-selector": [true, "element", "ngx", "kebab-case"],
+    "directive-selector": [false, "attribute", "ngx", "camelCase"],
+    "component-selector": [false, "element", "ngx", "kebab-case"],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

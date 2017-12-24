@@ -10,9 +10,10 @@ before_install:
 
 script:
   - npm run lint
+  - npm run lib.build
   - npm run lib.link
-  - npm run build
-  - npm run test
+  - npm run lib.test
+  - npm run demo.build
 
 after_success:
   - ./node_modules/.bin/codecov -t 52c569c2-f436-4d30-a204-39bc01ca7aea

@@ -6,19 +6,6 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 
 import * as markedNs from "marked";
-// import { Observable } from "rxjs/Observable";
-
-// @Injectable()
-// export class MarkdownService {
-//   constructor(private _http: HttpClient) {}
-
-//   getContent(path: string): Observable<object> {
-//     return this._http
-//       .get(path)
-//       .pipe(map((res: HttpResponse<Object>) => res.body));
-//     // .pipe(map((res: HttpResponse<Object>) => res.body));
-//   }
-// }
 
 @Injectable()
 export class MarkdownService {

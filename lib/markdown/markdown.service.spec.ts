@@ -14,25 +14,13 @@ import {
 import { MarkdownService } from "./markdown.service";
 
 describe("Markdown Service", () => {
-  // let injector: TestBed;
-  // let markdownService: MarkdownService;
-  // let httpMock: HttpTestingController;
   let response: HttpResponse<Object>;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, HttpClientTestingModule],
       providers: [MarkdownService]
     });
-    // injector = getTestBed();
-    // markdownService = injector.get(MarkdownService);
-    // httpMock = injector.get(HttpTestingController);
   });
-
-  afterEach(
-    inject([HttpTestingController], (backend: HttpTestingController) => {
-      backend.verify();
-    })
-  );
 
   it(
     `should issue a request`,
@@ -89,108 +77,13 @@ describe("Markdown Service", () => {
           spyOn(mdService, "extractData");
           const observable = mdService.getContent("src-x");
           observable.subscribe(responseData => {
-            expect(mdService.extractData).toHaveBeenCalled();
-            //   expect(mdService.extractData).toHaveBeenCalledWith(
-            //     response,
-            //     jasmine.any(Number)
-            //   );
+            expect(mdService.extractData).toHaveBeenCalledWith(
+              response,
+              jasmine.any(Number)
+            );
           });
         }
       )
     )
   );
-
-  //   it(
-  //     "should return data",
-  //     async(() => {
-  //       spyOn(markdownService, "extractData");
-
-  //       const observable = markdownService.getContent("src-x");
-
-  //       observable.subscribe(responseData => {
-  //         expect(markdownService.extractData).toHaveBeenCalledWith(
-  //           response,
-  //           jasmine.any(Number)
-  //         );
-  //       });
-  //     })
-  //   );
 });
-
-// import {
-//   HttpModule,
-//   Http,
-//   Response,
-//   ResponseOptions,
-//   XHRBackend
-// } from "@angular/http";
-// import { MockBackend } from "@angular/http/testing";
-// import { MarkdownService } from "./markdown.service";
-// import { Observable } from "rxjs/Observable";
-
-// beforeEach(() => {
-//   TestBed.configureTestingModule({
-//     imports: [HttpClientTestingModule],
-//     providers: [
-//       MarkdownService
-// MockBackend,
-// { provide: XHRBackend, useClass: MockBackend }
-//     ]
-//   });
-// });
-
-// describe("Markdown Service", () => {
-//   let injector: TestBed;
-//   let http: HttpClient;
-//   let markdownService: MarkdownService;
-//   let httpMock: HttpTestingController;
-
-//   let mockBackend: MockBackend;
-//   let response: Response;
-
-// beforeEach(() => {
-//   injector = getTestBed();
-
-//   http = TestBed.get(HttpClient);
-//   markdownService = TestBed.get(MarkdownService);
-//   httpMock = injector.get(HttpTestingController);
-
-//   //     mockBackend = TestBed.get(MockBackend);
-//   //     const mockResponse = `Data`;
-//   //     mockBackend.connections.subscribe(connection => {
-//   //       connection.mockRespond(
-//   //         new Response(
-//   //           new ResponseOptions({
-//   //             body: JSON.stringify(mockResponse)
-//   //           })
-//   //         )
-//   //       );
-//   //     });
-// });
-
-//   it("should call http service to get [path] content", () => {
-//     spyOn(http, "get").and.returnValue(Observable.of());
-
-//     const mockSrc = "src-x";
-
-//     markdownService.getContent(mockSrc);
-
-//     expect(http.get).toHaveBeenCalledWith(mockSrc);
-//   });
-
-//   it(
-//     "should return data",
-//     async(() => {
-//       spyOn(markdownService, "extractData");
-
-//       const observable = markdownService.getContent("src-x");
-
-//       observable.subscribe(responseData => {
-//         expect(markdownService.extractData).toHaveBeenCalledWith(
-//           response,
-//           jasmine.any(Number)
-//         );
-//       });
-//     })
-//   );
-// });
