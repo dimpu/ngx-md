@@ -47,7 +47,7 @@ export class MarkdownComponent implements OnInit {
 
   @Input()
   set data(value: string) {
-    if (value) {
+    if (value !== undefined) {
       this._data = value;
       this.onDataChange(value);
     }
@@ -55,7 +55,7 @@ export class MarkdownComponent implements OnInit {
 
   // on input
   onDataChange(data: string) {
-    if (data) {
+    if (data !== undefined) {
       this.el.nativeElement.innerHTML = this.mdService.compile(data);
     } else {
       this.el.nativeElement.innerHTML = "";
