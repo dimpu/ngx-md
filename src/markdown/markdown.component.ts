@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, AfterViewInit, Input, PLATFORM_ID, Inject } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { MarkdownService } from './markdown.service';
 // import './prism.languages';
 import { isPlatformBrowser } from '@angular/common';
@@ -23,6 +24,7 @@ export class MarkdownComponent implements OnInit {
     constructor(
         private mdService: MarkdownService,
         private el: ElementRef,
+        private sanitizer: DomSanitizer,
         @Inject(PLATFORM_ID) private platformId: string
     ) { }
 
@@ -50,7 +52,7 @@ export class MarkdownComponent implements OnInit {
     // on input
     onDataChange(data:string){
       if (data) {
-        this.el.nativeElement.innerHTML = this.mdService.compile(data);
+        this.el.nativeElement.innerHTML = this.sanitizer.bypassSecurityTrustHtml(this.mdService.compile(data));
       } else {
         this.el.nativeElement.innerHTML = '';
       }
