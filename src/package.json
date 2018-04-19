@@ -1,5 +1,5 @@
 {
-  "name": "angular2-markdown",
+  "name": "ngx-md",
   "version": "2.2.2",
   "dependencies": {
     "marked": "^0.3.6",

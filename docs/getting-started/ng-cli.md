@@ -13,18 +13,18 @@ cd my-app
 ng serve
 ```
 
-#### Adding angular2-markdown
+#### Adding ngx-md
 
- - install `angular2-markdown`
+ - install `ngx-md`
 
  ```bash
-   npm install angular2-markdown  --save
+   npm install ngx-md  --save
  ```
 
 - open `src/app/app.module.ts` and add
 
 ```typescript
-import { MarkdownModule } from 'angular2-markdown';
+import { MarkdownModule } from 'ngx-md';
 ...
 
 @NgModule({

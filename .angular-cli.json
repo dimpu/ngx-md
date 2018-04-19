@@ -2,10 +2,10 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
     "version": "1.0.0-beta.32.3",
-    "name": "angular2-markdown"
+    "name": "ngx-md"
   },
   "module":[{
-     "name": "angular2-markdown",
+     "name": "ngx-md",
      "root": "src",
      "outDir": "dist",
      "main":"index.ts",
