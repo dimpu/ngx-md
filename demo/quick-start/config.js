@@ -18,8 +18,8 @@ System.config({
     '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
     '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
     '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
-    //'angular2-markdown': 'npm:angular2-markdown/bundles/angular2-markdown.umd.min.js',
-    'angular2-markdown': '../../dist/bundles/angular2-markdown.umd.min.js',
+    //'ngx-md': 'npm:ngx-md/bundles/ngx-md.umd.min.js',
+    'ngx-md': '../../dist/bundles/ngx-md.umd.min.js',
     'rxjs': 'npm:rxjs',
     'typescript': 'npm:typescript@2.0.3/lib/typescript.js'
   },

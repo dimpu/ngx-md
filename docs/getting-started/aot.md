@@ -1,21 +1,21 @@
-### How to use angular2-markdown in Angular2 with AoT compilation using ngc and rollup
+### How to use ngx-md in Angular2 with AoT compilation using ngc and rollup
 
 The compilation process is described on the official Angular2 website here: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
 
 
 
-#### 1) Install `angular2-markdown`
+#### 1) Install `ngx-md`
 
 ```bash
-npm install angular2-markdown --save
+npm install ngx-md --save
 ```
 
 #### 2) Edit Angular 2 module
 
-Open the module file where you want to include angular2-markdown (most probably `app.module.ts`) and import either specific angular2-markdown modules by listing them in the import statement and then in the import array of the Angular 2 module
+Open the module file where you want to include ngx-md (most probably `app.module.ts`) and import either specific ngx-md modules by listing them in the import statement and then in the import array of the Angular 2 module
 
 ```typescript
-import { MarkdownModule } from 'angular2-markdown';
+import { MarkdownModule } from 'ngx-md';
 ...
 
 @NgModule({
@@ -33,7 +33,7 @@ You have to use CommonJS rollup plugin, which you should be using anyway due to 
 npm install rollup-plugin-commonjs --save --dev
 ```
 
-Then you have to import the CommonJS plugin, include it in the plugins array and add angular2-markdown to the list of modules:
+Then you have to import the CommonJS plugin, include it in the plugins array and add ngx-md to the list of modules:
 
 ```javascript
 ...
@@ -48,7 +48,7 @@ export default {
 		commonjs({
 			include: [
 				'node_modules/rxjs/**',
-				'node_modules/angular2-markdown/**'
+				'node_modules/ngx-md/**'
 			]
 		}),
 		...

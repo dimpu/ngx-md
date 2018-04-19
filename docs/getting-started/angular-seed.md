@@ -1,7 +1,7 @@
 # Documenting full steps to install and test with [angular-seed](https://github.com/mgechev/angular-seed)  
 
   ```bash
-  npm install --save angular2-markdown
+  npm install --save ngx-md
   ```
 
 ### In **project.config.ts**
@@ -15,14 +15,14 @@
   let additionalPackages: ExtendPackages[] = [
   // required for dev build
   {
-    name:'angular2-markdown',
-    path:'node_modules/angular2-markdown/bundles/angular2-markdown.umd.min.js'
+    name:'ngx-md',
+    path:'node_modules/ngx-md/bundles/ngx-md.umd.min.js'
   },    
 
   // required for prod build
   {
-    name:'angular2-markdown/*',
-    path:'node_modules/angular2-markdown/bundles/angular2-markdown.umd.min.js'
+    name:'ngx-md/*',
+    path:'node_modules/ngx-md/bundles/ngx-md.umd.min.js'
   },
   ];    
   this.addPackagesBundles(additionalPackages);
@@ -44,7 +44,7 @@
 ### In **home.module.ts:**
 
   ```
-  import { MarkdownModule } from 'angular2-markdown/alert';
+  import { MarkdownModule } from 'ngx-md/alert';
 
   @NgModule({
     imports: [CommonModule, HomeRoutingModule, SharedModule, MarkdownModule.forRoot()],

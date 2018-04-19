@@ -8,7 +8,7 @@
 
 Supports Angular2,4,5
 
-Source @ [https://github.com/dimpu/angular2-markdown](https://github.com/dimpu/angular2-markdown)
+Source @ [https://github.com/dimpu/ngx-md](https://github.com/dimpu/ngx-md)
 
 
 ## Table of contents
@@ -20,35 +20,35 @@ Source @ [https://github.com/dimpu/angular2-markdown](https://github.com/dimpu/a
 
 # Getting Started
 
-angular2-markdown contains MarkdownModule for Angular.
+ngx-md contains MarkdownModule for Angular.
 
 Additionally we use [marked.js](https://github.com/chjj/marked/) and [prismjs](http://prismjs.com/) for this component.
 
 # Installation instructions
 
-Install `angular2-markdown` from `npm`:
+Install `ngx-md` from `npm`:
 
 ```bash
-npm install angular2-markdown --save
+npm install ngx-md --save
 ```
 or using `yarn`:
 
 ```bash
-yarn add angular2-markdown
+yarn add ngx-md
 ```
 
 ## How to use it with:
 
-- `angular-cli` — please refer to [Getting started with `angular-cli`](https://github.com/dimpu/angular2-markdown/tree/master/docs/getting-started/ng-cli.md)
-- `angular-seed` — please refer to [Getting started with `angular-seed`](https://github.com/dimpu/angular2-markdown/tree/master/docs/getting-started/angular-seed.md)
+- `angular-cli` — please refer to [Getting started with `angular-cli`](https://github.com/dimpu/ngx-md/tree/master/docs/getting-started/ng-cli.md)
+- `angular-seed` — please refer to [Getting started with `angular-seed`](https://github.com/dimpu/ngx-md/tree/master/docs/getting-started/angular-seed.md)
 - `system.js` (and [Angular 2 QuickStart](https://angular.io/docs/ts/latest/quickstart.html)) — please checkout [sample repository](https://github.com/dimpu/angular2-quickstart)
-- `webpack` — you can view our demo page [source code](https://github.com/dimpu/angular2-markdown/tree/master/demo)
+- `webpack` — you can view our demo page [source code](https://github.com/dimpu/ngx-md/tree/master/demo)
 - `plnkr` — sample available [here](http://bit.ly/2kT0z20)
-- `AoT` using `ngc` and `rollup` — please refer to [How to use `angular2-markdown` in Angular 2 with `AoT` compilation using `ngc` and `rollup`](https://github.com/dimpu/angular2-markdown/tree/master/docs/getting-started/aot.md)
+- `AoT` using `ngc` and `rollup` — please refer to [How to use `ngx-md` in Angular 2 with `AoT` compilation using `ngc` and `rollup`](https://github.com/dimpu/ngx-md/tree/master/docs/getting-started/aot.md)
 
 # Usage & Demo
 
-Main source of API documentation and usage scenarios is available at [https://dimpu.github.io/angular2-markdown/](https://dimpu.github.io/angular2-markdown/).
+Main source of API documentation and usage scenarios is available at [https://dimpu.github.io/ngx-md/](https://dimpu.github.io/ngx-md/).
 
 # Contribution
 
@@ -62,7 +62,7 @@ Is very welcome! And remember, contribution is not only PRs and code, but any he
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { MarkdownModule } from 'angular2-markdown';
+import { MarkdownModule } from 'ngx-md';
 import { AppComponent } from '../src/app.component';
 
 @NgModule({
@@ -151,7 +151,7 @@ export class MyComp {
 Marked can be customized/extended by accessing the renderer from the MarkdownService:
 
 ```typescript
-import { MarkdownService } from 'angular2-markdown';
+import { MarkdownService } from 'ngx-md';
 @Component({
     selector='my-comp',
     template: `
@@ -181,7 +181,7 @@ You can find a working example inside the `demo` directory.
 To serve it locally, run:
 
 ```bash
-git clone https://github.com/dimpu/angular2-markdown.git
+git clone https://github.com/dimpu/ngx-md.git
 
 npm i
 
@@ -215,17 +215,17 @@ The following is a list of all the people that have helped build this project. T
 
 
 
-[travis-badge]: https://travis-ci.org/dimpu/angular2-markdown.svg?branch=master
-[travis-badge-url]: https://travis-ci.org/dimpu/angular2-markdown
+[travis-badge]: https://travis-ci.org/dimpu/ngx-md.svg?branch=master
+[travis-badge-url]: https://travis-ci.org/dimpu/ngx-md
 [license-url]: https://opensource.org/licenses/MIT
-[license-badge-url]: https://img.shields.io/npm/l/angular2-markdown.svg
-[npm-url]: https://www.npmjs.com/package/angular2-markdown
-[npm-badge-url]: https://img.shields.io/npm/v/angular2-markdown.svg?style=flat
-[circleci-url]: https://circleci.com/gh/dimpu/angular2-markdown/master
-[circleci-badge-url]: https://circleci.com/gh/dimpu/angular2-markdown/tree/master.svg?style=shield&
-[demo-url]: https://github.com/dimpu/angular2-markdown
-[dep-url]: https://david-dm.org/dimpu/angular2-markdown
-[dep-badge-url]: https://david-dm.org/dimpu/angular2-markdown/status.svg
+[license-badge-url]: https://img.shields.io/npm/l/ngx-md.svg
+[npm-url]: https://www.npmjs.com/package/ngx-md
+[npm-badge-url]: https://img.shields.io/npm/v/ngx-md.svg?style=flat
+[circleci-url]: https://circleci.com/gh/dimpu/ngx-md/master
+[circleci-badge-url]: https://circleci.com/gh/dimpu/ngx-md/tree/master.svg?style=shield&
+[demo-url]: https://github.com/dimpu/ngx-md
+[dep-url]: https://david-dm.org/dimpu/ngx-md
+[dep-badge-url]: https://david-dm.org/dimpu/ngx-md/status.svg
 
 
 
