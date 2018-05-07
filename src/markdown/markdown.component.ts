@@ -13,7 +13,7 @@ import * as Prism from 'prismjs';
         }`
     ]
 })
-export class MarkdownComponent implements OnInit {
+export class MarkdownComponent implements OnInit, AfterViewInit {
     private _path: string;
     private _data: string;
     private _md: any;
@@ -31,16 +31,16 @@ export class MarkdownComponent implements OnInit {
     }
 
     @Input()
-    set path(value:string) {
-      if(value){
+    set path(value: string) {
+      if (value) {
         this._path = value;
         this.onPathChange();
       }
     }
 
     @Input()
-    set data(value:string) {
-      if(value){
+    set data(value: string) {
+      if (value) {
         this._data = value;
         this.onDataChange(value);
       }
@@ -48,7 +48,7 @@ export class MarkdownComponent implements OnInit {
 
 
     // on input
-    onDataChange(data:string){
+    onDataChange(data: string) {
       if (data) {
         this.el.nativeElement.innerHTML = this.mdService.compile(data);
       } else {
@@ -61,7 +61,7 @@ export class MarkdownComponent implements OnInit {
      *  After view init
      */
     ngAfterViewInit() {
-      if(this._path) {
+      if (this._path) {
         this.onPathChange();
       } else if (!this._data) {
         this.processRaw();
@@ -106,7 +106,7 @@ export class MarkdownComponent implements OnInit {
         if (this._ext === 'md' || !this.path) {
             let isCodeBlock = false;
             return raw.split('\n').map((line: string) => {
-                if (this.trimLeft(line).substring(0, 3) === "```") {
+                if (this.trimLeft(line).substring(0, 3) === '```') {
                     isCodeBlock = !isCodeBlock;
                 }
                 return isCodeBlock ? line : line.trim();
@@ -133,8 +133,8 @@ export class MarkdownComponent implements OnInit {
     }
 }
 
-function decodeHtml(html:string) { // https://stackoverflow.com/a/7394787/588521
-    var txt = document.createElement("textarea");
+function decodeHtml(html: string) { // https://stackoverflow.com/a/7394787/588521
+    const txt = document.createElement('textarea');
     txt.innerHTML = html;
     return txt.value;
 }
