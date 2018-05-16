@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MarkdownService } from 'angular2-markdown';
+import { MarkdownService } from 'ngx-md';
 import * as extras from 'marked-extras';
 
 

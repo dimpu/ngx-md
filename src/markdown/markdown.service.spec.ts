@@ -1,61 +1,57 @@
 import { TestBed, async } from '@angular/core/testing';
 import {
-  HttpModule,
-  Http,
-  Response,
-  ResponseOptions,
-  XHRBackend
-} from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
-import { MarkdownService } from './markdown.service';
-import { Observable } from 'rxjs';
+  HttpClientModule,
+  HttpClient,
+  HttpResponse,
+  HttpXhrBackend,
+  HttpBackend
+} from '@angular/common/http';
 
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { MarkdownService } from './markdown.service';
+import { Observable, of } from 'rxjs';
+
+
+let httpClient: HttpClient;
+let httpTestingController: HttpTestingController;
 
 
 beforeEach(() => {
+  
   TestBed.configureTestingModule({
-    imports: [HttpModule],
+    imports: [HttpClientTestingModule],
     providers: [
-      MarkdownService,
-      MockBackend,
-     { provide: XHRBackend, useClass: MockBackend }
+      MarkdownService
     ]
   });
+
+  // Inject the http service and test controller for each test
+  httpClient = TestBed.get(HttpClient);
+  httpTestingController = TestBed.get(HttpTestingController);
+
 });
 
 describe('Markdown Service',() => {
-  let http: Http;
   let markdownService: MarkdownService;
-  let mockBackend: MockBackend;
-  const response: Response;
+  let response: HttpResponse<any>;
 
 
 
   beforeEach(() => {
-    http = TestBed.get(Http);
     markdownService = TestBed.get(MarkdownService);
-    mockBackend = TestBed.get(MockBackend);
-
-
     const mockResponse = `Data`;
-
-    mockBackend.connections.subscribe((connection) => {
-      connection.mockRespond(new Response(new ResponseOptions({
-        body: JSON.stringify(mockResponse)
-      })));
-    });
   });
 
 
   it('should call http service to get [path] content', () => {
 
-    spyOn(http, 'get').and.returnValue(Observable.of());
+    spyOn(httpClient, 'get').and.returnValue(of());
 
     const mockSrc = 'src-x';
 
     markdownService.getContent(mockSrc);
 
-    expect(http.get).toHaveBeenCalledWith(mockSrc);
+    expect(httpClient.get).toHaveBeenCalledWith(mockSrc);
   });
 
 
@@ -65,7 +61,7 @@ describe('Markdown Service',() => {
 
     const observable = markdownService.getContent('src-x');
 
-    observable.subscribe(responseData => {
+    observable.then(responseData => {
       expect(markdownService.extractData).toHaveBeenCalledWith(response, jasmine.any(Number));
     });
 

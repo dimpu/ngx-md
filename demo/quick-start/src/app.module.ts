@@ -2,8 +2,8 @@
 import {Component, NgModule} from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 
-// import angular2-markdown module
-import { MarkdownModule } from 'angular2-markdown';
+// import ngx-md module
+import { MarkdownModule } from 'ngx-md';
 
 @Component({
   selector: 'my-app',

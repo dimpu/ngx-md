@@ -3,7 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular2-markdown": {
+    "ngx-md-demo": {
+      "root": "",
+      "sourceRoot": "demo/src",
+      "projectType": "application"
+      
+    },
+    "ngx-md": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -48,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular2-markdown:build"
+            "browserTarget": "ngx-md:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular2-markdown:build:production"
+              "browserTarget": "ngx-md:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular2-markdown:build"
+            "browserTarget": "ngx-md:build"
           }
         },
         "test": {
@@ -89,7 +95,7 @@
         }
       }
     },
-    "angular2-markdown-e2e": {
+    "ngx-md-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -98,7 +104,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angular2-markdown:serve"
+            "devServerTarget": "ngx-md:serve"
           }
         },
         "lint": {
@@ -113,7 +119,7 @@
       }
     }
   },
-  "defaultProject": "angular2-markdown",
+  "defaultProject": "ngx-md",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

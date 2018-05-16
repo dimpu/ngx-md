@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MarkdownComponent } from './markdown.component';
 import { MarkdownService } from './markdown.service';
 import { Observable, of } from 'rxjs';
@@ -8,8 +8,8 @@ import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 class MockMarkdownService extends MarkdownService {
-  getContent(src: string): Observable<any> {
-    return of('');
+  getContent(src: string): Promise<any> {
+    return new Promise(()=> {});
   }
 }
 
@@ -21,7 +21,7 @@ describe('MarkdownComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpModule],
+      imports: [HttpClientModule],
       declarations: [MarkdownComponent],
       providers: [
         { provide: MarkdownService, useClass: MockMarkdownService },
@@ -48,7 +48,7 @@ describe('MarkdownComponent', () => {
     it('should call `processRaw` method when [data] is not provided', () => {
       spyOn(component, 'processRaw');
       const mockElement = { nativeElement: { innerHTML: 'html-inner' } };
-      component.element = mockElement;
+      // component.ele = mockElement;
       component.path = undefined;
       component.ngAfterViewInit();
 
@@ -85,7 +85,7 @@ describe('MarkdownComponent in host', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpModule],
+      imports: [HttpClientModule],
       declarations: [MarkdownComponent, HostComponent],
       providers: [
         { provide: MarkdownService, useClass: MockMarkdownService },

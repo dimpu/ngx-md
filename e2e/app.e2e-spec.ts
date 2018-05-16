@@ -1,6 +1,6 @@
 import { Angular2MarkdownPage } from './app.po';
 
-describe('angular2-markdown App', () => {
+describe('ngx-md App', () => {
   let page: Angular2MarkdownPage;
 
   beforeEach(() => {
