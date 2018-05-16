@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, inject } from '@angular/core/testing';
 import {
   HttpModule,
   Http,
@@ -8,11 +8,11 @@ import {
 } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 import { MarkdownService } from './markdown.service';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 
 
-beforeEach(() => {
+beforeEach(()=>{
   TestBed.configureTestingModule({
     imports: [HttpModule],
     providers: [
@@ -23,11 +23,11 @@ beforeEach(() => {
   });
 });
 
-describe('Markdown Service',() => {
+describe('Markdown Service',()=>{
   let http: Http;
   let markdownService: MarkdownService;
   let mockBackend: MockBackend;
-  const response: Response;
+  let response: Response;
 
 
 
@@ -59,7 +59,7 @@ describe('Markdown Service',() => {
   });
 
 
-  it('should return data', async(() => {
+  it('should return data', async(()=>{
 
     spyOn(markdownService, 'extractData');
 
