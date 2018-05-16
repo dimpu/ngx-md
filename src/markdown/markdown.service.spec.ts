@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, inject } from '@angular/core/testing';
 import {
   HttpClientModule,
   HttpClient,
@@ -55,7 +55,7 @@ describe('Markdown Service',() => {
   });
 
 
-  it('should return data', async(() => {
+  it('should return data', async(()=>{
 
     spyOn(markdownService, 'extractData');
 
