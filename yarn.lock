@@ -98,9 +98,9 @@
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.0.3.tgz#fb8e6e0aede782bf58730a31d1179b323271816e"
 
-"@angular/http@^2.4.0 || ^4.0.3":
+"@angular/core/http@^2.4.0 || ^4.0.3":
   version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.0.3.tgz#efbb701a215ec7704c021676484b85ed47392f4b"
+  resolved "https://registry.yarnpkg.com/@angular/core/http/-/http-4.0.3.tgz#efbb701a215ec7704c021676484b85ed47392f4b"
 
 "@angular/platform-browser-dynamic@^2.4.0 || ^4.0.3":
   version "4.0.3"

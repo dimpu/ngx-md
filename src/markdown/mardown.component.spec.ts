@@ -2,17 +2,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkdownComponent } from './markdown.component';
 import { MarkdownService } from './markdown.service';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/toPromise';
-import * as marked from 'marked';
+import { Observable, of } from 'rxjs';
 
 import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 class MockMarkdownService extends MarkdownService {
   getContent(src: string): Observable<any> {
-    return Observable.of('');
+    return of('');
   }
 }
 
@@ -41,7 +38,7 @@ describe('MarkdownComponent', () => {
   });
 
   describe('ngAfterViewInit', () => {
-    it('should call `onPathChange` when [path] is provieded', ()=>{
+    it('should call `onPathChange` when [path] is provieded', () => {
       spyOn(component,'onPathChange');
       component.path = 'paht/to/file.md';
       component.ngAfterViewInit();
@@ -51,7 +48,7 @@ describe('MarkdownComponent', () => {
     it('should call `processRaw` method when [data] is not provided', () => {
       spyOn(component, 'processRaw');
       const mockElement = { nativeElement: { innerHTML: 'html-inner' } };
-      // component.ele = mockElement;
+      component.element = mockElement;
       component.path = undefined;
       component.ngAfterViewInit();
 
@@ -74,7 +71,7 @@ describe('MarkdownComponent', () => {
 class HostComponent {
 }
 
-function createHostComponent(template : string) : ComponentFixture<HostComponent> {
+function createHostComponent(template: string): ComponentFixture<HostComponent> {
   TestBed.overrideTemplate(HostComponent, template);
   const fixture = TestBed.createComponent(HostComponent);
   fixture.detectChanges();
@@ -83,9 +80,7 @@ function createHostComponent(template : string) : ComponentFixture<HostComponent
 
 describe('MarkdownComponent in host', () => {
   let fixture: ComponentFixture<HostComponent>;
-  let component: HostComponent;
 
-  const ngContent1 = 'html-inner';
   const ngContent2 = '```html\n<div>Hi</div>\n```';
 
   beforeEach(() => {

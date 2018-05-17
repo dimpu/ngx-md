@@ -4,13 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "ngx-md-demo": {
-      "root": "",
-      "sourceRoot": "demo/src",
-      "projectType": "application"
-      
-    },
-    "ngx-md": {
-      "root": "",
+      "root": "demo",
       "sourceRoot": "src",
       "projectType": "application",
       "architect": {
@@ -114,6 +108,46 @@
               "e2e/tsconfig.json"
             ],
             "exclude": []
+          }
+        }
+      }
+    },
+    "ngx-md": {
+      "root": "projects/ngx-md",
+      "sourceRoot": "projects/ngx-md/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-md/tsconfig.lib.json",
+            "project": "projects/ngx-md/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngx-md/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-md/src/test.ts",
+            "tsConfig": "projects/ngx-md/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-md/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-md/tsconfig.lib.json",
+              "projects/ngx-md/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

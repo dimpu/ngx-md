@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, AfterViewInit, Input, PLATFORM_ID, Inject } from '@angular/core';
-import { MarkdownService } from './markdown.service';
+import { MarkdownService } from './ngx-md.service';
 // import './prism.languages';
 import { isPlatformBrowser } from '@angular/common';
 import * as Prism from 'prismjs';
@@ -124,7 +124,6 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
 
     /**
      * Use Prism to highlight code snippets only on the browser
-     * @param {string} async param passed directly to Prism.highlightAll
      */
     private highlightContent(async: boolean): void {
       if (isPlatformBrowser(this.platformId)) {
