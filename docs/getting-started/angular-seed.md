@@ -57,7 +57,7 @@
 ### In **home.component.html:**
 
   ```
-  <markdown>
+  <ngx-md>
   ## Markdown h2 content
-  </markdown>
+  </ngx-md>
   ```

@@ -49,7 +49,7 @@ you can choose any other theme.
 
 - open `src/app/app.component.html` and add
 ```
-<markdown>
+<ngx-md>
 ## Markdown h2 content
-</markdown>
+</ngx-md>
 ```

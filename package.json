@@ -4,12 +4,12 @@
   "scripts": {
     "ng": "ng",
     "demo.start": "ng serve",
-    "demo.build": "ng build",
+    "demo.build": "ng build --prod",
     "demo.test": "ng test",
     "demo.lint": "ng lint",
     "demo.e2e": "ng e2e",
     "lib.start": "ng serve ngx-md",
-    "lib.build": "ng build ngx-md",
+    "lib.build": "ng build ngx-md --prod",
     "lib.test": "ng test ngx-md",
     "lib.lint": "ng lint ngx-md",
     "lib.e2e": "ng e2e ngx-md"
