@@ -43,7 +43,7 @@ yarn add ngx-md
 - `angular-seed` — please refer to [Getting started with `angular-seed`](https://github.com/dimpu/ngx-md/tree/master/docs/getting-started/angular-seed.md)
 - `system.js` (and [Angular 2 QuickStart](https://angular.io/docs/ts/latest/quickstart.html)) — please checkout [sample repository](https://github.com/dimpu/angular2-quickstart)
 - `webpack` — you can view our demo page [source code](https://github.com/dimpu/ngx-md/tree/master/demo)
-- `plnkr` — sample available [here](http://bit.ly/2kT0z20)
+- `stackblitz` — sample available [here](https://stackblitz.com/edit/ngx-md-exmaple)
 - `AoT` using `ngc` and `rollup` — please refer to [How to use `ngx-md` in Angular 2 with `AoT` compilation using `ngc` and `rollup`](https://github.com/dimpu/ngx-md/tree/master/docs/getting-started/aot.md)
 
 # Usage & Demo
