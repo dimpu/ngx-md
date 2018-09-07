@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { throwError, Observable } from 'rxjs'
+import { throwError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Renderer, setOptions, parse } from 'marked';
 
@@ -19,7 +19,7 @@ export class NgxMdService {
     return this._http.get(path, {responseType: 'text'})
       .pipe(
         map(res => this.extractData(res)),
-        catchError(this.handleError))
+        catchError(this.handleError));
   }
 
    public get renderer() {
@@ -68,8 +68,8 @@ export class NgxMdService {
      this._renderer.listitem = function(text: string) {
       if (/^\s*\[[x ]\]\s*/.test(text)) {
       text = text
-        .replace(/^\s*\[ \]\s*/, '<input type="checkbox" style=" vertical-align: middle; margin: 0 0.2em 0.25em -1.6em; font-size: 16px; " disabled> ')
-        .replace(/^\s*\[x\]\s*/, '<input type="checkbox" style=" vertical-align: middle; margin: 0 0.2em 0.25em -1.6em; font-size: 16px; " checked disabled> ');
+        .replace(/^\s*\[ \]\s*/, '<input type="checkbox" class="md-checkbox" disabled> ')
+        .replace(/^\s*\[x\]\s*/, '<input type="checkbox" class="md-checkbox" checked disabled> ');
           return '<li style="list-style: none">' + text + '</li>';
         } else {
           return '<li>' + text + '</li>';
