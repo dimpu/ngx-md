@@ -38,7 +38,7 @@ describe('NgxMdComponent', () => {
   });
 
   describe('ngAfterViewInit', () => {
-    it('should call `onPathChange` when [path] is provieded', () => {
+    it('should call `onPathChange` when [path] is provided', () => {
       spyOn(component,'onPathChange');
       component.path = 'paht/to/file.md';
       component.ngAfterViewInit();

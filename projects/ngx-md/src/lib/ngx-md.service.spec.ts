@@ -14,67 +14,63 @@ import {
 import { NgxMdService } from './ngx-md.service'
 import { Observable, of } from 'rxjs'
 
-let httpClient: HttpClient
-let httpTestingController: HttpTestingController
-
 describe('NgxMdService', () => {
+  let httpMock: HttpTestingController
+  let markdownService: NgxMdService
+  
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       providers: [NgxMdService]
     })
+    
+    // Inject the http service and test controller for each test
+    httpMock = TestBed.get(HttpTestingController)
   })
-
+  afterEach(() => {
+    httpMock.verify();
+  });
+  
   it(
     'should be created',
     inject([NgxMdService], (service: NgxMdService) => {
       expect(service).toBeTruthy()
     })
   )
-})
-
-beforeEach(() => {
-  TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule],
-    providers: [NgxMdService]
-  })
-
-  // Inject the http service and test controller for each test
-  httpClient = TestBed.get(HttpClient)
-  httpTestingController = TestBed.get(HttpTestingController)
-})
-
-describe('Markdown Service', () => {
-  let markdownService: NgxMdService
-  let response: HttpResponse<any>
-
+  
   beforeEach(() => {
     markdownService = TestBed.get(NgxMdService)
     const mockResponse = `Data`
   })
-
-  it('should call http service to get [path] content', () => {
-    spyOn(httpClient, 'get').and.returnValue(of())
-
-    const mockSrc = 'src-x'
-
-    markdownService.getContent(mockSrc)
-
-    expect(httpClient.get).toHaveBeenCalledWith(mockSrc)
+  
+  it('should call http service to get [path] content', () => {    
+    const TEST_DATA = 'Foo';
+    const TEST_URL = 'src-x';
+    
+    markdownService.getContent(TEST_URL).subscribe(received => {
+      expect(received).toEqual(TEST_DATA);
+    })
+    
+    const req = httpMock.expectOne(TEST_URL);
+    expect(req.request.method).toBe('GET');
+    req.flush(TEST_DATA);
   })
-
+  
   it(
     'should return data',
     async(() => {
       spyOn(markdownService, 'extractData')
 
-      const observable = markdownService.getContent('src-x')
-
-      observable.subscribe(responseData => {
-        expect(markdownService.extractData).toHaveBeenCalledWith(
-          response,
-          jasmine.any(Number)
-        )
+      const TEST_DATA = 'Foo';
+      const TEST_URL = 'src-x';
+      
+      markdownService.getContent(TEST_URL).subscribe(responseData => {
+        expect(markdownService.extractData).toHaveBeenCalledWith(TEST_DATA)
       })
+
+      const req = httpMock.expectOne(TEST_URL);
+      expect(req.request.method).toBe('GET');
+      req.flush(TEST_DATA);
     })
   )
 })
