@@ -16,7 +16,10 @@ export class NgxMdService {
 
   // get the content from remote resource
   getContent(path: string): Observable<any> {
-      return this._http.get(path, {responseType: 'text'}).pipe(map(res => res), catchError(this.handleError))
+    return this._http.get(path, {responseType: 'text'})
+      .pipe(
+        map(res => this.extractData(res)),
+        catchError(this.handleError))
   }
 
    public get renderer() {
@@ -25,7 +28,7 @@ export class NgxMdService {
 
    // handle data
    public extractData(res: any): string {
-     return res.text() || '';
+     return res || '';
    }
 
    public setMarkedOptions(options: any) {
