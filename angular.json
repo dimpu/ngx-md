@@ -126,7 +126,7 @@
       "root": "projects/ngx-md",
       "sourceRoot": "projects/ngx-md/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "ngx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

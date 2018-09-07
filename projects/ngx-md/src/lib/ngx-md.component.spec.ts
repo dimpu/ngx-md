@@ -39,7 +39,7 @@ describe('NgxMdComponent', () => {
 
   describe('ngAfterViewInit', () => {
     it('should call `onPathChange` when [path] is provided', () => {
-      spyOn(component,'onPathChange');
+      spyOn(component, 'onPathChange');
       component.path = 'paht/to/file.md';
       component.ngAfterViewInit();
       expect(component.onPathChange).toHaveBeenCalled();
@@ -67,7 +67,7 @@ describe('NgxMdComponent', () => {
 
 });
 
-@Component({ selector: 'host-for-test', template: '' })
+@Component({ selector: 'ngx-md-host-for-test', template: '' })
 class HostComponent {
 }
 
