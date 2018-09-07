@@ -51,8 +51,11 @@ export class NgxMdService {
   }
 
   // comple markdown to html
-  public compile(data: string) {
-    return this._domSanitizer.sanitize(SecurityContext.HTML, parse(data).trim());
+  public compile(data: string, sanitize = true) {
+    return this._domSanitizer.sanitize(
+      sanitize ? SecurityContext.HTML : SecurityContext.NONE,
+      parse(data).trim()
+    );
   }
 
   // handle error
