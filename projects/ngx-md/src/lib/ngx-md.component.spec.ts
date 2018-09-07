@@ -65,6 +65,24 @@ describe('NgxMdComponent', () => {
     });
   });
 
+  describe('XSS protection', () => {
+    it('should call service with sanitize enabled', () => {
+      spyOn(markdownService, 'compile');
+
+      component.sanitizeHtml = true;
+      component.data = 'Foo';
+
+      expect(markdownService.compile).toHaveBeenCalledWith('Foo', true);
+    });
+    it('should call service with sanitize disabled', () => {
+      spyOn(markdownService, 'compile');
+
+      component.sanitizeHtml = false;
+      component.data = 'Bar';
+
+      expect(markdownService.compile).toHaveBeenCalledWith('Bar', false);
+    });
+  });
 });
 
 @Component({ selector: 'ngx-md-host-for-test', template: '' })
