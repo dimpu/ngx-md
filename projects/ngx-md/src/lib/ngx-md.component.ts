@@ -10,6 +10,9 @@ import * as Prism from 'prismjs';
     styles: [
         `.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
             background: none;
+        }
+        .md-checkbox{
+            vertical-align: middle; margin: 0 0.2em 0.25em -1.6em; font-size: 16px;
         }`
     ]
 })
@@ -25,8 +28,6 @@ export class NgxMdComponent implements  AfterViewInit {
         private _el: ElementRef,
         @Inject(PLATFORM_ID) private platformId: string
     ) { }
-
-   
 
     @Input()
     set path(value: string) {
@@ -104,6 +105,7 @@ export class NgxMdComponent implements  AfterViewInit {
         if (this._ext === 'md' || !this.path) {
             let isCodeBlock = false;
             return raw.split('\n').map((line: string) => {
+                // If the first non-blank chars are an opening/closing code block, toggle the flag
                 if (this.trimLeft(line).substring(0, 3) === '```') {
                     isCodeBlock = !isCodeBlock;
                 }
