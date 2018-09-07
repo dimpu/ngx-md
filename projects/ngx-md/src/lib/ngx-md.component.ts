@@ -46,10 +46,16 @@ export class NgxMdComponent implements  AfterViewInit {
     }
 
 
+    /**
+     * Boolean indicating if the markdown content should be sanitized to avoid script injections
+     */
+    @Input() public sanitizeHtml = true;
+
+
     // on input
     onDataChange(data: string) {
       if (data) {
-        this._el.nativeElement.innerHTML = this._mdService.compile(data);
+        this._el.nativeElement.innerHTML = this._mdService.compile(data, this.sanitizeHtml);
       } else {
         this._el.nativeElement.innerHTML = '';
       }
@@ -69,7 +75,7 @@ export class NgxMdComponent implements  AfterViewInit {
 
     processRaw() {
       this._md = this.prepare(decodeHtml(this._el.nativeElement.innerHTML));
-      this._el.nativeElement.innerHTML = this._mdService.compile(this._md);
+      this._el.nativeElement.innerHTML = this._mdService.compile(this._md, this.sanitizeHtml);
       this.highlightContent(false);
     }
 
@@ -81,7 +87,7 @@ export class NgxMdComponent implements  AfterViewInit {
         this._mdService.getContent(this._path)
             .subscribe(data => {
                 this._md = this._ext !== 'md' ? '```' + this._ext + '\n' + data + '\n```' : data;
-                this._el.nativeElement.innerHTML = this._mdService.compile(this.prepare(this._md));
+                this._el.nativeElement.innerHTML = this._mdService.compile(this.prepare(this._md), this.sanitizeHtml);
                 this.highlightContent(false);
             },
             err => this.handleError);
