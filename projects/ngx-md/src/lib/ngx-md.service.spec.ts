@@ -73,4 +73,16 @@ describe('NgxMdService', () => {
       req.flush(TEST_DATA);
     })
   );
+
+  describe('XSS protection', () => {
+    it('should not change safe links', () => {
+      expect(markdownService.compile('[test](foo)').trim()).toEqual('<p><a href="foo">test</a></p>');
+      expect(markdownService.compile('[test](http://example.com)').trim()).toEqual('<p><a href="http://example.com">test</a></p>');
+      expect(markdownService.compile('[test](mailto:foo@example.com)').trim()).toEqual('<p><a href="mailto:foo@example.com">test</a></p>');
+    });
+    it('should change unsafe links', () => {
+      expect(markdownService.compile('[Click Me](javascript:alert(&#39;Injected!&#39;%29)').trim())
+        .toEqual('<p><a href="unsafe:javascript:alert(\'Injected!\'%29">Click Me</a></p>');
+    });
+  });
 });
