@@ -1,0 +1,29 @@
+sudo: false
+dist: trusty
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  chrome: stable
+
+node_js:
+  - "8"
+  - "10"
+
+matrix:
+  fast_finish: true
+
+before_install:
+  - npm install npm@latest -g
+  - npm cache verify
+  - npm prune
+  - npm update
+
+install:
+  - npm install
+
+script:
+  - npm run ci:travis
