@@ -32,6 +32,7 @@
     "demo.lint": "ng lint",
     "demo.e2e": "ng e2e",
     "demo.pretty": "prettier --config ./.prettierrc --write ./src/**/*.ts",
+    "deploy": "ng build --base-href=/ngx-md/ --prod && gh-pages -d dist/ngx-md-demo",
     "lib.start": "ng serve ngx-md",
     "lib.build": "ng build ngx-md",
     "lib.test": "ng test ngx-md",
@@ -39,7 +40,7 @@
     "lib.pretty": "prettier --config ./.prettierrc --write ./projects/ngx-md/src/**/*.ts",
     "lib.prettier.watch": "onchange 'projects/ngx-md/src**/*.ts' -- prettier --write {{changed}}",
     "demo.prettier.watch": "onchange 'src/app/**/*.ts' -- prettier --write {{changed}}",
-    "ci:travis": "npm run lib.lint && npm run lib.test && npm run lib.build" 
+    "ci:travis": "npm run lib.lint && npm run lib.test && npm run lib.build"
   },
   "private": true,
   "dependencies": {
@@ -70,6 +71,7 @@
     "@types/node": "~8.9.4",
     "@types/prismjs": "^1.9.0",
     "codelyzer": "~4.3.0",
+    "gh-pages": "^2.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",

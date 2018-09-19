@@ -23,13 +23,26 @@ import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    TablesComponent,
+    PathComponent,
+    VariableBindComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    NgxMdModule.forRoot(),
+    RouterModule.forRoot([
+           { path: '', component: HomeComponent },
+           { path: 'home', component: HomeComponent },
+           { path: 'tables', component: TablesComponent },
+           { path: 'path', component: PathComponent },
+           { path: 'live', component: VariableBindComponent },
+           { path: 'todo', component: TodoComponent }
+       ])
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

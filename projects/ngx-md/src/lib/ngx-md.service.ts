@@ -27,7 +27,7 @@ export class NgxMdService {
     );
   }
 
-  public get renderer() {
+  public get renderer(): Renderer {
     return this._renderer;
   }
 
