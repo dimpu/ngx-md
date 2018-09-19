@@ -4,8 +4,8 @@
   "newProjectRoot": "projects",
   "projects": {
     "ngx-md-demo": {
-      "root": "demo",
-      "sourceRoot": "demo/src",
+      "root": "",
+      "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
@@ -18,16 +18,16 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/ngx-md-demo",
-            "index": "demo/src/index.html",
-            "main": "demo/src/main.ts",
-            "polyfills": "demo/src/polyfills.ts",
-            "tsConfig": "demo/src/tsconfig.app.json",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "demo/src/favicon.ico",
-              "demo/src/assets"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "demo/src/styles.scss",
+              "src/styles.scss",
               "node_modules/prismjs/themes/prism-okaidia.css"
             ],
             "scripts": []
@@ -36,8 +36,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "demo/src/environments/environment.ts",
-                  "with": "demo/src/environments/environment.prod.ts"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -72,17 +72,17 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "demo/src/test.ts",
-            "polyfills": "demo/src/polyfills.ts",
-            "tsConfig": "demo/src/tsconfig.spec.json",
-            "karmaConfig": "demo/src/karma.conf.js",
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "demo/src/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
-              "demo/src/favicon.ico",
-              "demo/src/assets"
+              "src/favicon.ico",
+              "src/assets"
             ]
           }
         },
@@ -90,8 +90,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "demo/src/tsconfig.app.json",
-              "demo/src/tsconfig.spec.json"
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -138,6 +138,41 @@
             "production": {
               "project": "projects/ngx-md/ng-package.prod.json"
             }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-md/src/test.ts",
+            "tsConfig": "projects/ngx-md/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-md/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-md/tsconfig.lib.json",
+              "projects/ngx-md/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-md": {
+      "root": "projects/ngx-md",
+      "sourceRoot": "projects/ngx-md/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-md/tsconfig.lib.json",
+            "project": "projects/ngx-md/ng-package.json"
           }
         },
         "test": {
