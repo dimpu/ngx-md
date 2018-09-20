@@ -27,17 +27,15 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
-      
-      - run: npm run lib.lint
-      
-      - run: npm run lib.test
-
-      - run: npm build ngx-md --prod
-
+    
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm  test
+      - run: npm run lib.lint
+      
+      - run: npm run lib.test
+
+      - run: npm build ngx-md

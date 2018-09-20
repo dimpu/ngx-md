@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 dist: trusty
 language: node_js
 
@@ -10,7 +10,6 @@ addons:
   chrome: stable
 
 node_js:
-  - "8"
   - "10"
 
 matrix:
@@ -24,6 +23,7 @@ before_install:
 
 install:
   - npm install
+  - npm run lib.build
 
 script:
   - npm run ci:travis

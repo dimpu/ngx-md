@@ -39,9 +39,9 @@
     "lib.lint": "ng lint ngx-md",
     "lib.pretty": "prettier --config ./.prettierrc --write ./projects/ngx-md/src/**/*.ts",
     "lib.prettier.watch": "onchange 'projects/ngx-md/src**/*.ts' -- prettier --write {{changed}}",
-    "prepublish":"npm version patch && node ./scripts/pre-publish-hook.js && cd dist/ngx-md && npm publish && cd ../../",
+    "prepublishOnly":"npm version patch && node ./scripts/pre-publish-hook.js && cd dist/ngx-md && npm publish && cd ../../",
     "demo.prettier.watch": "onchange 'src/app/**/*.ts' -- prettier --write {{changed}}",
-    "ci:travis": "npm run lib.lint && npm run lib.test && npm run lib.build"
+    "ci:travis": "npm run lib.lint && ng test ngx-md --watch=false && npm run lib.build"
   },
   "private": true,
   "dependencies": {
