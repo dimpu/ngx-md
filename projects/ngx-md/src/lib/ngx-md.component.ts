@@ -25,6 +25,7 @@ export class NgxMdComponent implements  AfterViewInit {
     private _ext: string;
     changeLog: string[] = [];
     errror: EventEmitter<any>  = new EventEmitter<any>();
+    loaded: EventEmitter<any>  = new EventEmitter<any>();
 
     constructor(
         private _mdService: NgxMdService,
@@ -89,6 +90,7 @@ export class NgxMdComponent implements  AfterViewInit {
         this._ext = this._path && this._path.split('.').splice(-1).join();
         this._mdService.getContent(this._path).pipe(catchError(this.handleError))
             .subscribe(data => {
+                this.loaded.emit(data);
                 this._md = this._ext !== 'md' ? '```' + this._ext + '\n' + data + '\n```' : data;
                 this._el.nativeElement.innerHTML = this._mdService.compile(this.prepare(this._md), this.sanitizeHtml);
                 this.highlightContent(false);
