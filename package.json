@@ -1,6 +1,6 @@
 {
   "name": "ngx-md",
-  "version": "6.0.0",
+  "version": "6.0.2",
   "author": {
     "name": "Dimpu Aravind Buddha",
     "email": "buddhaaravind@gmail.com",
@@ -39,6 +39,7 @@
     "lib.lint": "ng lint ngx-md",
     "lib.pretty": "prettier --config ./.prettierrc --write ./projects/ngx-md/src/**/*.ts",
     "lib.prettier.watch": "onchange 'projects/ngx-md/src**/*.ts' -- prettier --write {{changed}}",
+    "prepublish":"npm version patch && node ./scripts/pre-publish-hook.js && cd dist/ngx-md && npm publish && cd ../../",
     "demo.prettier.watch": "onchange 'src/app/**/*.ts' -- prettier --write {{changed}}",
     "ci:travis": "npm run lib.lint && npm run lib.test && npm run lib.build"
   },
@@ -54,6 +55,7 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
+    "json-align": "^0.1.0",
     "marked": "^0.5.0",
     "prismjs": "^1.15.0",
     "rxjs": "~6.2.0",
@@ -74,6 +76,7 @@
     "gh-pages": "^2.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
+    "jsonfile": "^5.0.0",
     "karma": "~3.0.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
