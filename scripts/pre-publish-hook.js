@@ -14,6 +14,7 @@ npmJsonObj.bugs = mainJsonObj.bugs;
 npmJsonObj.homepage = mainJsonObj.homepage;
 npmJsonObj.keywords = mainJsonObj.keywords;
 npmJsonObj.license = mainJsonObj.license;
+npmJsonObj.private = false;
 npmJsonObj.dependencies.marked = mainJsonObj.dependencies.marked;
 npmJsonObj.dependencies.prismjs = mainJsonObj.dependencies.prismjs;
 
