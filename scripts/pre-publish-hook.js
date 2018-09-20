@@ -19,9 +19,11 @@ npmJsonObj.dependencies.marked = mainJsonObj.dependencies.marked;
 npmJsonObj.dependencies.prismjs = mainJsonObj.dependencies.prismjs;
 
 
-jsonfile.writeFile(npmJsonFile, npmJsonObj, { flag: 'w', spaces: 2, EOL: '\r\n' }, function (err) {
-    if (err) console.error(err)
-});
+jsonfile.writeFileSync(npmJsonFile, npmJsonObj, { flag: 'w', spaces: 2, EOL: '\r\n' })
+
+// , function (err) {
+//     if (err) console.error(err)
+// });
 
 
 // Add readme.md file
