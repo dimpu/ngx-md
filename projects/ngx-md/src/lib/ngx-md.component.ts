@@ -1,8 +1,10 @@
 
-import { Component, ElementRef, OnInit, AfterViewInit, Input, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, Input, PLATFORM_ID, Inject, EventEmitter } from '@angular/core';
 import { NgxMdService } from './ngx-md.service';
 import { isPlatformBrowser } from '@angular/common';
 import * as Prism from 'prismjs';
+import { Subscribable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
     selector: 'markdown,[Markdown],ngx-md,[NgxMd]',
@@ -22,6 +24,7 @@ export class NgxMdComponent implements  AfterViewInit {
     private _md: any;
     private _ext: string;
     changeLog: string[] = [];
+    errror: EventEmitter<any>  = new EventEmitter<any>();
 
     constructor(
         private _mdService: NgxMdService,
@@ -84,21 +87,21 @@ export class NgxMdComponent implements  AfterViewInit {
      */
     onPathChange() {
         this._ext = this._path && this._path.split('.').splice(-1).join();
-        this._mdService.getContent(this._path)
+        this._mdService.getContent(this._path).pipe(catchError(this.handleError))
             .subscribe(data => {
                 this._md = this._ext !== 'md' ? '```' + this._ext + '\n' + data + '\n```' : data;
                 this._el.nativeElement.innerHTML = this._mdService.compile(this.prepare(this._md), this.sanitizeHtml);
                 this.highlightContent(false);
-            },
-            err => this.handleError);
+            });
     }
 
     /**
      * catch http error
      */
-    private handleError(error: any): Promise<any> {
+    private handleError(error: any): Subscribable<any> {
+        this.errror.emit(error);
         console.error('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
+        return error.message || error;
     }
 
     /**
