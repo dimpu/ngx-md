@@ -19,18 +19,18 @@ import { catchError } from 'rxjs/operators';
     ]
 })
 export class NgxMdComponent implements  AfterViewInit {
-    private _path: string;
-    private _data: string;
-    private _md: any;
-    private _ext: string;
+    _path: string;
+    _data: string;
+    _md: any;
+    _ext: string;
     changeLog: string[] = [];
     errror: EventEmitter<any>  = new EventEmitter<any>();
     loaded: EventEmitter<any>  = new EventEmitter<any>();
 
     constructor(
-        private _mdService: NgxMdService,
-        private _el: ElementRef,
-        @Inject(PLATFORM_ID) private platformId: string
+        public _mdService: NgxMdService,
+        public _el: ElementRef,
+        @Inject(PLATFORM_ID) public platformId: string
     ) { }
 
     @Input()
