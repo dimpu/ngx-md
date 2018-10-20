@@ -28,21 +28,21 @@ import { TodoComponent } from './todo/todo.component';
     TablesComponent,
     PathComponent,
     VariableBindComponent,
-    TodoComponent
+    TodoComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgxMdModule.forRoot(),
     RouterModule.forRoot([
-           { path: '', component: HomeComponent },
-           { path: 'home', component: HomeComponent },
-           { path: 'tables', component: TablesComponent },
-           { path: 'path', component: PathComponent },
-           { path: 'live', component: VariableBindComponent },
-           { path: 'todo', component: TodoComponent }
-       ])
+      { path: '', component: HomeComponent },
+      { path: 'home', component: HomeComponent },
+      { path: 'tables', component: TablesComponent },
+      { path: 'path', component: PathComponent },
+      { path: 'live', component: VariableBindComponent },
+      { path: 'todo', component: TodoComponent },
+    ]),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
