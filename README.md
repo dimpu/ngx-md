@@ -6,7 +6,7 @@
 [![npm][license-badge-url]][license-url]
 [![npm][dep-badge-url]][dep-url]
 
-Supports Angular2,4,5,6 
+Supports Angular2,4,5,6,7
 
 Source @ [https://github.com/dimpu/ngx-md](https://github.com/dimpu/ngx-md)
 
