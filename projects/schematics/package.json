@@ -1,0 +1,20 @@
+{
+  "name": "schematics",
+  "version": "1.0.0",
+  "description": "A blank schematics",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "Dimpu Aravind Buddha",
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "peerDependencies": {
+    "@angular-devkit/core": "^0.6.8",
+    "@angular-devkit/schematics": "^0.6.8",
+    "typescript": "^2.5.2"
+  }
+}

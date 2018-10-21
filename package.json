@@ -34,14 +34,15 @@
     "demo.pretty": "prettier --config ./.prettierrc --write ./src/**/*.ts",
     "deploy": "ng build --base-href=/ngx-md/ --prod && gh-pages -d dist/ngx-md-demo",
     "lib.start": "ng serve ngx-md",
-    "lib.build": "ng build ngx-md",
+    "lib.build": "ng build ngx-md && npm run schematics.build && node ./scripts/pre-publish-hook.js",
     "lib.test": "ng test ngx-md",
     "lib.lint": "ng lint ngx-md",
     "lib.pretty": "prettier --config ./.prettierrc --write ./projects/ngx-md/src/**/*.ts",
     "lib.prettier.watch": "onchange 'projects/ngx-md/src**/*.ts' -- prettier --write {{changed}}",
     "prepublishOnly": "npm run lib.build && npm version patch && node ./scripts/pre-publish-hook.js && cd dist/ngx-md && npm publish && cd ../../",
     "demo.prettier.watch": "onchange 'src/app/**/*.ts' -- prettier --write {{changed}}",
-    "ci:travis": "npm run lib.lint && ng test ngx-md --watch=false && npm run lib.build"
+    "ci:travis": "npm run lib.lint && ng test ngx-md --watch=false && npm run lib.build",
+    "schematics.build": "tsc -p projects/schematics/tsconfig.json && webpack"
   },
   "private": true,
   "dependencies": {
@@ -64,6 +65,8 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
     "@angular-devkit/build-ng-packagr": "~0.8.0",
+    "@angular-devkit/core": "^7.0.2",
+    "@angular-devkit/schematics": "^7.0.2",
     "@angular/cli": "~7.0.2",
     "@angular/compiler-cli": "^7.0.0",
     "@angular/language-service": "^7.0.0",
@@ -73,6 +76,7 @@
     "@types/node": "~8.9.4",
     "@types/prismjs": "^1.9.0",
     "codelyzer": "~4.3.0",
+    "copy-webpack-plugin": "^4.5.4",
     "gh-pages": "^2.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -87,10 +91,14 @@
     "prettier": "1.14.3",
     "prettier-tslint": "^0.4.0",
     "protractor": "~5.4.0",
+    "schematics-utilities": "^1.1.1",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
-    "typescript": "^3.1.3"
+    "typescript": "^3.1.3",
+    "webpack": "^4.21.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }
