@@ -1,5 +1,5 @@
 
-import { Component, ElementRef, OnInit, AfterViewInit, Input, PLATFORM_ID, Inject, EventEmitter } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, Input, PLATFORM_ID, Inject, Output, EventEmitter } from '@angular/core';
 import { NgxMdService } from './ngx-md.service';
 import { isPlatformBrowser } from '@angular/common';
 import * as Prism from 'prismjs';
@@ -24,8 +24,8 @@ export class NgxMdComponent implements  AfterViewInit {
     _md: any;
     _ext: string;
     changeLog: string[] = [];
-    errror: EventEmitter<any>  = new EventEmitter<any>();
-    loaded: EventEmitter<any>  = new EventEmitter<any>();
+    @Output() error: EventEmitter<any>  = new EventEmitter<any>();
+    @Output() loaded: EventEmitter<any>  = new EventEmitter<any>();
 
     constructor(
         public _mdService: NgxMdService,
@@ -101,7 +101,7 @@ export class NgxMdComponent implements  AfterViewInit {
      * catch http error
      */
     private handleError(error: any): Subscribable<any> {
-        this.errror.emit(error);
+        this.error.emit(error);
         console.error('An error occurred', error); // for demo purposes only
         return error.message || error;
     }
