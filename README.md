@@ -167,7 +167,7 @@ export class MyComp {
 Marked can be customized/extended by accessing the renderer from the MarkdownService:
 
 ```typescript
-import { MarkdownService } from 'ngx-md';
+import { NgxMdService } from 'ngx-md';
 @Component({
     selector='my-comp',
     template: `
@@ -179,7 +179,7 @@ import { MarkdownService } from 'ngx-md';
     `,
 })
 export class MyComp {
-  constructor(private _markdown: MarkdownService) {}
+  constructor(private _markdown: NgxMdService) {}
 
   ngOnInit() {
     this._markdown.renderer.blockquote = (quote: string) => {
