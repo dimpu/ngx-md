@@ -1,6 +1,6 @@
 {
   "name": "ngx-md",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "author": {
     "name": "Dimpu Aravind Buddha",
     "email": "buddhaaravind@gmail.com",
@@ -43,7 +43,6 @@
     "demo.prettier.watch": "onchange 'src/app/**/*.ts' -- prettier --write {{changed}}",
     "ci:travis": "npm run lib.lint && ng test ngx-md --watch=false && npm run lib.build"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^7.0.0",
     "@angular/common": "^7.0.0",
