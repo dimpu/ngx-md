@@ -212,7 +212,8 @@ npm run demo.serve
 - [x] Variable binding
 - [x] Code refactor
 - [x] Write more unit tests
-- [x] Angular 5 support
+- [x] Angular 5,6,7 support
+- [ ] Angular schemantics support
 - [ ] Module configuration for markdown settings
 - [ ] Module configuration for prismjs settings
 
