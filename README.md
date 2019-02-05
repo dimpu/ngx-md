@@ -143,6 +143,9 @@ import 'prismjs/components/prism-perl';
 (see additional details about variable binding in the next section) -->
 
 <ngx-md [path]="urlVariable"></ngx-md>
+
+<ngx-md [path]="urlVariable" (loaded)="onLoad($event)" (error)="onError($event)"></ngx-md>
+
 ```
 
 ## Variable binding
