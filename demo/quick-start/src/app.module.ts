@@ -1,9 +1,10 @@
 //our root app component
-import {Component, NgModule} from '@angular/core'
-import { BrowserModule } from '@angular/platform-browser'
+import {Component, NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 // import ngx-md module
 import { NgxMdModule } from 'ngx-md';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'my-app',
@@ -19,7 +20,7 @@ export class AppComponent {
 }
 
 @NgModule({
-  imports: [BrowserModule,NgxMdModule.forRoot()],
+  imports: [BrowserModule, HttpClientModule, NgxMdModule.forRoot()],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })

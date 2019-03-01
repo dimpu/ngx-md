@@ -19,6 +19,7 @@ import { TablesComponent } from './tables/tables.component';
 import { PathComponent } from './path/path.component';
 import { VariableBindComponent } from './variable-bind/variable-bind.component';
 import { TodoComponent } from './todo/todo.component';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app.router.module';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { AppRoutingModule } from './app.router.module';
     TodoComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     NgxMdModule.forRoot(),
