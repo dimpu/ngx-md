@@ -14,12 +14,12 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NgxMdModule } from 'ngx-md';
-import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home';
 import { TablesComponent } from './tables/tables.component';
 import { PathComponent } from './path/path.component';
 import { VariableBindComponent } from './variable-bind/variable-bind.component';
 import { TodoComponent } from './todo/todo.component';
+import { AppRoutingModule } from './app.router.module';
 
 @NgModule({
   declarations: [
@@ -34,14 +34,7 @@ import { TodoComponent } from './todo/todo.component';
     BrowserModule,
     FormsModule,
     NgxMdModule.forRoot(),
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'home', component: HomeComponent },
-      { path: 'tables', component: TablesComponent },
-      { path: 'path', component: PathComponent },
-      { path: 'live', component: VariableBindComponent },
-      { path: 'todo', component: TodoComponent },
-    ]),
+    AppRoutingModule,
   ],
   bootstrap: [AppComponent],
 })

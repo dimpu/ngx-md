@@ -1,5 +1,5 @@
 import { Injectable, SecurityContext } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Renderer, setOptions, parse } from 'marked';
@@ -59,12 +59,10 @@ export class NgxMdService {
   }
 
   // handle error
-  private handleError(error: any): any {
+  private handleError(error: HttpErrorResponse): any {
     let errMsg: string;
     if (error instanceof fetch) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+      errMsg = `${error.status} - ${error.statusText || ''} ${error.url}`;
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
