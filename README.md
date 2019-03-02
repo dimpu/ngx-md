@@ -59,16 +59,20 @@ Is very welcome! And remember, contribution is not only PRs and code, but any he
 
 ### app.module.ts
 
+This library has dependency on **HttpClientModule**. It should be always provided in your application.
+
 ```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgxMdModule } from 'ngx-md';
+import { HttpClientModule } from '@angular/common'
 import { AppComponent } from '../src/app.component';
 
 @NgModule({
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgxMdModule.forRoot(),
   ],
   declarations: [AppComponent],
