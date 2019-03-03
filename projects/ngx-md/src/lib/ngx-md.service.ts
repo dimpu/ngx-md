@@ -60,12 +60,7 @@ export class NgxMdService {
 
   // handle error
   private handleError(error: HttpErrorResponse): any {
-    let errMsg: string;
-    if (error instanceof fetch) {
-      errMsg = `${error.status} - ${error.statusText || ''} ${error.url}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
+    const errMsg = error.message ? error.message : error.toString();
     return throwError(errMsg);
   }
 
