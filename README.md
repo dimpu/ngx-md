@@ -217,6 +217,9 @@ npm run demo.serve
 - [ ] Module configuration for markdown settings
 - [ ] Module configuration for prismjs settings
 
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md?ref=badge_large)
+
+
 <h2 id="contributors">Contributors</h2>
 
 The following is a list of all the people that have helped build this project. Thanks for your contributions!
