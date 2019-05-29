@@ -1,27 +1,23 @@
 import { Injectable, SecurityContext } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Renderer, setOptions, parse } from 'marked';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NgxMdService {
   private _renderer: any = new Renderer();
-  constructor(
-    private _http: HttpClient,
-    private _domSanitizer: DomSanitizer
-  ) {
+  constructor(private _http: HttpClient, private _domSanitizer: DomSanitizer) {
     this.extendRenderer();
     this.setMarkedOptions({});
   }
 
   // get the content from remote resource
   getContent(path: string): Observable<any> {
-    return this._http.get(path, {responseType: 'text'})
-    .pipe(
+    return this._http.get(path, { responseType: 'text' }).pipe(
       map(res => this.extractData(res)),
       catchError(this.handleError)
     );
@@ -37,15 +33,18 @@ export class NgxMdService {
   }
 
   public setMarkedOptions(options: any) {
-    options = Object.assign({
-      gfm: true,
-      tables: true,
-      breaks: false,
-      pedantic: false,
-      sanitize: false,
-      smartLists: true,
-      smartypants: false
-    }, options);
+    options = Object.assign(
+      {
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false,
+      },
+      options
+    );
     options.renderer = this._renderer;
     setOptions(options);
   }
@@ -66,11 +65,17 @@ export class NgxMdService {
 
   // extend marked render to support todo checkbox
   private extendRenderer() {
-    this._renderer.listitem = function(text: string) {
+    this._renderer.listitem = function (text: string) {
       if (/^\s*\[[x ]\]\s*/.test(text)) {
         text = text
-        .replace(/^\s*\[ \]\s*/, '<input type="checkbox" class="md-checkbox" disabled> ')
-        .replace(/^\s*\[x\]\s*/, '<input type="checkbox" class="md-checkbox" checked disabled> ');
+          .replace(
+            /^\s*\[ \]\s*/,
+            '<input type="checkbox" class="md-checkbox" disabled> '
+          )
+          .replace(
+            /^\s*\[x\]\s*/,
+            '<input type="checkbox" class="md-checkbox" checked disabled> '
+          );
         return '<li style="list-style: none">' + text + '</li>';
       } else {
         return '<li>' + text + '</li>';
@@ -78,4 +83,3 @@ export class NgxMdService {
     };
   }
 }
-
