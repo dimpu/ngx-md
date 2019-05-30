@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { NgxMdService } from './ngx-md.service';
+import { Type } from '@angular/core';
 
 
 describe('NgxMdService', () => {
@@ -18,7 +19,7 @@ describe('NgxMdService', () => {
 
     // Inject the http service and test controller for each test
     httpClient = TestBed.get(HttpClient);
-    httpTestingController = TestBed.get(HttpTestingController);
+    httpTestingController = TestBed.get(HttpTestingController as Type<HttpTestingController>);
     markdownService = TestBed.get(NgxMdService);
   });
 
