@@ -24,8 +24,8 @@ env:
   - NG_CLI_ANALYTICS=false
 
 install:
-  - npm ci
+  - yarn install
 
 script:
-  - npm run ci.travis.lib
-  - npm run ci.travis.demo
+  - yarn run ci.travis.lib
+  - yarn run ci.travis.demo

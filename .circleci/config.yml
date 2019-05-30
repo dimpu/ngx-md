@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:10-browsers
+      - image: circleci/node:12-browsers
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -19,6 +19,10 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: "Setup custom environment variables"
+          command: |
+            echo 'export NG_CLI_ANALYTICS:false' >> $BASH_ENV
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -26,7 +30,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install
+      - run: yarn install
 
       - save_cache:
           paths:
@@ -34,6 +38,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm run ci.travis.lib
+      - run: yarn run ci.travis.lib
 
-      - run: npm run ci.travis.demo
+      - run: yarn run ci.travis.demo
