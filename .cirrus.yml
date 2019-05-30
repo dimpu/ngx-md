@@ -3,6 +3,7 @@ container:
 
 env:
   NG_CLI_ANALYTICS: false
+  CHROME_BIN: chromium-browser
 
 test_task:
   node_modules_cache:
