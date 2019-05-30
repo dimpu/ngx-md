@@ -1,5 +1,5 @@
 
-import { Component, ElementRef, OnInit, AfterViewInit, Input, PLATFORM_ID, Inject, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, Input, PLATFORM_ID, Inject, Output, EventEmitter } from '@angular/core';
 import { NgxMdService } from './ngx-md.service';
 import { isPlatformBrowser } from '@angular/common';
 import * as Prism from 'prismjs';
