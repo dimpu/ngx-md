@@ -13,6 +13,12 @@
     },
     "ngx-md": {
       "tags": []
+    },
+    "ngx-md-demo-e2e": {
+      "tags": []
+    },
+    "ngx-md-demo": {
+      "tags": []
     }
   }
 }

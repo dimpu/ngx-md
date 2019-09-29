@@ -8,6 +8,6 @@ env:
 test_task:
   node_modules_cache:
     folder: node_modules
-    populate_script: npm ci
+    populate_script: npm install
   lib_test_script: npm run ci.travis.lib
   demo_test_script: npm run ci.travis.demo

@@ -10,7 +10,7 @@ addons:
   chrome: stable
 
 node_js:
-  - "12"
+  - '12'
 
 matrix:
   fast_finish: true
@@ -24,7 +24,7 @@ env:
   - NG_CLI_ANALYTICS=false
 
 install:
-  - npm ci
+  - npm install
 
 script:
   - npm run ci.travis.lib
