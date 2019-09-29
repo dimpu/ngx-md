@@ -1,9 +1,9 @@
 import { getGreeting } from '../support/app.po';
 
-describe('ngx-md', () => {
+describe('ngx-md-demo', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
-    getGreeting().contains('Welcome to ngx-md!');
+    getGreeting().contains('Welcome to ngx-md-demo!');
   });
 });

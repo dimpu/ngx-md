@@ -5,6 +5,7 @@
 [![version][npm-badge-url]][npm-url]
 [![npm][license-badge-url]][license-url]
 [![npm][dep-badge-url]][dep-url]
+[![npm][opencollective]][opencollective]
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md?ref=badge_shield)
 
 Supports Angular2,4,5,6,7
@@ -246,6 +247,7 @@ The following is a list of all the people that have helped build this project. T
 [demo-url]: https://github.com/dimpu/ngx-md
 [dep-url]: https://david-dm.org/dimpu/ngx-md
 [dep-badge-url]: https://david-dm.org/dimpu/ngx-md/status.svg
+[opencollective]: https://opencollective.com/ngx-md/tiers/backer/badge.svg?label=backer&color=brightgreen
 
 
 ## License
