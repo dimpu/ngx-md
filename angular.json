@@ -120,6 +120,11 @@
             ]
           }
         }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
       }
     },
     "ngx-md": {
