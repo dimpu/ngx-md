@@ -13,6 +13,7 @@ import { isPlatformBrowser } from '@angular/common';
 import * as Prism from 'prismjs';
 import { Subscribable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { decode } from 'he';
 
 @Component({
   selector: 'markdown,[Markdown],ngx-md,[NgxMd]',
@@ -47,7 +48,7 @@ export class NgxMdComponent implements AfterViewInit {
     public _mdService: NgxMdService,
     public _el: ElementRef,
     @Inject(PLATFORM_ID) public platformId: string
-  ) {}
+  ) { }
 
   @Input()
   set path(value: string) {
@@ -95,7 +96,7 @@ export class NgxMdComponent implements AfterViewInit {
   }
 
   processRaw() {
-    this._md = this.prepare(decodeHtml(this._el.nativeElement.innerHTML));
+    this._md = this.prepare(decode(this._el.nativeElement.innerHTML));
     this._el.nativeElement.innerHTML = this._mdService.compile(
       this._md,
       this.sanitizeHtml
@@ -175,11 +176,4 @@ export class NgxMdComponent implements AfterViewInit {
       Prism.highlightAll(async);
     }
   }
-}
-
-function decodeHtml(html: string) {
-  // https://stackoverflow.com/a/7394787/588521
-  const txt = document.createElement('textarea');
-  txt.innerHTML = html;
-  return txt.value;
 }
