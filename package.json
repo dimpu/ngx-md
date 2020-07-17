@@ -75,7 +75,7 @@
     "@angular/router": "^8.2.14",
     "core-js": "^3.6.0",
     "json-align": "^0.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "marked": "^0.7.0",
     "prismjs": "^1.15.0",
     "rxjs": "^6.5.3",
