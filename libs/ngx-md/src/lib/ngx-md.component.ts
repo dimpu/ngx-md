@@ -43,6 +43,7 @@ export class NgxMdComponent implements AfterViewInit {
   changeLog: string[] = [];
   @Output() error: EventEmitter<any> = new EventEmitter<any>();
   @Output() loaded: EventEmitter<any> = new EventEmitter<any>();
+  @Output() rendered: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     public _mdService: NgxMdService,
@@ -82,6 +83,7 @@ export class NgxMdComponent implements AfterViewInit {
       this._el.nativeElement.innerHTML = '';
     }
     this.highlightContent(false);
+    this.rendered.emit(data);
   }
 
   /**
