@@ -137,7 +137,7 @@ import 'prismjs/components/prism-perl';
 
 <!-- to load from remote URL -->
 
-<div NgxMd [path]="'/path/to/readme.md'" (error)="errorHandler($event)" (loaded)="loadedHandler($event)"></div>
+<div NgxMd [path]="'/path/to/readme.md'" (error)="errorHandler($event)" (loaded)="loadedHandler($event)" (rendered)="renderedHandler($event)"></div>
 
 <!-- load remote source code with auto syntax highlighting -->
 
