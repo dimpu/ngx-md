@@ -118,7 +118,6 @@ export class NgxMdComponent implements AfterViewInit {
       .getContent(this._path)
       .pipe(catchError(this.handleError))
       .subscribe(data => {
-        this.loaded.emit(data);
         this._md =
           this._ext !== 'md' ? '```' + this._ext + '\n' + data + '\n```' : data;
         this._el.nativeElement.innerHTML = this._mdService.compile(
@@ -126,6 +125,7 @@ export class NgxMdComponent implements AfterViewInit {
           this.sanitizeHtml
         );
         this.highlightContent(false);
+        this.loaded.emit(data);
       });
   }
 
