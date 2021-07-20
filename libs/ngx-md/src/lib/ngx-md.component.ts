@@ -97,11 +97,7 @@ export class NgxMdComponent implements AfterViewInit {
 
   processRaw() {
     this._md = this.prepare(decode(this._el.nativeElement.innerHTML));
-    this._el.nativeElement.innerHTML = this._mdService.compile(
-      this._md,
-      this.sanitizeHtml
-    );
-    this.highlightContent(false);
+    this.onDataChange(this._md);
   }
 
   /**
@@ -120,11 +116,7 @@ export class NgxMdComponent implements AfterViewInit {
       .subscribe(data => {
         this._md =
           this._ext !== 'md' ? '```' + this._ext + '\n' + data + '\n```' : data;
-        this._el.nativeElement.innerHTML = this._mdService.compile(
-          this.prepare(this._md),
-          this.sanitizeHtml
-        );
-        this.highlightContent(false);
+        this.onDataChange(this.prepare(this._md));
         this.loaded.emit(data);
       });
   }
