@@ -114,7 +114,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "ng-packagr": "^5.7.1",
+    "ng-packagr": "^10.1.1",
     "onchange": "^6.0.0",
     "prettier": "1.17.1",
     "prettier-tslint": "^0.4.0",
