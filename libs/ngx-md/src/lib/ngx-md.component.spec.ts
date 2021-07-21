@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMdComponent } from './ngx-md.component';
 import { NgxMdService } from './ngx-md.service';
@@ -20,7 +20,7 @@ describe('NgxMdComponent', () => {
   it('should work', () => {
     expect(true).toBeTruthy();
   });
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
       declarations: [NgxMdComponent],

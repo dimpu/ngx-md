@@ -11,7 +11,7 @@ import { NgxMdComponent } from './ngx-md.component';
   exports: [NgxMdComponent],
 })
 export class NgxMdModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<NgxMdModule> {
     return {
       ngModule: NgxMdModule,
       providers: [NgxMdConfig],

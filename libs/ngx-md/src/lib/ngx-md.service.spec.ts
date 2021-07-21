@@ -1,4 +1,4 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
 
 import {
@@ -63,7 +63,7 @@ describe('NgxMdService', () => {
     req.flush(TEST_DATA);
   });
 
-  it('should return data', async(() => {
+  it('should return data', waitForAsync(() => {
     spyOn(markdownService, 'extractData');
 
     const TEST_DATA = 'Foo';
