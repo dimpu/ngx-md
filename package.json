@@ -54,7 +54,7 @@
     "demo.pretty": "prettier --config ./.prettierrc --write ./src/**/*.ts",
     "deploy": "ng build --base-href=/ngx-md/ --configuration production && gh-pages -d dist/ngx-md-demo",
     "lib.start": "ng serve ngx-md",
-    "lib.build": "ng build ngx-md",
+    "lib.build": "ng build ngx-md --configuration production",
     "lib.test": "ng test ngx-md",
     "lib.lint": "ng lint ngx-md",
     "lib.pretty": "prettier --config ./.prettierrc --write ./libs/ngx-md/src/**/*.ts",
