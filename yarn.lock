@@ -5176,6 +5176,11 @@ content-type@~1.0.4:
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
 
+conventional-commits@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/conventional-commits/-/conventional-commits-1.6.0.tgz#e23dec33a36ebce015a96fca67632f78449b39df"
+  integrity sha512-wjSM5laik2yZX3CivjSdaCYpDROSdVrQlJrHmuHXMZpz95I5kJn1I/82C8bFwFkJ50kJtVVn0RfBfmQctvAF7Q==
+
 convert-source-map@^1.1.0, convert-source-map@^1.4.0, convert-source-map@^1.5.0, convert-source-map@^1.5.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.6.0.tgz#51b537a8c43e0f04dec1993bffcdd504e758ac20"

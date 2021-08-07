@@ -102,6 +102,7 @@
     "@types/node": "^12.11.1",
     "@types/prismjs": "^1.9.0",
     "codelyzer": "^6.0.0",
+    "conventional-commits": "^1.6.0",
     "cypress": "3.4.1",
     "gh-pages": "^2.0.0",
     "jasmine-core": "~3.6.0",
@@ -123,5 +124,15 @@
     "ts-node": "~8.2.0",
     "tslint": "~6.1.0",
     "typescript": "~4.3.5"
+  },
+  "auto": {
+    "plugins": [
+      "npm",
+      "conventional-commits",
+      "first-time-contributor",
+      "released",
+      "twitter"
+    ],
+    "onlyPublishWithReleaseLabel": true
   }
 }
