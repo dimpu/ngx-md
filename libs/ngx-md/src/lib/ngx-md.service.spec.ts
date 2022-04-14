@@ -64,7 +64,7 @@ describe('NgxMdService', () => {
   });
 
   it('should return data', waitForAsync(() => {
-    spyOn(markdownService, 'extractData');
+    jest.spyOn(markdownService, 'extractData');
 
     const TEST_DATA = 'Foo';
     const TEST_URL = 'src-x';
