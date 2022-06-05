@@ -1,24 +1,46 @@
 {
-  "npmScope": "ngx-md",
-  "implicitDependencies": {
-    "angular.json": "*",
-    "package.json": "*",
-    "tsconfig.json": "*",
-    "tslint.json": "*",
-    "nx.json": "*"
+  "extends": "nx/presets/npm.json",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "package",
+          "prepare"
+        ],
+        "accessToken": "MWZlZjVlMGItMzQ3NS00NWIzLTkzZjEtNTNlZGYyNmIwMGRjfHJlYWQtd3JpdGU="
+      }
+    }
   },
-  "projects": {
-    "ngx-md-e2e": {
-      "tags": []
-    },
-    "ngx-md": {
-      "tags": []
-    },
-    "ngx-md-demo-e2e": {
-      "tags": []
-    },
-    "ngx-md-demo": {
-      "tags": []
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ],
+    "prepare": [
+      {
+        "target": "prepare",
+        "projects": "dependencies"
+      }
+    ],
+    "package": [
+      {
+        "target": "package",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "affected": {
+    "defaultBase": "main"
+  },
+  "pluginsConfig": {
+    "@nrwl/js": {
+      "analyzeSourceFiles": false
     }
   }
 }
