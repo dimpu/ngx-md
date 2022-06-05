@@ -147,7 +147,6 @@
       }
     }
   },
-  "defaultProject": "ngx-md-demo",
   "schematics": {
     "@nrwl/angular:application": {
       "unitTestRunner": "jest",
@@ -158,6 +157,9 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "analytics": "474f12af-db6e-4fea-b4c2-03bc2a8573f5",
+    "schematicCollections": [
+      "@nrwl/angular"
+    ]
   }
 }
