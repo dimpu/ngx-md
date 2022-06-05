@@ -66,14 +66,14 @@
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "dependencies": {
-    "@angular/animations": "^12.1.2",
-    "@angular/common": "^12.1.2",
-    "@angular/compiler": "^12.1.2",
-    "@angular/core": "^12.1.2",
-    "@angular/forms": "^12.1.2",
-    "@angular/platform-browser": "^12.1.2",
-    "@angular/platform-browser-dynamic": "^12.1.2",
-    "@angular/router": "^12.1.2",
+    "@angular/animations": "^13.3.11",
+    "@angular/common": "^13.3.11",
+    "@angular/compiler": "^13.3.11",
+    "@angular/core": "^13.3.11",
+    "@angular/forms": "^13.3.11",
+    "@angular/platform-browser": "^13.3.11",
+    "@angular/platform-browser-dynamic": "^13.3.11",
+    "@angular/router": "^13.3.11",
     "core-js": "^3.6.0",
     "he": "^1.2.0",
     "json-align": "^0.1.0",
@@ -85,10 +85,10 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^12.1.4",
-    "@angular/cli": "~12.1.2",
-    "@angular/compiler-cli": "^12.1.2",
-    "@angular/language-service": "^12.1.2",
+    "@angular-devkit/build-angular": "^13.3.7",
+    "@angular/cli": "~13.3.7",
+    "@angular/compiler-cli": "^13.3.11",
+    "@angular/language-service": "^13.3.11",
     "@nrwl/angular": "^12.5.9",
     "@nrwl/builders": "^7.8.7",
     "@nrwl/cypress": "12.5.9",
@@ -110,12 +110,12 @@
     "jest": "^24.9.0",
     "jest-preset-angular": "8.3.1",
     "jsonfile": "^5.0.0",
-    "karma": "~5.0.0",
+    "karma": "~6.3.20",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "ng-packagr": "^12.1.0",
+    "ng-packagr": "^13.3.1",
     "onchange": "^6.0.0",
     "prettier": "2.3.2",
     "prettier-tslint": "^0.4.0",
@@ -123,7 +123,7 @@
     "ts-jest": "24.0.0",
     "ts-node": "~8.2.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.3.5"
+    "typescript": "~4.6.4"
   },
   "auto": {
     "plugins": [

@@ -15,9 +15,10 @@ describe('NgxMdService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [NgxMdService],
-    });
+    imports: [HttpClientTestingModule],
+    providers: [NgxMdService],
+    teardown: { destroyAfterEach: false }
+});
 
     // Inject the http service and test controller for each test
     httpClient = TestBed.get(HttpClient);

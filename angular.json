@@ -94,16 +94,6 @@
               "apps/ngx-md-demo/src/assets"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/ngx-md-demo/src/tsconfig.app.json",
-              "apps/ngx-md-demo/src/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     },
@@ -133,16 +123,6 @@
             "tsConfig": "libs/ngx-md/tsconfig.spec.json",
             "setupFile": "libs/ngx-md/src/test-setup.ts"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ngx-md/tsconfig.lib.json",
-              "libs/ngx-md/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     },
@@ -162,13 +142,6 @@
             "production": {
               "devServerTarget": "ngx-md-demo:serve:production"
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["apps/ngx-md-demo-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/ngx-md-demo-e2e/**"]
           }
         }
       }

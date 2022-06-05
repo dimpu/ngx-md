@@ -22,10 +22,11 @@ describe('NgxMdComponent', () => {
   });
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      declarations: [NgxMdComponent],
-      providers: [{ provide: NgxMdService, useClass: MockNgxMdService }],
-    }).compileComponents();
+    imports: [HttpClientModule],
+    declarations: [NgxMdComponent],
+    providers: [{ provide: NgxMdService, useClass: MockNgxMdService }],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     markdownService = TestBed.get(NgxMdService);
     fixture = TestBed.createComponent(NgxMdComponent);
     component = fixture.componentInstance;
@@ -91,10 +92,11 @@ describe('NgxMdComponent in host', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      declarations: [NgxMdComponent, HostComponent],
-      providers: [{ provide: NgxMdService, useClass: MockNgxMdService }],
-    });
+    imports: [HttpClientModule],
+    declarations: [NgxMdComponent, HostComponent],
+    providers: [{ provide: NgxMdService, useClass: MockNgxMdService }],
+    teardown: { destroyAfterEach: false }
+});
   });
 
   describe('when using ng-content', () => {
