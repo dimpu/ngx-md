@@ -1,24 +1,260 @@
-# NgxMd
+# Angular Markdown (NgxMd)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+[![Build Status][cirrus-ci-badge]][cirrus-ci-badge-url]
+[![Build Status][travis-badge]][travis-badge-url]
+[![npm][circleci-badge-url]][circleci-url]
+[![version][npm-badge-url]][npm-url]
+[![npm][license-badge-url]][license-url]
+[![npm][dep-badge-url]][dep-url]
+[![npm][opencollective]][opencollective]
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md?ref=badge_shield)
 
-## Code scaffolding
+Supports Angular2,4,5,6,7,12
 
-Run `ng generate component component-name --project ngx-md` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-md`.
-> Note: Don't forget to add `--project ngx-md` or else it will be added to the default project in your `angular.json` file. 
+Source @ [https://github.com/dimpu/ngx-md](https://github.com/dimpu/ngx-md)
 
-## Build
+## Table of contents
 
-Run `ng build ngx-md` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. [Getting Started](#getting-started)
+2. [Installation instructions](#installation-instructions)
+3. [Usage & Demo](#usage--demo)
+4. [Contributing](#contribution)
+5. [License](#license)
 
-## Publishing
+# Getting Started
 
-After building your library with `ng build ngx-md`, go to the dist folder `cd dist/ngx-md` and run `npm publish`.
+ngx-md contains NgxMdModule for Angular.
 
-## Running unit tests
+Additionally we use [marked.js](https://github.com/chjj/marked/) and [prismjs](http://prismjs.com/) for this component.
 
-Run `ng test ngx-md` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Installation instructions
 
-## Further help
+Install `ngx-md` from `npm`:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm install ngx-md --save
+```
+
+or using `yarn`:
+
+```bash
+yarn add ngx-md
+```
+
+## How to use it with
+
+- `angular-cli` — please refer to [Getting started with `angular-cli`](https://github.com/dimpu/ngx-md/tree/master/docs/getting-started/ng-cli.md)
+- `angular-seed` — please refer to [Getting started with `angular-seed`](https://github.com/dimpu/ngx-md/tree/master/docs/getting-started/angular-seed.md)
+- `system.js` (and [Angular 2 QuickStart](https://angular.io/docs/ts/latest/quickstart.html)) — please checkout [sample repository](https://github.com/dimpu/angular2-quickstart)
+- `webpack` — you can view our demo page [source code](https://github.com/dimpu/ngx-md/tree/master/demo)
+- `stackblitz` — sample available [here](https://stackblitz.com/edit/ngx-md-exmaple)
+- `AoT` using `ngc` and `rollup` — please refer to [How to use `ngx-md` in Angular 2 with `AoT` compilation using `ngc` and `rollup`](https://github.com/dimpu/ngx-md/tree/master/docs/getting-started/aot.md)
+
+# Usage & Demo
+
+Main source of API documentation and usage scenarios is available at [https://dimpu.github.io/ngx-md/](https://dimpu.github.io/ngx-md/).
+
+# Contribution
+
+Is very welcome! And remember, contribution is not only PRs and code, but any help with docs or helping other developers to solve issues are very appreciated! Thanks in advance!
+
+## Quick Guide
+
+### app.module.ts
+
+This library has dependency on **HttpClientModule**. It should be always provided in your application.
+
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { NgxMdModule } from 'ngx-md';
+import { HttpClientModule } from '@angular/common'
+import { AppComponent } from '../src/app.component';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    NgxMdModule.forRoot(),
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+})
+```
+
+### index.html
+
+If you want syntax highlighting you need to import the prism css file.
+
+Alternative 1: Import from cdn
+
+```html
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" rel="stylesheet" />
+  </head>
+```
+
+Alternative 2: Download the css file (or copy it from `node_modules/prismjs/themes/`, place it somewhere in your src folder and import
+
+```html
+<link href="/css/prism.min.css" rel="stylesheet" />
+```
+
+Alternative 3: Include the prism css file in your sass style file
+
+```css
+@import 'prismjs/themes/prism.css';
+```
+
+To support sytnax helight for other langugage you need to include
+
+```ts
+// import 'prismjs/prism';
+import 'prismjs/components/prism-c';
+import 'prismjs/components/prism-cpp';
+import 'prismjs/components/prism-csharp';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-diff';
+import 'prismjs/components/prism-java';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-perl';
+...
+...
+...
+```
+
+### app.component.html
+
+```html
+<div Markdown>
+    ### your markdown code
+</div>
+
+<!-- or use angular component -->
+
+<ngx-md>
+    ### your markdown code
+</ngx-md>
+
+<!-- to load from remote URL -->
+
+<div NgxMd [path]="'/path/to/readme.md'" (error)="errorHandler($event)" (loaded)="loadedHandler($event)" (rendered)="renderedHandler($event)"></div>
+
+<!-- load remote source code with auto syntax highlighting -->
+
+<ngx-md [path]="'/path/to/code.cpp'"></ngx-md>
+
+<ngx-md [path]="'/path/to/code.java'"></ngx-md>
+
+<!-- load remote source code from url stored in variable
+(see additional details about variable binding in the next section) -->
+
+<ngx-md [path]="urlVariable"></ngx-md>
+
+<ngx-md [path]="urlVariable" (loaded)="onLoad($event)" (error)="onError($event)"></ngx-md>
+
+```
+
+## Variable binding
+
+Now, with >1.4.x you can bind a variable to the `markdown` component. To do so:
+
+```typescript
+@Component({
+    selector: 'app-root',
+    template: `
+    <textarea [(ngModel)]="textData"></textarea>
+    <ngx-md [data]="textData"></ngx-md>
+    `,
+})
+export class MyComp {
+  public textData = `## Markdown content data`;
+}
+```
+
+## Marked customization
+
+Marked can be customized/extended by accessing the renderer from the MarkdownService:
+
+```typescript
+import { NgxMdService } from 'ngx-md';
+@Component({
+    selector='my-comp',
+    template: `
+    <ngx-md>
+     > Block
+     > quote
+     > here
+    </ngx-md>
+    `,
+})
+export class MyComp {
+  constructor(private _markdown: NgxMdService) {}
+
+  ngOnInit() {
+    this._markdown.renderer.blockquote = (quote: string) => {
+      return `<blockquote class="king-quote">${quote}</blockquote>`;
+    }
+  }
+```
+
+See [marked documentation](https://github.com/chjj/marked) for all renderer extension points.
+
+## Example
+
+You can find a working example inside the `demo` directory.
+
+To serve it locally, run:
+
+```bash
+git clone https://github.com/dimpu/ngx-md.git
+
+npm i
+
+npm run demo.serve
+```
+
+## Todo
+
+- [x] Variable binding
+- [x] Code refactor
+- [x] Write more unit tests
+- [x] Angular 5,6,7 support
+- [ ] Angular schemantics support
+- [ ] Module configuration for markdown settings
+- [ ] Module configuration for prismjs settings
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md?ref=badge_large)
+
+<h2 id="contributors">Contributors</h2>
+
+The following is a list of all the people that have helped build this project. Thanks for your contributions!
+
+[<img alt="glenngr" src="https://avatars3.githubusercontent.com/u/1271995?s=460&v=4" width="117">](https://github.com/dimpu)
+[<img alt="glenngr" src="https://avatars2.githubusercontent.com/u/8955488?v=3&s=460" width="117">](https://github.com/glenngr)
+[<img alt="paullryan" src="https://avatars2.githubusercontent.com/u/3146164?v=3&s=460" width="117">](https://github.com/paullryan)
+
+[cirrus-ci-badge]: https://api.cirrus-ci.com/github/dimpu/ngx-md.svg?branch=master
+[cirrus-ci-badge-url]: https://api.cirrus-ci.com/github/dimpu/ngx-md
+[travis-badge]: https://travis-ci.org/dimpu/ngx-md.svg?branch=master
+[travis-badge-url]: https://travis-ci.org/dimpu/ngx-md
+[license-url]: https://opensource.org/licenses/MIT
+[license-badge-url]: https://img.shields.io/npm/l/ngx-md.svg
+[npm-url]: https://www.npmjs.com/package/ngx-md
+[npm-badge-url]: https://img.shields.io/npm/v/ngx-md.svg?style=flat
+[circleci-url]: https://circleci.com/gh/dimpu/ngx-md/master
+[circleci-badge-url]: https://circleci.com/gh/dimpu/ngx-md/tree/master.svg?style=shield&
+[demo-url]: https://github.com/dimpu/ngx-md
+[dep-url]: https://david-dm.org/dimpu/ngx-md
+[dep-badge-url]: https://david-dm.org/dimpu/ngx-md/status.svg
+[opencollective]: https://opencollective.com/ngx-md/tiers/backer/badge.svg?label=backer&color=brightgreen
+
+## License
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md?ref=badge_large)

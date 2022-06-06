@@ -2,7 +2,7 @@ name: npm-publish
 on:
   push:
     branches:
-      - main # Change this to your default branch
+      - main 
 jobs:
   npm-publish:
     name: npm-publish
@@ -10,6 +10,23 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+    - name: Setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+        registry-url: 'https://registry.npmjs.org'
+    - run: yarn install
+    - run: npm version ${{ github.event.release.tag_name }}
+    - run: yarn lib.build
+    - run: npm publish --tag ${{ github.event.release.target_commitish }}
+      env:
+          # Use a token to publish to NPM. See below for how to set it up
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        # push the version changes to GitHub
+    - run: git push
+      env:
+          # The secret is passed automatically. Nothing to configure.
+          github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@1.3.9
       with: # All of theses inputs are optional
