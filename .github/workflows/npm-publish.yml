@@ -19,6 +19,7 @@ jobs:
     - run: git config --global user.name "GitHub CD bot"
     - run: git config --global user.email "buddhaaravind@gmail.com"
     - run: npm version ${{ github.event.release.tag_name }}
+    - run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_AUTH_TOKEN }}"
     - run: yarn release
     - run: npm publish --tag ${{ github.event.release.target_commitish }}
       env:
