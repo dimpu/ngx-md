@@ -1,0 +1,87 @@
+{
+  "name": "ngx-md",
+  "version": "14.0.0",
+  "author": {
+    "name": "Dimpu Aravind Buddha",
+    "email": "buddhaaravind@gmail.com",
+    "url": "http://www.techumber.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dimpu/ngx-md"
+  },
+  "bugs": {
+    "url": "https://github.com/dimpu/ngx-md/issues",
+    "email": "buddhaaravind@gmail.com"
+  },
+  "homepage": "https://github.com/dimpu/ngx-md",
+  "keywords": [
+    "angular",
+    "markdown",
+    "markdown-to-html",
+    "marked",
+    "prismjs",
+    "code highlight"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "demo.start": "ng serve ngx-md-demo",
+    "demo.build": "ng build ngx-md-demo --configuration production",
+    "demo.test": "ng test ngx-md-demo",
+    "demo.lint": "ng lint ngx-md-demo",
+    "demo.pretty": "prettier --config ./.prettierrc --write ./src/**/*.ts",
+    "deploy": "ng build --base-href=/ngx-md/ --configuration production && gh-pages -d dist/ngx-md-demo",
+    "lib.start": "ng serve ngx-md",
+    "lib.build": "ng build ngx-md --configuration production",
+    "lib.test": "ng test ngx-md",
+    "lib.lint": "ng lint ngx-md",
+    "lib.pretty": "prettier --config ./.prettierrc --write ./libs/ngx-md/src/**/*.ts",
+    "lib.prettier.watch": "onchange 'projects/ngx-md/src**/*.ts' -- prettier --write {{changed}}",
+    "release": "yarn lib.build && yarn version patch && node ./scripts/pre-publish-hook.js && cd dist/ngx-md && yarn publish && cd ../../",
+    "ci.travis.lib": "yarn lib.build",
+    "ci.travis.demo": "yarn demo.build"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^14.0.0",
+    "@angular/common": "^14.0.0",
+    "@angular/compiler": "^14.0.0",
+    "@angular/core": "^14.0.0",
+    "@angular/forms": "^14.0.0",
+    "@angular/platform-browser": "^14.0.0",
+    "@angular/platform-browser-dynamic": "^14.0.0",
+    "@angular/router": "^14.0.0",
+    "@types/he": "^1.1.2",
+    "@types/marked": "^4.0.3",
+    "he": "^1.2.0",
+    "marked": "^4.0.16",
+    "prismjs": "^1.28.0",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.0.0",
+    "@angular/cli": "~14.0.0",
+    "@angular/compiler-cli": "^14.0.0",
+    "@types/jasmine": "~4.0.0",
+    "@types/prismjs": "^1.26.0",
+    "jasmine-core": "~4.1.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "ng-packagr": "^14.0.0",
+    "typescript": "~4.7.2"
+  },
+  "auto": {
+    "plugins": [
+      "npm",
+      "conventional-commits",
+      "first-time-contributor",
+      "released",
+      "twitter"
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxMdService } from '../../../../../libs/ngx-md/src';
+import { NgxMdService } from 'ngx-md';
 
 import 'prismjs/prism';
 import 'prismjs/components/prism-c';
