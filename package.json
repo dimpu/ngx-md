@@ -1,6 +1,6 @@
 {
   "name": "ngx-md",
-  "version": "14.0.0",
+  "version": "14.0.2",
   "author": {
     "name": "Dimpu Aravind Buddha",
     "email": "buddhaaravind@gmail.com",
@@ -37,7 +37,7 @@
     "lib.lint": "ng lint ngx-md",
     "lib.pretty": "prettier --config ./.prettierrc --write ./libs/ngx-md/src/**/*.ts",
     "lib.prettier.watch": "onchange 'projects/ngx-md/src**/*.ts' -- prettier --write {{changed}}",
-    "release": "yarn lib.build && yarn version patch && node ./scripts/pre-publish-hook.js && cd dist/ngx-md && yarn publish && cd ../../",
+    "release": "yarn lib.build && yarn version --patch && node ./scripts/pre-publish-hook.js && cd dist/ngx-md && yarn publish && cd ../../",
     "ci.travis.lib": "yarn lib.build",
     "ci.travis.demo": "yarn demo.build"
   },
