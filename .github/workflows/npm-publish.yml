@@ -20,7 +20,7 @@ jobs:
     - run: git config --global user.email "buddhaaravind@gmail.com"
     - run: npm version ${{ github.event.release.tag_name }}
     - run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_AUTH_TOKEN }}"
-    - run: yarn release
+    - run: yarn lib.build && cd dist/ngx-md
     - run: npm publish --tag ${{ github.event.release.target_commitish }}
       env:
           # Use a token to publish to NPM. See below for how to set it up
