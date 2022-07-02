@@ -10,23 +10,23 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@angular-devkit/architect@0.1400.0":
-  version "0.1400.0"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1400.0.tgz#ad2d55ac898daead4bcb791499ab2b98b40803ed"
-  integrity sha512-INPO+r5CHElPdFLOrwUYShZqtr37/kTJegAoWpSNC8Zy8WgTlecvA+y5eHy0bNeXMjWbZ3YCZJ1jXYpJJNL1Kg==
+"@angular-devkit/architect@0.1400.4":
+  version "0.1400.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular-devkit/architect/-/architect-0.1400.4.tgz#62ebb137eade9c4bf268d9bd0336858a67d95c1d"
+  integrity sha512-9tjOIRpAPuhsJ5xMVZI/C9qQUaVTF9URFrK4r/b9RO7lRsvMvweReMcOH4/8+veVSTAzAa34B6WNYvvuBZFMOg==
   dependencies:
-    "@angular-devkit/core" "14.0.0"
+    "@angular-devkit/core" "14.0.4"
     rxjs "6.6.7"
 
-"@angular-devkit/build-angular@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-14.0.0.tgz#68825037c7f110a80a05c1c0c838ba98d6cf3fa7"
-  integrity sha512-SUFanOcIJ6XWBltQ7U038zGGhsT40h4I1Pqkf+qlPLGctARz8wfD3GPD1a0pRlrIH6J/f7Xbb7QrQvGfG4g/NQ==
+"@angular-devkit/build-angular@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular-devkit/build-angular/-/build-angular-14.0.4.tgz#495fe7af4d073f4b2b07f7769c22b0b7769d6a20"
+  integrity sha512-VoiDfyKSTBU4LDRwtY8Ga5ZBKsDxTYWNx9aDCoswalMvYREwhEi9+wEcWjF5aMKl4usr6twCPaYqDrbkHYUHqw==
   dependencies:
     "@ampproject/remapping" "2.2.0"
-    "@angular-devkit/architect" "0.1400.0"
-    "@angular-devkit/build-webpack" "0.1400.0"
-    "@angular-devkit/core" "14.0.0"
+    "@angular-devkit/architect" "0.1400.4"
+    "@angular-devkit/build-webpack" "0.1400.4"
+    "@angular-devkit/core" "14.0.4"
     "@babel/core" "7.17.10"
     "@babel/generator" "7.17.10"
     "@babel/helper-annotate-as-pure" "7.16.7"
@@ -37,7 +37,7 @@
     "@babel/runtime" "7.17.9"
     "@babel/template" "7.16.7"
     "@discoveryjs/json-ext" "0.5.7"
-    "@ngtools/webpack" "14.0.0"
+    "@ngtools/webpack" "14.0.4"
     ansi-colors "4.1.1"
     babel-loader "8.2.5"
     babel-plugin-istanbul "6.1.1"
@@ -88,18 +88,18 @@
   optionalDependencies:
     esbuild "0.14.38"
 
-"@angular-devkit/build-webpack@0.1400.0":
-  version "0.1400.0"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-webpack/-/build-webpack-0.1400.0.tgz#c96bf0f658a86ac91fae5e431b2e1553c6da2420"
-  integrity sha512-aKbDjWAwHcscqLhxfmkHrkWvAJ3X8nQoIrAP/RbTQ1qRCv5nnqIHe8u5X/1ZCCYCyPJr1UeDTrQiRXCTN4jYvA==
+"@angular-devkit/build-webpack@0.1400.4":
+  version "0.1400.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular-devkit/build-webpack/-/build-webpack-0.1400.4.tgz#062aec4715a6ec4fba8930fe65f827394d9a1023"
+  integrity sha512-eknabzf8lWDidOzeoV7NG3Rrfme/O2REZtranhBGKRfoRNUOCWMYcCfAF1hUEHjgw7zd4pn+3EdMVjhwpG48hA==
   dependencies:
-    "@angular-devkit/architect" "0.1400.0"
+    "@angular-devkit/architect" "0.1400.4"
     rxjs "6.6.7"
 
-"@angular-devkit/core@14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-14.0.0.tgz#33e56337257fdda3e429b36548820814d9fafbc2"
-  integrity sha512-xQXpNbIeBjnbY68OFkrpFm6v7xlmTLFk6zGPIkI4T/hrqT2kNmg0y1/FcN6yMBgCEC9WVWR8SHGaPWrc5VVZMw==
+"@angular-devkit/core@14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular-devkit/core/-/core-14.0.4.tgz#b387857ed694a0dd77015b133e7297acb39ba275"
+  integrity sha512-ySQnhu9KhU6vMcFE5jFD93Q2aQ/UJYRZXlvDCve11pp6Lb+llcA7H46lHlBwpxR3jKom+8U4W5vnviqU52zhcg==
   dependencies:
     ajv "8.11.0"
     ajv-formats "2.1.1"
@@ -107,33 +107,33 @@
     rxjs "6.6.7"
     source-map "0.7.3"
 
-"@angular-devkit/schematics@14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-14.0.0.tgz#b66c5fccd6ecadc90df24cb0f1e68979f3998f92"
-  integrity sha512-/ycPygU1XpdGrROdxHJUUFGwxCf5vRrcBQvVbZhB2s7+DfDAaZHyWEItDeGK04hqpeTFq4m0NUP6ylXZospWvQ==
+"@angular-devkit/schematics@14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular-devkit/schematics/-/schematics-14.0.4.tgz#979a7eac2ddabe1e51c4397a73db439388d6dada"
+  integrity sha512-dOi843eANcCL/tcSIAaotfLTHZTQLzRrpP2hz/le/vYMcuIfP90auvsWbQVrWbDIxWYl57Lu2UxvITT9gIarnA==
   dependencies:
-    "@angular-devkit/core" "14.0.0"
+    "@angular-devkit/core" "14.0.4"
     jsonc-parser "3.0.0"
     magic-string "0.26.1"
     ora "5.4.1"
     rxjs "6.6.7"
 
-"@angular/animations@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-14.0.0.tgz#58ed4d4466a2c0c4aa6194906b6a574440f4fe65"
-  integrity sha512-HVcS4l0eStcA2RDDQcxqChFHVN3BfQdvx68HRTuVDYbUSS4xdL5Hsk8OMkczV1pFDn+URKH1A363bTy5juyDaQ==
+"@angular/animations@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular/animations/-/animations-14.0.4.tgz#cd483faa04f0c379c77b047a2e35b1823c7f435f"
+  integrity sha512-+Qe+wLA0DOHlOdFRQSEJoenhFm5zcKwkDItqAFT5NVYOT04yxXq8NFRIHSbqn468qR70EkX514lKi6pr6nxGYQ==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cli@~14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-14.0.0.tgz#ce761693bef18e8cf46eeebc01c85ea49f0a110f"
-  integrity sha512-dGIP0FdKnZ52VJZo83r+eQlCnUDVj08Dx3v3szD/IT/f7bhv7Ob6Bdae+c7CgM5yIt1DBIYe6xX8uZ/JIGtBoQ==
+"@angular/cli@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular/cli/-/cli-14.0.4.tgz#574f5d8cb5ccfa6fe3b3b9881336f27a72441b39"
+  integrity sha512-hb6mJk6/vJwHCuMaGResQh9aXgoSyfrJ/WuFgLcPspdFRkm4EQcTSx8DwrRo7YawuCa12UJdPoK0dASXYN6JHA==
   dependencies:
-    "@angular-devkit/architect" "0.1400.0"
-    "@angular-devkit/core" "14.0.0"
-    "@angular-devkit/schematics" "14.0.0"
-    "@schematics/angular" "14.0.0"
+    "@angular-devkit/architect" "0.1400.4"
+    "@angular-devkit/core" "14.0.4"
+    "@angular-devkit/schematics" "14.0.4"
+    "@schematics/angular" "14.0.4"
     "@yarnpkg/lockfile" "1.1.0"
     ansi-colors "4.1.1"
     debug "4.3.4"
@@ -151,17 +151,17 @@
     uuid "8.3.2"
     yargs "17.4.1"
 
-"@angular/common@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-14.0.0.tgz#65245a5386819449a6ccc35cdb3f7ebd61a1d753"
-  integrity sha512-VYydSXelPlcAnWZs6SKkOxV+rNe8zOtHKLf9jBTYT5nP5P66+va4zITo1C9bs5tbK+mRssayf615+SIGEXyJFg==
+"@angular/common@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular/common/-/common-14.0.4.tgz#ccff13ca5163c90619a33ed1d2bb012ced9846cd"
+  integrity sha512-CvlFa2lCxen0LB3N45IzZDdMIqpcasXfVUhiAkLxZgT+kSTunc/rg8hMoLHVfmFpkQKCQmPVyuzNXnSwIFhYkQ==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/compiler-cli@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-14.0.0.tgz#8562151e16d26f3a2143ff0be86074f133bedd98"
-  integrity sha512-5T9AjguK4NsCjk4mdrSLV7BrifijKb79wFyDOQX5+p7GVRag47U6E6qQAKhsqZxLy7grrBX4fb0PFARL2OrkLQ==
+"@angular/compiler-cli@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular/compiler-cli/-/compiler-cli-14.0.4.tgz#1f50ebd052d008feb55be9db010c752e23b99ee9"
+  integrity sha512-j3T0dOwNov6rKcaxLMSlPLRvrBT6MyBTum18x6XvZRqb75RUAJ/yV+PXgtA//XZ2hjuy87+CvZy3tBKktvY7bA==
   dependencies:
     "@babel/core" "^7.17.2"
     chokidar "^3.0.0"
@@ -174,45 +174,45 @@
     tslib "^2.3.0"
     yargs "^17.2.1"
 
-"@angular/compiler@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-14.0.0.tgz#71e47e1a9bc1c0d599fd3636061bcca16a4df5c5"
-  integrity sha512-yWpru4coLOE2Ivn+1ltXPsaxai5MOUABPmYZfm47HN7vfVsxcTC44QDxGY73M9e18sngTIFi6qgr8vci1AT9lg==
+"@angular/compiler@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular/compiler/-/compiler-14.0.4.tgz#29058864b8e44e8919ae8f895bb5569f678d34e3"
+  integrity sha512-WdRpZFTX2vt71sSfQ89C1K5l2zhYtn8ON+ZlAVxyZ5uT0nA/Z/vuMLfNZB1WmcGVDOc7JmQduSiSaI0hhQqXqw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-14.0.0.tgz#74a3df2988f81eb7ca00b5961a3145dadfa05e92"
-  integrity sha512-Mj3r8iMlWfMbY+9DRUFZx1gKnA27Jwx3ff/VXeXBgfxaEKDYmlZSnliZSV6ssiHSUwn/U6yxDXFgcZL090zNBQ==
+"@angular/core@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular/core/-/core-14.0.4.tgz#207f49f023ea6a59ab44659957c8745692a392f9"
+  integrity sha512-uMS/X+/5RokF3uiiD1IAr6Ha9k7QPegHrAB3QW0x6WRUTMq0K+08F+AeF5COmbfYMMaxofD6x8XmM+BLeg/0hw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-14.0.0.tgz#70201bb66f20580fd25b744d109c5d15f4afc8b7"
-  integrity sha512-r2FHcJve+/rXU4wdCA50nwySGKB5/bxqpULOGeWs4FIdKcUoTnzHtqMsd7sUa7wOA40O4fBHAxKPDGPJPl5CEA==
+"@angular/forms@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular/forms/-/forms-14.0.4.tgz#99e329387081332b717f162647997ecaea7cef53"
+  integrity sha512-u/9y09WQ00y6BQeNo69hMa/Fx+xKHGnmcjMtS3xkZtmoCP+A0ebumG0Y9DfXs2olJY2//O5di7Qu3fwlBg+3Cw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser-dynamic@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-14.0.0.tgz#2538558a3564fdad6b66fc252bef5e9976700d8a"
-  integrity sha512-gmLRgTNJi3qEEBfOJA8EcSX3qAmTQ7nBu+TQosiFIFaZG98oa7F5W/PXZx0zOC5ElsqPClvPdgtM6MC7cwSqXQ==
+"@angular/platform-browser-dynamic@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular/platform-browser-dynamic/-/platform-browser-dynamic-14.0.4.tgz#f9593e8bf210dbc026601cb32ec317f5879758f1"
+  integrity sha512-snVbAKfnBuCUMgop6ln111B/ouMnDR1ZzMzpiKefdJDGUvASCLbR8XAioY+zXUI82QbNg5masUPia1Fy+yTvGw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-14.0.0.tgz#174c80c02c13a2e4bef22791e2d9d626d7f418d1"
-  integrity sha512-zijIhUxu3nJxoI3mTWxs1d7dh9ovldI09diumlm/rOhj/46j4SvGn8swJvWr0eo/QipkdP+i2Q1lAlpmRfI+tQ==
+"@angular/platform-browser@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular/platform-browser/-/platform-browser-14.0.4.tgz#7f7f98a39ed5047813d4db285fc01857de08b701"
+  integrity sha512-VFeFpQ+248m8GiCqcsHwH4PET7tR1cyXnhsep1EeI4MDaO+aIbsUcESqXzMm5+ChOmNyiCtLQu8QvfHZK0uDVA==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/router@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-14.0.0.tgz#f9d8735a8899b73b61c64243458e824c8abccbb3"
-  integrity sha512-8ctwkPkwAbBgxu0O3OfoUYgn7GmOM877Wi/CST/AXXHXMs9v2O2MWAV63ITAjwVD1p6/V+IhUNkiypvQW+0Afw==
+"@angular/router@^14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@angular/router/-/router-14.0.4.tgz#46cb7ed54b232217da31bd5b1f2274027589b28c"
+  integrity sha512-aqtOjIjVNtWbpedDdni0yGfGR6sEb8S3jJB9jf43ththmHKxAlW7PKP2NgEmx0uJ2xY2iGET7Gkpl8RBwvoHgQ==
   dependencies:
     tslib "^2.3.0"
 
@@ -1342,10 +1342,10 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@ngtools/webpack@14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-14.0.0.tgz#13a37933f13a8aa587697b7db7be6f1f20a360c1"
-  integrity sha512-lUcJ5DiRCY+Xj01R38bDbAlELbO+0yT3n4zshBeiuzo/Lc+yQM2XhVe9stsI5I+SwH6YsCU9kp+jb7iaZh7L7w==
+"@ngtools/webpack@14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@ngtools/webpack/-/webpack-14.0.4.tgz#57cde988b7bb1747ea5d89090b6e26c355394172"
+  integrity sha512-83b/gB4Kna2FhIQj82RNZol+6gq+vLv6+4LUFOGSBb4Xha3RVQGJQpGwqEkXRFziwgTODrPWJAnOup5pzKv9wA==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -1473,13 +1473,13 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@schematics/angular@14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-14.0.0.tgz#de6cb4c86586ed5b06adfd7a759cc9908e627787"
-  integrity sha512-Or9sFl0kGnB9uUs03/4eRtBS5S9WW+HeSe5rS5kFyMaXdydeshAjAVffAbYB6sDp57Qw0E4LvBC0mHzuZGYp/A==
+"@schematics/angular@14.0.4":
+  version "14.0.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/@schematics/angular/-/angular-14.0.4.tgz#abc422fcbf89caea8f785454f8b8793badae8e80"
+  integrity sha512-2t7B8ZplJzLfrU7SjciaUquaOAWCi6SD954Q1Ej/SZfWlLjs8k1SvlKb+Syzo9TMByMuzdKTrdnmNRHekvMZEQ==
   dependencies:
-    "@angular-devkit/core" "14.0.0"
-    "@angular-devkit/schematics" "14.0.0"
+    "@angular-devkit/core" "14.0.4"
+    "@angular-devkit/schematics" "14.0.4"
     jsonc-parser "3.0.0"
 
 "@tootallnate/once@1":
@@ -4423,10 +4423,10 @@ make-fetch-happen@^9.1.0:
     socks-proxy-agent "^6.0.0"
     ssri "^8.0.0"
 
-marked@^4.0.16:
-  version "4.0.16"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-4.0.16.tgz#9ec18fc1a723032eb28666100344d9428cf7a264"
-  integrity sha512-wahonIQ5Jnyatt2fn8KqF/nIqZM8mh3oRu2+l5EANGMhu6RFjiSG52QNE2eWzFMI94HqYSgN184NurgNG6CztA==
+marked@^4.0.17:
+  version "4.0.17"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/marked/-/marked-4.0.17.tgz#1186193d85bb7882159cdcfc57d1dfccaffb3fe9"
+  integrity sha512-Wfk0ATOK5iPxM4ptrORkFemqroz0ZDxp5MWfYA7H/F+wO17NRWV5Ypxi6p3g2Xmw2bKeiYOl6oVnLHKxBA0VhA==
 
 media-typer@0.3.0:
   version "0.3.0"
@@ -4682,10 +4682,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ng-packagr@^14.0.0:
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-14.0.0.tgz#ce54d2c065f188d8c6230c03d3e20c37de5adc5d"
-  integrity sha512-jHkpWm2yEpMPbY0Qz3sfDh+7uAfyskEMesEPA1aGQXxvwiIaCl+8RFRdPQxObYOj8Uv7ZJxoyUkqi8KqI5RV9g==
+ng-packagr@^14.0.2:
+  version "14.0.2"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/ng-packagr/-/ng-packagr-14.0.2.tgz#5c824b753a4c5e2851c0e130fd98f4df77f6c04b"
+  integrity sha512-Yoiy/cvpYvPTVdAZFPsU2Xg1YdY9w7wVTamKNtz78l1sXA6inQuTGlsvNy+yOJTH7TLZmEjU2WHkmJHgxU10Pg==
   dependencies:
     "@rollup/plugin-json" "^4.1.0"
     "@rollup/plugin-node-resolve" "^13.1.3"
@@ -6513,10 +6513,10 @@ typed-assert@^1.0.8:
   resolved "https://registry.yarnpkg.com/typed-assert/-/typed-assert-1.0.9.tgz#8af9d4f93432c4970ec717e3006f33f135b06213"
   integrity sha512-KNNZtayBCtmnNmbo5mG47p1XsCyrx6iVqomjcZnec/1Y5GGARaxPs6r49RnSPeUP3YjNYiU9sQHAtY4BBvnZwg==
 
-typescript@~4.7.2:
-  version "4.7.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.3.tgz#8364b502d5257b540f9de4c40be84c98e23a129d"
-  integrity sha512-WOkT3XYvrpXx4vMMqlD+8R8R37fZkjyLGlxavMc4iB8lrl8L0DeTcHbYgw/v0N/z9wAFsgBhcsF0ruoySS22mA==
+typescript@^4.7.4:
+  version "4.7.4"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/typescript/-/typescript-4.7.4.tgz#1a88596d1cf47d59507a1bcdfb5b9dfe4d488235"
+  integrity sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==
 
 ua-parser-js@^0.7.30:
   version "0.7.31"
@@ -6894,9 +6894,9 @@ yargs@^17.2.1:
     y18n "^5.0.5"
     yargs-parser "^21.0.0"
 
-zone.js@~0.11.4:
-  version "0.11.5"
-  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.11.5.tgz#ab0b449e91fadb5ebb2db189ffe1b7b6048dc8b1"
-  integrity sha512-D1/7VxEuQ7xk6z/kAROe4SUbd9CzxY4zOwVGnGHerd/SgLIVU5f4esDzQUsOCeArn933BZfWMKydH7l7dPEp0g==
+zone.js@^0.11.6:
+  version "0.11.6"
+  resolved "https://snapchat.jfrog.io/snapchat/api/npm/npm-virtual/zone.js/-/zone.js-0.11.6.tgz#c7cacfc298fe24bb585329ca04a44d9e2e840e74"
+  integrity sha512-umJqFtKyZlPli669gB1gOrRE9hxUUGkZr7mo878z+NEBJZZixJkKeVYfnoLa7g25SseUDc92OZrMKKHySyJrFg==
   dependencies:
     tslib "^2.3.0"
