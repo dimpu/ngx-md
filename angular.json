@@ -26,6 +26,9 @@
             "polyfills": "apps/ngx-md-demo/src/polyfills.ts",
             "tsConfig": "apps/ngx-md-demo/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": [
+              "prismjs/prism"
+            ],
             "assets": [
               "apps/ngx-md-demo/src/favicon.ico",
               "apps/ngx-md-demo/src/assets"

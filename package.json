@@ -14,7 +14,7 @@
     "url": "https://github.com/dimpu/ngx-md/issues",
     "email": "buddhaaravind@gmail.com"
   },
-  "homepage": "https://github.com/dimpu/ngx-md",
+  "homepage": "https://dimpu.github.io/ngx-md/",
   "keywords": [
     "angular",
     "markdown",
@@ -30,7 +30,7 @@
     "demo.test": "ng test ngx-md-demo",
     "demo.lint": "ng lint ngx-md-demo",
     "demo.pretty": "prettier --config ./.prettierrc --write ./src/**/*.ts",
-    "deploy": "ng build --base-href=/ngx-md/ --configuration production && gh-pages -d dist/ngx-md-demo",
+    "deploy": "ng build --base-href=/ngx-md/ --configuration production ngx-md-demo && gh-pages -d dist/ngx-md-demo",
     "lib.start": "ng serve ngx-md",
     "lib.build": "ng build ngx-md --configuration production",
     "lib.test": "ng test ngx-md",
@@ -66,6 +66,7 @@
     "@angular/compiler-cli": "^14.2.1",
     "@types/jasmine": "~4.0.0",
     "@types/prismjs": "^1.26.0",
+    "gh-pages": "^4.0.0",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
