@@ -1,6 +1,6 @@
 {
   "name": "ngx-md",
-  "version": "14.0.8",
+  "version": "14.2.1",
   "author": {
     "name": "Dimpu Aravind Buddha",
     "email": "buddhaaravind@gmail.com",
@@ -43,14 +43,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.0.4",
-    "@angular/common": "^14.0.4",
-    "@angular/compiler": "^14.0.4",
-    "@angular/core": "^14.0.4",
-    "@angular/forms": "^14.0.4",
-    "@angular/platform-browser": "^14.0.4",
-    "@angular/platform-browser-dynamic": "^14.0.4",
-    "@angular/router": "^14.0.4",
+    "@angular/animations": "^14.2.1",
+    "@angular/common": "^14.2.1",
+    "@angular/compiler": "^14.2.1",
+    "@angular/core": "^14.2.1",
+    "@angular/forms": "^14.2.1",
+    "@angular/platform-browser": "^14.2.1",
+    "@angular/platform-browser-dynamic": "^14.2.1",
+    "@angular/router": "^14.2.1",
     "@types/he": "^1.1.2",
     "@types/marked": "^4.0.3",
     "he": "^1.2.0",
@@ -61,9 +61,9 @@
     "zone.js": "^0.11.6"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.0.4",
-    "@angular/cli": "^14.0.4",
-    "@angular/compiler-cli": "^14.0.4",
+    "@angular-devkit/build-angular": "^14.2.1",
+    "@angular/cli": "^14.2.1",
+    "@angular/compiler-cli": "^14.2.1",
     "@types/jasmine": "~4.0.0",
     "@types/prismjs": "^1.26.0",
     "jasmine-core": "~4.1.0",

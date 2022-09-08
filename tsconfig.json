@@ -14,7 +14,6 @@
     "paths": {
       "ngx-md": [
         "dist/ngx-md",
-        "dist/ngx-md"
       ]
     },
     "declaration": false,

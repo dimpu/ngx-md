@@ -1,22 +1,3 @@
-// import { NgModule } from '@angular/core';
-// import { NgxMdComponent } from './ngx-md.component';
-
-
-
-// @NgModule({
-//   declarations: [
-//     NgxMdComponent
-//   ],
-//   imports: [
-//   ],
-//   exports: [
-//     NgxMdComponent
-//   ]
-// })
-// export class NgxMdModule { }
-
-
-
 import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { NgxMdService } from './ngx-md.service';
