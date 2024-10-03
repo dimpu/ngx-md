@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TablesComponent } from './tables.component';
 import { NgxMdModule } from 'libs/ngx-md/src';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('TablesComponent', () => {
   let component: TablesComponent;
@@ -10,9 +10,10 @@ describe('TablesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TablesComponent],
-      imports: [NgxMdModule.forRoot(), HttpClientModule],
-    }).compileComponents();
+    declarations: [TablesComponent],
+    imports: [NgxMdModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+}).compileComponents();
   }));
 
   beforeEach(() => {

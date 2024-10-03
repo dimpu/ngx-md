@@ -1,10 +1,7 @@
 import { TestBed, inject, waitForAsync } from '@angular/core/testing';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { NgxMdService } from './ngx-md.service';
 import { Type } from '@angular/core';
 
@@ -15,9 +12,9 @@ describe('NgxMdService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule],
-    providers: [NgxMdService],
-    teardown: { destroyAfterEach: false }
+    teardown: { destroyAfterEach: false },
+    imports: [],
+    providers: [NgxMdService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 });
 
     // Inject the http service and test controller for each test

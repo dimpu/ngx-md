@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { VariableBindComponent } from './variable-bind.component';
 import { NgxMdModule } from 'libs/ngx-md/src';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('VariableBindComponent', () => {
   let component: VariableBindComponent;
@@ -11,14 +11,12 @@ describe('VariableBindComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [VariableBindComponent],
-      imports: [
-        NgxMdModule.forRoot(),
-        HttpClientModule,
+    declarations: [VariableBindComponent],
+    imports: [NgxMdModule.forRoot(),
         FormsModule,
-        ReactiveFormsModule,
-      ],
-    }).compileComponents();
+        ReactiveFormsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+}).compileComponents();
   }));
 
   beforeEach(() => {

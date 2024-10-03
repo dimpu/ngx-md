@@ -19,25 +19,22 @@ import { TablesComponent } from './tables/tables.component';
 import { PathComponent } from './path/path.component';
 import { VariableBindComponent } from './variable-bind/variable-bind.component';
 import { TodoComponent } from './todo/todo.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppRoutingModule } from './app.router.module';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    TablesComponent,
-    PathComponent,
-    VariableBindComponent,
-    TodoComponent,
-  ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    FormsModule,
-    NgxMdModule.forRoot(),
-    AppRoutingModule,
-  ],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        TablesComponent,
+        PathComponent,
+        VariableBindComponent,
+        TodoComponent,
+    ],
+    bootstrap: [AppComponent], 
+    imports: [
+        BrowserModule,
+        FormsModule,
+        NgxMdModule.forRoot(),
+        AppRoutingModule], 
+        providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}

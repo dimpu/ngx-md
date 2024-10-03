@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoComponent } from './todo.component';
 import { NgxMdModule } from 'libs/ngx-md/src';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('TodoComponent', () => {
   let component: TodoComponent;
@@ -10,9 +10,10 @@ describe('TodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TodoComponent],
-      imports: [NgxMdModule.forRoot(), HttpClientModule],
-    }).compileComponents();
+    declarations: [TodoComponent],
+    imports: [NgxMdModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+}).compileComponents();
   }));
 
   beforeEach(() => {

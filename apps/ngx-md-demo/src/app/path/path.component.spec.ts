@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PathComponent } from './path.component';
 import { NgxMdModule } from 'libs/ngx-md/src';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('PathComponent', () => {
   let component: PathComponent;
@@ -10,9 +10,10 @@ describe('PathComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PathComponent],
-      imports: [NgxMdModule.forRoot(), HttpClientModule],
-    }).compileComponents();
+    declarations: [PathComponent],
+    imports: [NgxMdModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+}).compileComponents();
   }));
 
   beforeEach(() => {
