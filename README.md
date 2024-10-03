@@ -1,10 +1,8 @@
 # Angular Markdown (NgxMd)
 [![Build Status][cirrus-ci-badge]][cirrus-ci-badge-url]
-[![Build Status][travis-badge]][travis-badge-url]
 [![npm][circleci-badge-url]][circleci-url]
 [![version][npm-badge-url]][npm-url]
 [![npm][license-badge-url]][license-url]
-[![npm][dep-badge-url]][dep-url]
 [![npm][opencollective]][opencollective]
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md?ref=badge_shield)
 
@@ -226,18 +224,9 @@ npm run demo.serve
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md?ref=badge_large)
 
 
-<h2 id="contributors">Contributors</h2>
-
-The following is a list of all the people that have helped build this project. Thanks for your contributions!
-
-[<img alt="glenngr" src="https://avatars3.githubusercontent.com/u/1271995?s=460&v=4" width="117">](https://github.com/dimpu)
-[<img alt="glenngr" src="https://avatars2.githubusercontent.com/u/8955488?v=3&s=460" width="117">](https://github.com/glenngr)
-[<img alt="paullryan" src="https://avatars2.githubusercontent.com/u/3146164?v=3&s=460" width="117">](https://github.com/paullryan)
-
 [cirrus-ci-badge]: https://api.cirrus-ci.com/github/dimpu/ngx-md.svg?branch=master
 [cirrus-ci-badge-url]: https://api.cirrus-ci.com/github/dimpu/ngx-md
-[travis-badge]: https://travis-ci.org/dimpu/ngx-md.svg?branch=master
-[travis-badge-url]: https://travis-ci.org/dimpu/ngx-md
+
 [license-url]: https://opensource.org/licenses/MIT
 [license-badge-url]: https://img.shields.io/npm/l/ngx-md.svg
 [npm-url]: https://www.npmjs.com/package/ngx-md
