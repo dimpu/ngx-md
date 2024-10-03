@@ -1,6 +1,6 @@
 {
   "name": "ngx-md",
-  "version": "14.2.1",
+  "version": "18.0.0",
   "author": {
     "name": "Dimpu Aravind Buddha",
     "email": "buddhaaravind@gmail.com",
@@ -37,9 +37,10 @@
     "lib.lint": "ng lint ngx-md",
     "lib.pretty": "prettier --config ./.prettierrc --write ./libs/ngx-md/src/**/*.ts",
     "lib.prettier.watch": "onchange 'projects/ngx-md/src**/*.ts' -- prettier --write {{changed}}",
-    "release": "yarn lib.build && yarn version --patch && node ./scripts/pre-publish-hook.js && cd dist/ngx-md && yarn publish && cd ...",
-    "ci.travis.lib": "yarn lib.build",
-    "ci.travis.demo": "yarn demo.build"
+    "release": "pnpm run lib.build && pnpm version --patch && node ./scripts/pre-publish-hook.js && cd dist/ngx-md && pnpm publish && cd ...",
+    "ci.travis.lib": "pnpm run lib.build",
+    "ci.travis.demo": "pnpm run demo.build",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -66,6 +67,8 @@
     "@angular/compiler-cli": "^18.2.7",
     "@types/jasmine": "~4.0.0",
     "@types/prismjs": "^1.26.0",
+    "angular-eslint": "18.3.1",
+    "eslint": "^9.9.1",
     "gh-pages": "^4.0.0",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
@@ -74,7 +77,8 @@
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "ng-packagr": "^18.2.1",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "typescript-eslint": "8.2.0"
   },
   "auto": {
     "plugins": [

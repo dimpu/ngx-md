@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // import ngx-md module
 import { NgxMdModule } from 'ngx-md';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'my-app',
@@ -20,7 +20,10 @@ export class AppComponent {
 }
 
 @NgModule({
-  imports: [BrowserModule, HttpClientModule, NgxMdModule.forRoot()],
+  imports: [BrowserModule, NgxMdModule],
+  providers: [
+    provideHttpClient(),
+  ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })

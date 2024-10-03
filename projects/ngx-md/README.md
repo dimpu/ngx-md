@@ -1,11 +1,9 @@
 # Angular Markdown (NgxMd)
 
 [![Build Status][cirrus-ci-badge]][cirrus-ci-badge-url]
-[![Build Status][travis-badge]][travis-badge-url]
 [![npm][circleci-badge-url]][circleci-url]
 [![version][npm-badge-url]][npm-url]
 [![npm][license-badge-url]][license-url]
-[![npm][dep-badge-url]][dep-url]
 [![npm][opencollective]][opencollective]
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md?ref=badge_shield)
 
