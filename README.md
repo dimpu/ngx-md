@@ -6,7 +6,7 @@
 [![npm][opencollective]][opencollective]
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdimpu%2Fngx-md?ref=badge_shield)
 
-Supports Angular2,4,5,6,7,12
+Supports Angular2,4,5,6,7,12,18
 
 Source @ [https://github.com/dimpu/ngx-md](https://github.com/dimpu/ngx-md)
 

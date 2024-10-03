@@ -1,55 +1,46 @@
 name: npm-publish
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  create-tag:
+  release:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Bump version and push tag
-        id: tag_version
-        uses: mathieudutour/github-tag-action@v6.0
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create a GitHub release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
-  npm-publish:
-    name: npm-publish
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Setup node
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
-        registry-url: 'https://registry.npmjs.org'
-    - run: yarn install
-    - run: git config --global user.name "GitHub CD bot"
-    - run: git config --global user.email "buddhaaravind@gmail.com"
-    - run: npm version ${{ github.event.release.tag_name }}
-    - run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_AUTH_TOKEN }}"
-    - run: yarn lib.build && cd dist/ngx-md
-    - run: git push
-      env:
-          # The secret is passed automatically. Nothing to configure.
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Publish if version has been updated
-      uses: pascalgn/npm-publish-action@1.3.9
-      with: # All of theses inputs are optional
-        tag_name: "v%s"
-        tag_message: "v%s"
-        create_tag: "true"
-        commit_pattern: "^Release (\\S+)"
-        workspace: "."
-        publish_command: "yarn"
-        publish_args: "--non-interactive"
-      env: # More info about the environment variables in the README
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org/'
+
+      # Step 3: Install pnpm
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
+
+      # Step 4: Install dependencies with pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Step 5: Build the library with pnpm
+      - name: Build ng-mdx
+        run: pnpm run lib.build
+
+      # Step 6: Copy the root README.md to the library folder
+      - name: Copy README.md to library folder
+        run: cp README.md dist/ngx-md/README.md
+
+      # Step 7: Run semantic-release to publish to npm
+      - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: pnpx semantic-release
