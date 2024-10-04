@@ -9,6 +9,6 @@ test_task:
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock
-    populate_script: yarn install
-  lib_test_script: npm run ci.travis.lib
-  demo_test_script: npm run ci.travis.demo
+    populate_script: pnpm install
+  lib_test_script: pnpm run ci.travis.lib
+  demo_test_script: pnpm run ci.travis.demo
