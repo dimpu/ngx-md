@@ -14,6 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Configure Git for HTTPS
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global url."https://$GITHUB_TOKEN@github.com/".insteadOf "ssh://git@github.com/"
+
       # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -28,11 +34,11 @@ jobs:
 
       # Step 5: Build the library with pnpm
       - name: Build ng-mdx
-        run: pnpm run lib.build
+        run: npm run lib.build
 
       # Step 6: Copy the root README.md to the library folder
       - name: Copy README.md to library folder
         run: cp README.md dist/ngx-md/README.md
 
       - name: Publish to npm
-        run: npm Publish
+        run: npm publish dist/ngx-md
