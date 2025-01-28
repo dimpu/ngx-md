@@ -16,19 +16,15 @@ jobs:
 
       # Step 2: Set up Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org/'
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org/"
+          token: ${{ secrets.NPM_TOKEN }} # Auth for npm
 
       # Step 3: Install pnpm
-      - name: Install pnpm
-        run: |
-          npm install -g pnpm
-
-      # Step 4: Install dependencies with pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Install npm
+        run: npm ci
 
       # Step 5: Build the library with pnpm
       - name: Build ng-mdx
@@ -38,9 +34,5 @@ jobs:
       - name: Copy README.md to library folder
         run: cp README.md dist/ngx-md/README.md
 
-      # Step 7: Run semantic-release to publish to npm
-      - name: Run semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpx semantic-release
+      - name: Publish to npm
+        run: npm Publish
