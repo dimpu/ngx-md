@@ -18,12 +18,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ngx-md-demo",
+            "outputPath": {
+              "base": "dist/ngx-md-demo"
+            },
             "index": "apps/ngx-md-demo/src/index.html",
-            "main": "apps/ngx-md-demo/src/main.ts",
-            "polyfills": "apps/ngx-md-demo/src/polyfills.ts",
+            "polyfills": [
+              "apps/ngx-md-demo/src/polyfills.ts"
+            ],
             "tsConfig": "apps/ngx-md-demo/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "allowedCommonJsDependencies": [
@@ -36,7 +39,8 @@
             "styles": [
               "apps/ngx-md-demo/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "browser": "apps/ngx-md-demo/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -61,9 +65,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true

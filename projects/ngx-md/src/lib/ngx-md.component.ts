@@ -16,10 +16,10 @@ import { catchError } from 'rxjs/operators';
 import { decode } from 'he';
 
 @Component({
-  selector: 'markdown,[Markdown],ngx-md,[NgxMd]',
-  template: '<ng-content></ng-content>',
-  styles: [
-    `
+    selector: 'markdown,[Markdown],ngx-md,[NgxMd]',
+    template: '<ng-content></ng-content>',
+    styles: [
+        `
       .token.operator,
       .token.entity,
       .token.url,
@@ -33,7 +33,8 @@ import { decode } from 'he';
         font-size: 16px;
       }
     `,
-  ],
+    ],
+    standalone: false
 })
 export class NgxMdComponent implements AfterViewInit {
   _path: string;
