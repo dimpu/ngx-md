@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'md-todo',
-	templateUrl: './todo.component.html',
-	styleUrls: ['./todo.component.scss'],
+    selector: 'md-todo',
+    templateUrl: './todo.component.html',
+    styleUrls: ['./todo.component.scss'],
+    standalone: false
 })
 export class TodoComponent implements OnInit {
 	data = `

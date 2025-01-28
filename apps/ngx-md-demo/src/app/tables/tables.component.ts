@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'md-tables',
-	templateUrl: './tables.component.html',
-	styleUrls: ['./tables.component.scss'],
+    selector: 'md-tables',
+    templateUrl: './tables.component.html',
+    styleUrls: ['./tables.component.scss'],
+    standalone: false
 })
 export class TablesComponent implements OnInit {
 	data = `

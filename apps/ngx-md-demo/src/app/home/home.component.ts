@@ -12,9 +12,10 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-perl';
 
 @Component({
-  selector: 'md-home',
-  templateUrl: `./home.component.html`,
-  styleUrls: [`./home.component.scss`],
+    selector: 'md-home',
+    templateUrl: `./home.component.html`,
+    styleUrls: [`./home.component.scss`],
+    standalone: false
 })
 export class HomeComponent implements OnInit {
   /*

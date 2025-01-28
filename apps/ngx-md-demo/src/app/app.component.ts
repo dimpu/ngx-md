@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'md-demo',
-  templateUrl: './app.component.html',
+    selector: 'md-demo',
+    templateUrl: './app.component.html',
+    standalone: false
 })
 export class AppComponent {
   links = [
